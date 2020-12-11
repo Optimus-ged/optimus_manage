@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.conroler.ctrl_Principal">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="1209.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane fx:id="anp_principal" prefHeight="655.0" prefWidth="187.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="11.0" prefHeight="73.0" prefWidth="167.0" style="-fx-background-color: #F6F7F9;" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text fill="#212b38" layoutX="62.0" layoutY="30.75753402709961" strokeType="OUTSIDE" strokeWidth="0.0" text="Op" wrappingWidth="32.00000148545951">
+                           <font>
+                              <Font name="Century Gothic Bold" size="17.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#212b38fa" layoutX="87.0" layoutY="30.75753402709961" strokeType="OUTSIDE" strokeWidth="0.0" text="timus" wrappingWidth="45.6240234375">
+                           <font>
+                              <Font name="Century Gothic Bold" size="17.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#212b38" layoutX="53.0" layoutY="51.75753402709961" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage" wrappingWidth="77.0000014854595">
+                           <font>
+                              <Font name="Century Gothic Bold" size="17.0" />
+                           </font>
+                        </Text>
+                        <MaterialDesignIconView fill="#212b38" glyphName="DIAMOND" layoutX="7.0" layoutY="56.0" size="50" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="78.0" prefHeight="232.0" prefWidth="167.0" style="-fx-background-color: #F6F7F9;" AnchorPane.topAnchor="78.0">
+                     <children>
+                        <GridPane layoutY="41.0" prefHeight="169.0" prefWidth="167.0" vgap="20.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <AnchorPane fx:id="pan1" prefHeight="27.0" prefWidth="147.0">
+                                 <children>
+                                    <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text=" Page d'accueil" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#727272" glyphName="HOME" size="20" />
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="pan11" prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Comptabilité" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <MaterialDesignIconView fill="#727272" glyphName="DIAMOND" size="20" />
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="pan111" prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Rapports" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <MaterialDesignIconView fill="#727272" glyphName="FILE_DOCUMENT_BOX" size="20" />
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="pan1111" prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="3">
+                                 <children>
+                                    <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Paramètres" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <graphic>
+                                          <FontAwesomeIconView fill="#727272" glyphName="COGS" size="20" />
+                                       </graphic>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="574.0" prefHeight="81.0" prefWidth="167.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="0.0">
+                     <children>
+                        <FontAwesomeIconView fill="#212b38" glyphName="USER" layoutX="19.0" layoutY="40.0" size="35" />
+                        <Label layoutX="57.0" layoutY="12.0" text="Optimus ged">
+                           <font>
+                              <Font name="Lucida Sans Demibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="57.0" layoutY="28.0" text="Administrateur" textFill="#8b8f98">
+                           <font>
+                              <Font name="Lucida Sans Demibold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="22.0" layoutY="51.0" prefHeight="16.0" prefWidth="103.0" text="Deconnection">
+                           <font>
+                              <Font name="Lucida Sans Demibold" size="13.0" />
+                           </font>
+                        </Label>
+                        <JFXButton alignment="CENTER" cache="true" contentDisplay="CENTER" layoutX="121.0" layoutY="46.0" onAction="#deconnection" prefHeight="25.0" prefWidth="28.0" textFill="#26324b">
+                           <graphic>
+                              <FontAwesomeIconView glyphName="POWER_OFF" size="16" />
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="535.0" prefHeight="34.0" prefWidth="167.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="86.0">
+                     <children>
+                        <Label layoutX="18.0" layoutY="8.0" text="Utilisateur connecté">
+                           <font>
+                              <Font name="Century Gothic" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <StackPane layoutX="187.0" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane layoutX="988.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="txtCopyRigth" alignment="CENTER" layoutY="619.0" prefHeight="36.0" prefWidth="221.0" text="\@ Copy right by Optimus Technology" textAlignment="CENTER" textFill="#867c7c" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="7.0" layoutY="83.0" prefHeight="38.0" prefWidth="207.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="83.0">
+                     <children>
+                        <AnchorPane layoutY="7.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3; -fx-border-radius: 7px;">
+                           <children>
+                              <TextField layoutX="4.0" layoutY="1.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" prefWidth="167.0" promptText="Rechercher une operation" style="-fx-background-color: white;" />
+                              <JFXButton contentDisplay="CENTER" layoutX="168.0" layoutY="2.0" prefHeight="25.0" prefWidth="32.0" textFill="#727272">
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#727272" glyphName="SEARCH" size="14" />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="7.0" prefHeight="84.0" prefWidth="207.0" style="-fx-background-color: #212B38;" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Circle fill="#1f93ff00" layoutX="36.0" layoutY="57.0" radius="5.0" stroke="#f7c634" strokeType="INSIDE" />
+                        <Circle fill="#1f93ff00" layoutX="183.0" layoutY="21.0" radius="14.0" stroke="#39828f" strokeType="INSIDE" />
+                        <Circle fill="#1f93ff00" layoutX="183.0" layoutY="21.0" radius="7.0" stroke="#f7c634" strokeType="INSIDE" />
+                        <Circle fill="#1f93ff00" layoutX="183.0" layoutY="21.0" radius="4.0" stroke="#f7c634" strokeType="INSIDE" />
+                        <Text fill="WHITE" layoutX="14.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toutes les operations deja effectuees" wrappingWidth="139.000025421381" />
+                        <Label layoutX="96.0" layoutY="30.0" text="10 000" textFill="#9a9a9a">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <Circle fill="#1f93ff00" layoutX="26.0" layoutY="68.0" radius="8.0" stroke="#39828f" strokeType="INSIDE" />
+                  <ScrollPane layoutX="11.0" layoutY="122.0" prefHeight="490.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="122.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="488.0" prefWidth="198.0" style="-fx-background-color: white;" />
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
