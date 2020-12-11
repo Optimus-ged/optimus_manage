@@ -78,7 +78,7 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="2">
+                              <AnchorPane onMouseClicked="#onRapportsClicked" prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="2">
                                  <children>
                                     <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Rapports" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
                                        <font>
@@ -90,7 +90,7 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="3">
+                              <AnchorPane onMouseClicked="#onParametresClicked" prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="3">
                                  <children>
                                     <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Paramètres" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
                                        <font>
