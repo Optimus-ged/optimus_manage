@@ -66,7 +66,7 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="1">
+                              <AnchorPane onMouseClicked="#onComptabiliteCliked" prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="1">
                                  <children>
                                     <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Comptabilité" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
                                        <font>
@@ -155,7 +155,7 @@
                         <AnchorPane layoutY="7.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3; -fx-border-radius: 7px;">
                            <children>
                               <TextField layoutX="4.0" layoutY="1.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" prefWidth="167.0" promptText="Rechercher une operation" style="-fx-background-color: white;" />
-                              <JFXButton contentDisplay="CENTER" layoutX="168.0" layoutY="2.0" prefHeight="25.0" prefWidth="32.0" textFill="#727272">
+                              <JFXButton contentDisplay="CENTER" layoutX="168.0" prefHeight="25.0" prefWidth="32.0" textFill="#727272">
                                  <graphic>
                                     <FontAwesomeIconView fill="#727272" glyphName="SEARCH" size="14" />
                                  </graphic>

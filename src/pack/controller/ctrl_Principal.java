@@ -49,5 +49,10 @@ public class ctrl_Principal implements Initializable {
     private void onAccueilCliked(MouseEvent event) throws IOException {
         ctrl._interface(principalContainer, "/pack/ui/ui_Accueil.fxml");
     }
+
+    @FXML
+    private void onComptabiliteCliked(MouseEvent event) throws IOException {
+        ctrl._interface(principalContainer, "/pack/ui/ui_Comptabilite.fxml");
+    }
     
 }
