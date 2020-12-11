@@ -61,7 +61,8 @@ public class ctrl_Principal implements Initializable {
     }
 
     @FXML
-    private void onParametresClicked(MouseEvent event) {
+    private void onParametresClicked(MouseEvent event) throws IOException {
+        ctrl._interface(principalContainer, "/pack/ui/ui_Parametres.fxml");
     }
     
 }
