@@ -11,7 +11,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -24,13 +26,7 @@ public class ctrl_Principal implements Initializable {
     private pack.main.cls_controller ctrl;
     
     @FXML
-    private AnchorPane pan1;
-    @FXML
-    private AnchorPane pan11;
-    @FXML
-    private AnchorPane pan111;
-    @FXML
-    private AnchorPane pan1111;
+    private StackPane principalContainer;
     @FXML
     private AnchorPane anp_principal;
 
@@ -47,6 +43,11 @@ public class ctrl_Principal implements Initializable {
     private void deconnection(ActionEvent event) throws IOException {
         ((Stage) anp_principal.getScene().getWindow()).close();
         ctrl._interfaceNoBoarder("/pack/ui/ui_Login.fxml");
+    }
+
+    @FXML
+    private void onAccueilCliked(MouseEvent event) throws IOException {
+        ctrl._interface(principalContainer, "/pack/ui/ui_Accueil.fxml");
     }
     
 }

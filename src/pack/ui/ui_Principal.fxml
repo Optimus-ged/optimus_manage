@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.conroler.ctrl_Principal">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_Principal">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="1209.0" style="-fx-background-color: white;">
          <children>
@@ -54,7 +54,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <AnchorPane fx:id="pan1" prefHeight="27.0" prefWidth="147.0">
+                              <AnchorPane onMouseClicked="#onAccueilCliked" prefHeight="27.0" prefWidth="147.0">
                                  <children>
                                     <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text=" Page d'accueil" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
                                        <font>
@@ -66,7 +66,7 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="pan11" prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="1">
+                              <AnchorPane prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="1">
                                  <children>
                                     <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Comptabilité" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
                                        <font>
@@ -78,7 +78,7 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="pan111" prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="2">
+                              <AnchorPane prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="2">
                                  <children>
                                     <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Rapports" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
                                        <font>
@@ -90,7 +90,7 @@
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane fx:id="pan1111" prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="3">
+                              <AnchorPane prefHeight="27.0" prefWidth="147.0" GridPane.rowIndex="3">
                                  <children>
                                     <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Paramètres" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
                                        <font>
@@ -142,10 +142,10 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <StackPane layoutX="187.0" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="0.0" />
+            <StackPane fx:id="principalContainer" layoutX="187.0" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="0.0" />
             <AnchorPane layoutX="988.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label fx:id="txtCopyRigth" alignment="CENTER" layoutY="619.0" prefHeight="36.0" prefWidth="221.0" text="\@ Copy right by Optimus Technology" textAlignment="CENTER" textFill="#867c7c" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Label alignment="CENTER" layoutY="619.0" prefHeight="36.0" prefWidth="221.0" text="\@ Copy right by Optimus Technology" textAlignment="CENTER" textFill="#867c7c" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
@@ -155,7 +155,7 @@
                         <AnchorPane layoutY="7.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3; -fx-border-radius: 7px;">
                            <children>
                               <TextField layoutX="4.0" layoutY="1.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" prefWidth="167.0" promptText="Rechercher une operation" style="-fx-background-color: white;" />
-                              <JFXButton contentDisplay="CENTER" layoutX="168.0" layoutY="2.0" prefHeight="25.0" prefWidth="32.0" textFill="#727272">
+                              <JFXButton contentDisplay="CENTER" layoutX="168.0" prefHeight="25.0" prefWidth="32.0" textFill="#727272">
                                  <graphic>
                                     <FontAwesomeIconView fill="#727272" glyphName="SEARCH" size="14" />
                                  </graphic>
