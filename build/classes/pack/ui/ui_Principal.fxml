@@ -41,7 +41,7 @@
                         <MaterialDesignIconView fill="#212b38" glyphName="DIAMOND" layoutX="7.0" layoutY="56.0" size="50" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="78.0" prefHeight="232.0" prefWidth="167.0" style="-fx-background-color: #F6F7F9;" AnchorPane.topAnchor="78.0">
+                  <AnchorPane layoutX="10.0" layoutY="78.0" prefHeight="453.0" prefWidth="167.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="124.0" AnchorPane.topAnchor="78.0">
                      <children>
                         <GridPane layoutY="41.0" prefHeight="169.0" prefWidth="167.0" vgap="20.0">
                           <columnConstraints>
@@ -142,7 +142,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <StackPane fx:id="principalContainer" layoutX="187.0" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="0.0" />
+            <StackPane fx:id="principalContainer" layoutX="187.0" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="0.0" />
             <AnchorPane layoutX="988.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label alignment="CENTER" layoutY="619.0" prefHeight="36.0" prefWidth="221.0" text="\@ Copy right by Optimus Technology" textAlignment="CENTER" textFill="#867c7c" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
