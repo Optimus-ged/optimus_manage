@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_Accueil">
+   <children>
+      <Label layoutX="15.0" layoutY="14.0" prefHeight="17.0" prefWidth="150.0" text="Nouveau client" textFill="#464d86">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutY="54.0" prefHeight="315.0" prefWidth="281.0" style="-fx-background-color: transparent;">
+         <children>
+            <Label fx:id="txtCode" layoutX="35.0" layoutY="4.0" prefHeight="17.0" prefWidth="31.0" text="0" visible="false" />
+            <Pane layoutX="40.0" layoutY="323.0" prefHeight="30.0" prefWidth="230.0">
+               <children>
+                  <Label fx:id="lblInfo" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
+                  <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />
+               </children>
+            </Pane>
+            <Label layoutX="16.0" layoutY="19.0" text="Nom" textFill="#aaaaaa" />
+            <AnchorPane layoutX="16.0" layoutY="42.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px; -fx-border-radius: 7px;">
+               <children>
+                  <TextField layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Nom" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="17.0" layoutY="106.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px; -fx-border-radius: 7px;">
+               <children>
+                  <TextField layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Prenom" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="18.0" layoutY="83.0" text="Prenom" textFill="#aaaaaa" />
+            <AnchorPane layoutX="16.0" layoutY="171.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px; -fx-border-radius: 7px;">
+               <children>
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+                  <ComboBox fx:id="txtDevise" layoutX="36.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="197.0" promptText="Sexe" style="-fx-background-color: white;" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="18.0" layoutY="148.0" text="Sexe" textFill="#aaaaaa" />
+            <AnchorPane layoutX="15.0" layoutY="233.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px; -fx-border-radius: 7px;">
+               <children>
+                  <TextField layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Prenom" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="16.0" layoutY="210.0" text="Telephone" textFill="#aaaaaa" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
