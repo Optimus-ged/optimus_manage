@@ -29,5 +29,12 @@ public class MdlConnexion {
         }
         return cnx;
     }
+     public static boolean testCnx() throws ClassNotFoundException, SQLException {
+        ResultSet rs = getCnx().createStatement().executeQuery("SELECT COUNT(id) FROM agent");
+        if (rs.next()) {
+            return true;
+        }
+        return false;
+    }
 
 }

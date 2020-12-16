@@ -7,14 +7,16 @@ package pack.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.CustomPasswordField;
+import pack.model.MdlLogin;
 
 /**
  * FXML Controller class
@@ -22,14 +24,17 @@ import org.controlsfx.control.textfield.CustomPasswordField;
  * @author Optimus
  */
 public class ctrl_Login implements Initializable {
+
     // Inportation objets
     private pack.main.cls_controller ctrl;
-            
-            
-    @FXML
-    private CustomPasswordField chpMotDePasse;
+    private MdlLogin login;
+
     @FXML
     private AnchorPane anp_login;
+    @FXML
+    private TextField txt_nom;
+    @FXML
+    private CustomPasswordField txt_password;
 
     /**
      * Initializes the controller class.
@@ -38,12 +43,20 @@ public class ctrl_Login implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // Initialisation objets
         ctrl = new pack.main.cls_controller();
-    }    
+        login = new MdlLogin();
+    }
 
     @FXML
-    private void connecter(MouseEvent event) throws IOException {
-        ((Stage) anp_login.getScene().getWindow()).close();
-         ctrl._interface("/pack/ui/ui_Principal.fxml", "");
+    private void connecter(MouseEvent event) throws IOException, ClassNotFoundException, SQLException {
+
+        if (login.tesLogin(txt_nom.getText(), txt_password.getText()) == true) {
+
+            ((Stage) anp_login.getScene().getWindow()).close();
+            ctrl._interface("/pack/ui/ui_Principal.fxml", "");
+
+        } else {
+            System.out.println("Password incorrect");
+        }
     }
-    
+
 }

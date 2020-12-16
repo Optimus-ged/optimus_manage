@@ -49,12 +49,12 @@
             <FontAwesomeIconView fill="#212b38" glyphName="USER" layoutX="505.0" layoutY="46.0" size="20" />
             <Pane layoutX="330.0" layoutY="187.0" prefHeight="35.0" prefWidth="306.0" style="-fx-background-color: #F3F3F3;">
                <children>
-                  <TextField layoutX="3.0" layoutY="4.0" prefHeight="21.0" prefWidth="297.0" promptText="Nom d'Utilisateur" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+                  <TextField fx:id="txt_nom" layoutX="3.0" layoutY="4.0" prefHeight="21.0" prefWidth="297.0" promptText="Nom d'Utilisateur" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
                </children>
             </Pane>
             <Pane layoutX="330.0" layoutY="231.0" prefHeight="35.0" prefWidth="306.0" style="-fx-background-color: #F3F3F3;">
                <children>
-                  <CustomPasswordField fx:id="chpMotDePasse" layoutX="4.0" layoutY="5.0" prefHeight="25.0" prefWidth="297.0" promptText="Mot de passe" style="-fx-background-color: transparent;" />
+                  <CustomPasswordField fx:id="txt_password" layoutX="4.0" layoutY="5.0" prefHeight="25.0" prefWidth="297.0" promptText="Mot de passe" style="-fx-background-color: transparent;" />
                </children>
             </Pane>
             <Label layoutX="513.0" layoutY="282.0" text="Mot de passe oublié ?" textFill="#212b38">
