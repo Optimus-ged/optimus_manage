@@ -40,9 +40,9 @@
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="78.0" prefHeight="453.0" prefWidth="167.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="124.0" AnchorPane.topAnchor="78.0">
                      <children>
-                        <AnchorPane layoutY="140.0" onMouseClicked="#onNouvUtilisateurClicked" prefHeight="27.0" prefWidth="147.0">
+                        <AnchorPane layoutY="140.0" onMouseClicked="#onNouvAgentClicked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Nouv. Utilisateur" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
+                              <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Nouvel Agent" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -54,7 +54,7 @@
                         </AnchorPane>
                         <AnchorPane layoutY="95.0" onMouseClicked="#onNouvClientCliked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Nouv. client" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
+                              <Label layoutX="19.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Nouveau client" textFill="#8b8f98" AnchorPane.leftAnchor="19.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>

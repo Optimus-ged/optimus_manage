@@ -14,7 +14,8 @@ import javafx.fxml.Initializable;
  *
  * @author Optimus
  */
-public class ctrl_NouveauUtilisateur implements Initializable {
+public class ctrl_Agent implements Initializable {
+
 
     /**
      * Initializes the controller class.

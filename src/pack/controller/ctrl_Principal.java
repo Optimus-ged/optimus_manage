@@ -65,14 +65,15 @@ public class ctrl_Principal implements Initializable {
         ctrl._interface(principalContainer, "/pack/ui/ui_Parametres.fxml");
     }
 
-    @FXML
-    private void onNouvUtilisateurClicked(MouseEvent event) throws IOException {
-        
-    }
 
     @FXML
     private void onNouvClientCliked(MouseEvent event) throws IOException {
         ctrl._interface(principalContainer, "/pack/ui/ui_NouveauClient.fxml");
+    }
+
+    @FXML
+    private void onNouvAgentClicked(MouseEvent event) throws IOException {
+        ctrl._interface(principalContainer, "/pack/ui/ui_Agent.fxml");
     }
     
 }
