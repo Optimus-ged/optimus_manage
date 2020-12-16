@@ -59,4 +59,9 @@ public class ctrl_Login implements Initializable {
         }
     }
 
+    @FXML
+    private void onCloseCliked(MouseEvent event) {
+        System.exit(0);
+    }
+
 }
