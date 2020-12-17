@@ -47,15 +47,18 @@ public class ctrl_Login implements Initializable {
 
     @FXML
     private void connecter(MouseEvent event) throws IOException, ClassNotFoundException, SQLException {
-
-        if (login.tesLogin(txt_nom.getText(), txt_password.getText()) == true) {
-
-            ((Stage) anp_login.getScene().getWindow()).close();
-            ctrl._interface("/pack/ui/ui_Principal.fxml", "");
-
+        if (champs.champs_vide.isFieldsempty(txt_nom, txt_password)) {
+            ctrl.alerteInformation("Information", "Veuillez remplir tous les champs !!!");
         } else {
-            System.out.println("Password incorrect");
+            if (login.tesLogin(txt_nom.getText(), txt_password.getText()) == true) {
+                ((Stage) anp_login.getScene().getWindow()).close();
+                ctrl._interface("/pack/ui/ui_Principal.fxml", "");
+
+            } else {
+                ctrl.alerteInformation("Information", "Echec de connection !!!");
+            }
         }
+
     }
 
     @FXML

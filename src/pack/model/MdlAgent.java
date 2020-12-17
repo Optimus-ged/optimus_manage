@@ -52,20 +52,21 @@ public class MdlAgent {
                 ctrl.alerteInformation("Information", "Enregistre !!!");            
             }
         }
-//          else if (btn == 2){
-//            if(champs.champs_vide.isFieldsempty(txtNom, txtPrenom, txtpostnom, txtPoste)){
-//                ctrl.alerteInformation("Information", "Veuillez selectionner une elements !!!");            
-//            }else{
-//                 ag = new TttAgent(
-//                        txtNom.getText(), 
-//                        txtPrenom.getText(), 
-//                        txtpostnom.getText(), 
-//                        cmbSexe.getValue(),
-//                        Integer.parseInt(txtid.getText())
-//                );
-//                ag.agent(2);
-//                ctrl.alerteInformation("Information", "Supprime !!!");            
-//            }
-//        }
+          else if (btn == 2){
+            if(champs.champs_vide.isFieldsempty(txtNom, txtPrenom, txtpostnom, txtPoste)){
+                ctrl.alerteInformation("Information", "Veuillez selectionner une elements !!!");            
+            }else{
+                  ag = new TttAgent(
+                        txtNom.getText(), 
+                        txtPrenom.getText(), 
+                        txtpostnom.getText(), 
+                        cmbSexe.getValue(),
+                        txtPoste.getText(), 
+                        Integer.parseInt(txtId.getText())
+                );
+                ag.agent(2);
+                ctrl.alerteInformation("Information", "Supprime !!!");            
+            }
+        }
      }
 }
