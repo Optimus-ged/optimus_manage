@@ -41,7 +41,6 @@ public class ctrl_Login implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Initialisation objets
         ctrl = new pack.main.cls_controller();
         login = new MdlLogin();
     }

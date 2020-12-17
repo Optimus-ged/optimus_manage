@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -52,6 +53,8 @@
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                </children>
             </AnchorPane>
+            <JFXButton buttonType="RAISED" layoutX="16.0" layoutY="354.0" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #40e440;" text="Enregistrer" />
+            <JFXButton buttonType="RAISED" layoutX="140.0" layoutY="354.0" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: red;" text="Spprimer" textFill="WHITE" />
          </children>
       </Pane>
    </children>
