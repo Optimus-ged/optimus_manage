@@ -5,7 +5,13 @@
  */
 package pack.main;
 
+import animatefx.animation.ZoomInLeft;
+import animatefx.animation.ZoomInRight;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +19,11 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -82,5 +90,50 @@ public class cls_controller {
                stg.setY(event.getScreenY() - yOffset);
            }
        });
+    }
+    
+    public void showMssge(Label lab, FontAwesomeIconView icon, String mssg, int etat) {
+        if (etat == 1) {
+            lab.setVisible(true);
+            icon.setVisible(true);
+            icon.setIcon(FontAwesomeIcon.CHECK);
+            icon.setFill(Paint.valueOf("#a7c9b0"));
+            lab.setTextFill(Color.web("#a7c9b0"));
+            lab.setText(mssg);
+            new ZoomInRight(lab).play();
+            new ZoomInRight(icon).play();
+        } else {
+            lab.setVisible(true);
+            icon.setVisible(true);
+            icon.setIcon(FontAwesomeIcon.EXCLAMATION_TRIANGLE);
+            icon.setFill(Paint.valueOf("#ff0000"));
+            lab.setTextFill(Color.RED);
+            lab.setText(mssg);
+            new ZoomInRight(lab).play();
+            new ZoomInRight(icon).play();
+        }
+        try {
+            lab.setVisible(true);
+
+            Thread th = new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(5000);
+                        new ZoomInLeft(lab).play();
+                        new ZoomInLeft(icon).play();
+                        lab.setVisible(false);
+                        icon.setVisible(false);
+
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(cls_controller.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            };
+            th.start();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -5,6 +5,7 @@
  */
 package pack.controller;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -38,6 +39,10 @@ public class ctrl_Agent implements Initializable {
     private TextField txtPoste;
     @FXML
     private Label txtId;
+    @FXML
+    private Label lblInfo;
+    @FXML
+    private FontAwesomeIconView font;
    
 
 
@@ -47,7 +52,7 @@ public class ctrl_Agent implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ctrl = new cls_controller();
-        ag = new MdlAgent(txtNom, txtPrenom, txtpostnom, cmbSexe, txtPoste, txtId);
+        ag = new MdlAgent(txtNom, txtPrenom, txtpostnom, cmbSexe, txtPoste, txtId, lblInfo, font);
         ctrl.chargeCmbSexe(cmbSexe);
     }    
 

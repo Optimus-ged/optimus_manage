@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -38,7 +39,7 @@
             <AnchorPane layoutX="17.0" layoutY="158.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                <children>
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
-                  <ComboBox fx:id="cmbSexe" layoutX="36.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="197.0" promptText="Sexe" style="-fx-background-color: white;" />
+                  <ComboBox fx:id="cmbSexe" layoutX="36.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="197.0" promptText="Sexe" style="-fx-background-color: transparent;" />
                </children>
             </AnchorPane>
             <Label layoutX="18.0" layoutY="197.0" text="Poste ocuppe" textFill="#aaaaaa" />
@@ -70,5 +71,11 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Pane layoutX="11.0" layoutY="365.0" prefHeight="30.0" prefWidth="215.0">
+         <children>
+            <Label fx:id="lblInfo" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
+            <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -150,7 +150,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <StackPane fx:id="principalContainer" layoutX="187.0" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="187.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="0.0" />
+            <StackPane fx:id="principalContainer" layoutX="181.0" prefHeight="655.0" prefWidth="807.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="0.0" />
             <AnchorPane layoutX="992.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
                <children>
                   <AnchorPane layoutX="7.0" layoutY="83.0" prefHeight="38.0" prefWidth="207.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="83.0" />
