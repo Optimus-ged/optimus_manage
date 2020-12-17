@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -70,5 +71,11 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Pane layoutX="11.0" layoutY="365.0" prefHeight="30.0" prefWidth="215.0">
+         <children>
+            <Label fx:id="lblInfo" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
+            <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

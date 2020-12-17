@@ -57,7 +57,7 @@ public class MdlAgent {
             }
         } else if (btn == 2) {
             if (champs.champs_vide.isFieldsempty(txtNom, txtPrenom, txtpostnom, txtPoste)) {
-                ctrl.showMssge(lblInfo, font, "Veuillez remplir tous les champs svp !", 0);
+                ctrl.showMssge(lblInfo, font, "Veuillez selectionner un element !", 0);         
             } else {
                 ag = new TttAgent(
                         txtNom.getText(),
