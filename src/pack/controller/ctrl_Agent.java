@@ -6,8 +6,16 @@
 package pack.controller;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import pack.main.cls_controller;
+import pack.model.MdlAgent;
 
 /**
  * FXML Controller class
@@ -15,6 +23,22 @@ import javafx.fxml.Initializable;
  * @author Optimus
  */
 public class ctrl_Agent implements Initializable {
+    private cls_controller ctrl;
+    private MdlAgent ag;
+
+    @FXML
+    private TextField txtNom;
+    @FXML
+    private TextField txtPrenom;
+    @FXML
+    private TextField txtpostnom;
+    @FXML
+    private ComboBox<String> cmbSexe;
+    @FXML
+    private TextField txtPoste;
+    @FXML
+    private Label txtId;
+   
 
 
     /**
@@ -22,7 +46,14 @@ public class ctrl_Agent implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ctrl = new cls_controller();
+        ag = new MdlAgent(txtNom, txtPrenom, txtpostnom, cmbSexe, txtPoste, txtId);
+        ctrl.chargeCmbSexe(cmbSexe);
     }    
+
+    @FXML
+    private void enregAgent(ActionEvent event) throws ClassNotFoundException, SQLException {
+        ag.agentIn(1);
+    }
     
 }

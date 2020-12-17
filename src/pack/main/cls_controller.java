@@ -6,15 +6,20 @@
 package pack.main;
 
 import java.io.IOException;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 /**
  *
@@ -35,6 +40,23 @@ public class cls_controller {
         stg.setTitle(str);
         stg.setScene(new Scene(root));
         stg.show();
+    }
+    public void chargeCmbSexe(ComboBox<String> c){
+        c.getItems().addAll("M", "F");
+    }
+    
+     public static void alerteInformation(String titre, String message) {
+
+        Notifications notificationBuilder = Notifications.create()
+                .title(titre)
+                .text("\n                               " + message)
+                .graphic(null)
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BASELINE_RIGHT)
+                .onAction((ActionEvent event) -> {
+                });
+
+        notificationBuilder.showInformation();
     }
     
     public void _interfaceNoBoarder(String fichierFXML) throws IOException { 

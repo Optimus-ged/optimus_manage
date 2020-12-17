@@ -21,13 +21,13 @@
             <Label layoutX="16.0" layoutY="19.0" text="Nom" textFill="#aaaaaa" />
             <AnchorPane layoutX="16.0" layoutY="42.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px; -fx-border-radius: 7px;">
                <children>
-                  <TextField layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Nom" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <TextField fx:id="txtNom" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Nom" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="17.0" layoutY="106.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px; -fx-border-radius: 7px;">
                <children>
-                  <TextField layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Prenom" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <TextField fx:id="txtPrenom" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Prenom" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                </children>
             </AnchorPane>
@@ -35,7 +35,7 @@
             <Label layoutX="18.0" layoutY="148.0" text="Post-nom" textFill="#aaaaaa" />
             <AnchorPane layoutX="16.0" layoutY="172.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px; -fx-border-radius: 7px;">
                <children>
-                  <TextField layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Telephone" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <TextField fx:id="txtpostnom" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="post-nom" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                </children>
             </AnchorPane>
@@ -43,18 +43,19 @@
             <AnchorPane layoutX="17.0" layoutY="238.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px; -fx-border-radius: 7px;">
                <children>
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
-                  <ComboBox layoutX="36.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="197.0" promptText="Sexe" style="-fx-background-color: white;" />
+                  <ComboBox fx:id="cmbSexe" layoutX="36.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="197.0" promptText="Sexe" style="-fx-background-color: white;" />
                </children>
             </AnchorPane>
             <Label layoutX="18.0" layoutY="283.0" text="Poste ocuppe" textFill="#aaaaaa" />
             <AnchorPane layoutX="16.0" layoutY="307.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px; -fx-border-radius: 7px;">
                <children>
-                  <TextField layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Poste" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <TextField fx:id="txtPoste" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Poste" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                </children>
             </AnchorPane>
-            <JFXButton buttonType="RAISED" layoutX="16.0" layoutY="354.0" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #40e440;" text="Enregistrer" />
+            <JFXButton buttonType="RAISED" layoutX="16.0" layoutY="354.0" onAction="#enregAgent" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #40e440;" text="Enregistrer" />
             <JFXButton buttonType="RAISED" layoutX="140.0" layoutY="354.0" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: red;" text="Spprimer" textFill="WHITE" />
+            <Label fx:id="txtId" layoutX="126.0" layoutY="11.0" text="0" />
          </children>
       </Pane>
    </children>

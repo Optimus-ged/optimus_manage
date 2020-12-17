@@ -17,11 +17,12 @@ public class TttAgent {
     private String nom, prenom, postnom, sexe, post;
     private int id;
 
-    public TttAgent(String nom, String prenom, String postnom, String sexe, int id) {
+    public TttAgent(String nom, String prenom, String postnom, String sexe, String post, int id) {
         this.nom = nom;
         this.prenom = prenom;
         this.postnom = postnom;
         this.sexe = sexe;
+        this.post = post;
         this.id = id;
     }
 
@@ -37,6 +38,7 @@ public class TttAgent {
             ps.setString(3, prenom);
             ps.setString(4, postnom);
             ps.setString(5, sexe);
+            ps.setString(6, post);
             ps.executeUpdate();
         }
         else if(btn == 2){
