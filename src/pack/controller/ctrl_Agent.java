@@ -60,5 +60,6 @@ public class ctrl_Agent implements Initializable {
     private void enregAgent(ActionEvent event) throws ClassNotFoundException, SQLException {
         ag.agentIn(1);
     }
+
     
 }

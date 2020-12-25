@@ -75,5 +75,10 @@ public class ctrl_Principal implements Initializable {
     private void onNouvAgentClicked(MouseEvent event) throws IOException {
         ctrl._interface(principalContainer, "/pack/ui/ui_Agent.fxml");
     }
+
+    @FXML
+    private void onApproClicked(MouseEvent event) throws IOException {
+        ctrl._interface(principalContainer, "/pack/ui/ui_Appros.fxml");
+    }
     
 }

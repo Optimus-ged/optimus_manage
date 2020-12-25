@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_Appros">
+   <children>
+      <Label layoutX="15.0" layoutY="14.0" prefHeight="23.0" prefWidth="197.0" text="Approvisionnements" textFill="#464d86">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutY="54.0" prefHeight="442.0" prefWidth="281.0" style="-fx-background-color: transparent;">
+         <children>
+            <Label layoutX="16.0" layoutY="19.0" text="Nom Fournisseur" textFill="#aaaaaa" />
+            <AnchorPane layoutX="16.0" layoutY="42.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+               <children>
+                  <TextField fx:id="txtNomFsseur" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Nom Fournisseur" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="17.0" layoutY="102.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+               <children>
+                  <TextField fx:id="txtTelephoneFsseur" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Contact Fournisseur" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="18.0" layoutY="80.0" text="Contact Fournisseur" textFill="#aaaaaa" />
+            <Label layoutX="18.0" layoutY="141.0" text="Designation Produit" textFill="#aaaaaa" />
+            <AnchorPane layoutX="16.0" layoutY="164.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+               <children>
+                  <TextField fx:id="txtDesiProduit" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Designation Produit" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="16.0" layoutY="203.0" text="Pu" textFill="#aaaaaa" />
+            <Label layoutX="18.0" layoutY="264.0" text="Quantite" textFill="#aaaaaa" />
+            <AnchorPane layoutX="16.0" layoutY="287.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+               <children>
+                  <TextField fx:id="txtQteProduit" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Quantite" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+            <JFXButton fx:id="btnEnre" buttonType="RAISED" layoutX="16.0" layoutY="333.0" onAction="#enregAppros" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnValider" buttonType="RAISED" layoutX="140.0" layoutY="333.0" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: red; -fx-border-color: red;" text="Valider" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="txtId" layoutX="126.0" layoutY="11.0" text="0" visible="false" />
+            <Pane layoutX="11.0" layoutY="380.0" prefHeight="30.0" prefWidth="215.0">
+               <children>
+                  <Label fx:id="lblInfo" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
+                  <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />
+               </children>
+            </Pane>
+            <AnchorPane layoutX="16.0" layoutY="226.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+               <children>
+                  <TextField fx:id="txtPuProduit" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Pu" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+      <TableView layoutX="283.0" layoutY="97.0" prefHeight="535.0" prefWidth="495.0" style="-fx-background-color: #F3F3F3; -fx-border-color: #F3F3F3;" visible="false" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="283.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="97.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <ScrollPane layoutX="276.0" layoutY="97.0" prefHeight="325.0" prefWidth="508.0">
+         <content>
+            <VBox fx:id="vboxDetail" prefHeight="323.0" prefWidth="506.0" />
+         </content>
+      </ScrollPane>
+      <Label fx:id="idAppro" layoutX="262.0" layoutY="17.0" text="0" />
+   </children>
+</AnchorPane>
