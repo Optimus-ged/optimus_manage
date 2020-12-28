@@ -11,6 +11,6 @@
       <Label fx:id="txtDesignation" layoutX="56.0" layoutY="12.0" text="DESIGNATION DESIGNATION" />
       <Label fx:id="txtPu" layoutX="237.0" layoutY="11.0" text="1000" />
       <Label fx:id="txtQte" layoutX="302.0" layoutY="11.0" text="20" />
-      <FontAwesomeIconView fx:id="close" fill="RED" glyphName="REMOVE" layoutX="472.0" layoutY="26.0" size="20" />
+      <FontAwesomeIconView fx:id="close" fill="RED" glyphName="REMOVE" layoutX="453.0" layoutY="26.0" size="20" />
    </children>
 </AnchorPane>

@@ -9,7 +9,6 @@ import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,6 +29,7 @@ import static pack.controller.ctrl_DetailAppro.txtDesignation1;
 import static pack.controller.ctrl_DetailAppro.txtId1;
 import static pack.controller.ctrl_DetailAppro.txtPu1;
 import static pack.controller.ctrl_DetailAppro.txtQte1;
+import pack.main.cls_controller;
 import pack.model.MdlConnexion;
 import pack.model.MdlDetailsAppro;
 import pack.model.MdlEnteteAppro;
@@ -62,6 +62,8 @@ public class ctrl_Appros implements Initializable {
     private JFXButton btnEnre;
     @FXML
     private VBox vboxDetail;
+    
+    private cls_controller ctrl;
 
     private ResultSet resultSet;
     private Statement statement;
@@ -73,6 +75,7 @@ public class ctrl_Appros implements Initializable {
     public ArrayList designation = new ArrayList();
     public ArrayList punitaire = new ArrayList();
     public ArrayList quantite = new ArrayList();
+   
 
     /**
      * Initializes the controller class.
@@ -85,7 +88,13 @@ public class ctrl_Appros implements Initializable {
 
     @FXML
     private void enregAppros(ActionEvent event) {
-        
+        idAppro.setText("0");
+        txtNomFsseur.setText("");
+        txtDesiProduit.setText("");
+        txtPuProduit.setText("");
+        txtTelephoneFsseur.setText("");
+        txtQteProduit.setText("");
+       ctrl.alerteInformation("Information", "Enregistre avec succes !!!");
     }
 
     void initEvent() {
