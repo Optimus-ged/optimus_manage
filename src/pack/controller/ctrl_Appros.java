@@ -61,8 +61,6 @@ public class ctrl_Appros implements Initializable {
     @FXML
     private JFXButton btnEnre;
     @FXML
-    private JFXButton btnValider;
-    @FXML
     private VBox vboxDetail;
 
     private ResultSet resultSet;
@@ -82,11 +80,12 @@ public class ctrl_Appros implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        initEvent();
+//        initEvent();
     }
 
     @FXML
     private void enregAppros(ActionEvent event) {
+        
     }
 
     void initEvent() {
@@ -98,7 +97,6 @@ public class ctrl_Appros implements Initializable {
                     try {
                         if (getInstance().isSave(detail) == true) {
                             initCard();
-                            System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
                         }
                     } catch (SQLException | ClassNotFoundException ex) {
                         Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
@@ -147,10 +145,7 @@ public class ctrl_Appros implements Initializable {
         } catch (ClassNotFoundException | SQLException ex) {
         }
     }
-//           txtId1 = txtId;
-//        txtDesignation1 = txtDesignation;
-//        txtPu1 = txtPu;
-//        txtQte1 = txtQte; 
+
 
     public void initCard() {
 
@@ -176,5 +171,46 @@ public class ctrl_Appros implements Initializable {
             vboxDetail.getChildren().add(node[index]);
         }
 
+    }
+
+    @FXML
+    private void ajouterProduit(ActionEvent event) {
+        if (!idAppro.getText().equals("0")) {
+            // Commentaire
+            // Insertion dans la table details
+            detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
+            try {
+                if (getInstance().isSave(detail) == true) {
+                    System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
+                    initCard();
+                }
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            System.out.println("insertion entete et details");
+            // Commentaire
+            // Insertion dans la table entete
+            entete = new MdlEnteteAppro(txtNomFsseur.getText());
+            try {
+                if (getInstance().isSave(entete) == true) {
+                    idAppro.setText(initNum());
+                    
+                }
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            // Commentaire
+            // Insertion dans la table details
+            detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
+            try {
+                if (getInstance().isSave(detail) == true) {
+                    initCard();
+                }
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }
