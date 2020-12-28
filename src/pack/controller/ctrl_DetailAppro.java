@@ -28,7 +28,12 @@ public class ctrl_DetailAppro implements Initializable {
     @FXML
     private Label txtQte;
     @FXML
-    private FontAwesomeIconView close;
+    public static FontAwesomeIconView close;
+    public static String txtId1;
+    public static String txtDesignation1;
+    public static String txtPu1;
+    public static String txtQte1;
+    public static FontAwesomeIconView close1;
 
     /**
      * Initializes the controller class.
@@ -36,6 +41,12 @@ public class ctrl_DetailAppro implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+        txtId.setText(txtId1);
+        txtDesignation.setText(txtDesignation1);
+        txtPu.setText(txtPu1);
+        txtQte.setText(txtQte1);
+        close1 = close;
+
+    }
+
 }
