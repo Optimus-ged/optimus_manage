@@ -23,7 +23,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import static pack.controller.ctrl_DetailAppro.txtDesignation1;
 import static pack.controller.ctrl_DetailAppro.txtId1;
@@ -82,8 +81,7 @@ public class ctrl_Appros implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-//        initEvent();
+
     }
 
     @FXML
@@ -97,35 +95,35 @@ public class ctrl_Appros implements Initializable {
        ctrl.alerteInformation("Information", "Enregistre avec succes !!!");
     }
 
-    void initEvent() {
-        initCard();
-        txtQteProduit.setOnKeyReleased((e) -> {
-            if (e.getCode().ENTER == KeyCode.ENTER) {
-                if (!idAppro.getText().equals("0")) {
-                    detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
-                    try {
-                        if (getInstance().isSave(detail) == true) {
-                            initCard();
-                        }
-                    } catch (SQLException | ClassNotFoundException ex) {
-                        Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } else {
-                    entete = new MdlEnteteAppro(txtNomFsseur.getText());
-                    try {
-                        if (getInstance().isSave(entete) == true) {
-                            idAppro.setText(initNum());
-                        }
-                    } catch (SQLException | ClassNotFoundException ex) {
-                        Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                }
-
-            }
-
-        });
-    }
+//    void initEvent() {
+//        initCard();
+//        txtQteProduit.setOnKeyReleased((e) -> {
+//            if (e.getCode().ENTER == KeyCode.ENTER) {
+//                if (!idAppro.getText().equals("0")) {
+//                    detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
+//                    try {
+//                        if (getInstance().isSave(detail) == true) {
+//                            initCard();
+//                        }
+//                    } catch (SQLException | ClassNotFoundException ex) {
+//                        Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                } else {
+//                    entete = new MdlEnteteAppro(txtNomFsseur.getText());
+//                    try {
+//                        if (getInstance().isSave(entete) == true) {
+//                            idAppro.setText(initNum());
+//                        }
+//                    } catch (SQLException | ClassNotFoundException ex) {
+//                        Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//
+//                }
+//
+//            }
+//
+//        });
+//    }
 
     String initNum() throws SQLException, ClassNotFoundException {
         String query = "SELECT MAX(id) x FROM approentete";
@@ -189,7 +187,7 @@ public class ctrl_Appros implements Initializable {
             // Insertion dans la table details
             detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
             try {
-                if (getInstance().isSave(detail) == true) {
+                if (getInstance().isSave(detail, 2) == true) {
                     System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
                     initCard();
                 }
@@ -202,7 +200,7 @@ public class ctrl_Appros implements Initializable {
             // Insertion dans la table entete
             entete = new MdlEnteteAppro(txtNomFsseur.getText());
             try {
-                if (getInstance().isSave(entete) == true) {
+                if (getInstance().isSave(entete, 2) == true) {
                     idAppro.setText(initNum());
                     
                 }
@@ -214,7 +212,7 @@ public class ctrl_Appros implements Initializable {
             // Insertion dans la table details
             detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
             try {
-                if (getInstance().isSave(detail) == true) {
+                if (getInstance().isSave(detail, 2) == true) {
                     initCard();
                 }
             } catch (SQLException | ClassNotFoundException ex) {
