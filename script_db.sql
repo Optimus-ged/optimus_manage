@@ -75,3 +75,6 @@ TRUNCATE TABLE entete_facture;
 TRUNCATE TABLE detail_facture;
 TRUNCATE TABLE approentete;
 TRUNCATE TABLE detailsappro
+
+
+SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id =2

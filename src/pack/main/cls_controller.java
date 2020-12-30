@@ -10,8 +10,13 @@ import animatefx.animation.ZoomInRight;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -27,16 +33,22 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import javax.swing.JOptionPane;
 import org.controlsfx.control.Notifications;
+import org.controlsfx.control.textfield.TextFields;
+import pack.model.MdlConnexion;
 
 /**
  *
  * @author Optimus
  */
 public class cls_controller {
+
     double xOffset, yOffset;
-    
-     public void _interface(StackPane stp, String fichierFXML) throws IOException {
+    private PreparedStatement pst;
+    private ResultSet rs;
+
+    public void _interface(StackPane stp, String fichierFXML) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(fichierFXML));
         stp.getChildren().removeAll();
         stp.getChildren().setAll(root);
@@ -49,11 +61,12 @@ public class cls_controller {
         stg.setScene(new Scene(root));
         stg.show();
     }
-    public void chargeCmbSexe(ComboBox<String> c){
+
+    public void chargeCmbSexe(ComboBox<String> c) {
         c.getItems().addAll("M", "F");
     }
-    
-     public static void alerteInformation(String titre, String message) {
+
+    public static void alerteInformation(String titre, String message) {
 
         Notifications notificationBuilder = Notifications.create()
                 .title(titre)
@@ -66,8 +79,8 @@ public class cls_controller {
 
         notificationBuilder.showInformation();
     }
-    
-    public void _interfaceNoBoarder(String fichierFXML) throws IOException { 
+
+    public void _interfaceNoBoarder(String fichierFXML) throws IOException {
         Stage stg = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource(fichierFXML));
         Scene scene = new Scene(root);
@@ -75,23 +88,23 @@ public class cls_controller {
         stg.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
         stg.show();
-        
-        root.setOnMousePressed(new EventHandler<MouseEvent>(){
-           @Override
-           public void handle(MouseEvent event){
-               xOffset = event.getSceneX();
-               yOffset = event.getSceneY();
-           }
-       });
-       root.setOnMouseDragged(new EventHandler<MouseEvent>(){
-           @Override
-           public void handle(MouseEvent event){
-               stg.setX(event.getScreenX() - xOffset);
-               stg.setY(event.getScreenY() - yOffset);
-           }
-       });
+
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stg.setX(event.getScreenX() - xOffset);
+                stg.setY(event.getScreenY() - yOffset);
+            }
+        });
     }
-    
+
     public void showMssge(Label lab, FontAwesomeIconView icon, String mssg, int etat) {
         if (etat == 1) {
             lab.setVisible(true);
@@ -135,5 +148,29 @@ public class cls_controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void ChargememtCompression(TextField textFied, String Table, String Colonne) {
+        textFied.setOnMouseClicked((e) -> {
+            try {
+                TextFields.bindAutoCompletion(textFied, AutoCompression(Table, Colonne));
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(cls_controller.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+    }
+
+    public ObservableList AutoCompression(String Table, String Colone) throws ClassNotFoundException {
+        ObservableList list = FXCollections.observableArrayList();
+        try {
+            pst = MdlConnexion.getCnx().prepareStatement("Select " + Colone + " From " + Table);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                list.addAll(rs.getString(Colone));
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return list;
     }
 }

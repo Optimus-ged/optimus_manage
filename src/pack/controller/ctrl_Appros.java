@@ -23,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import static pack.controller.ctrl_DetailAppro.txtDesignation1;
 import static pack.controller.ctrl_DetailAppro.txtId1;
@@ -40,6 +41,7 @@ import static pack.traitement.TttAppros.getInstance;
  * @author Optimus
  */
 public class ctrl_Appros implements Initializable {
+    private cls_controller ctrl;
 
     @FXML
     private TextField txtNomFsseur;
@@ -61,8 +63,8 @@ public class ctrl_Appros implements Initializable {
     private JFXButton btnEnre;
     @FXML
     private VBox vboxDetail;
-    
-    private cls_controller ctrl;
+
+   
 
     private ResultSet resultSet;
     private Statement statement;
@@ -74,14 +76,16 @@ public class ctrl_Appros implements Initializable {
     public ArrayList designation = new ArrayList();
     public ArrayList punitaire = new ArrayList();
     public ArrayList quantite = new ArrayList();
-   
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        ctrl = new cls_controller();
+        ctrl.ChargememtCompression(txtNomFsseur, "fournisseur", "nom");
+        ctrl.ChargememtCompression(txtDesiProduit, "produit", "designation");
     }
 
     @FXML
@@ -92,7 +96,7 @@ public class ctrl_Appros implements Initializable {
         txtPuProduit.setText("");
         txtTelephoneFsseur.setText("");
         txtQteProduit.setText("");
-       ctrl.alerteInformation("Information", "Enregistre avec succes !!!");
+        ctrl.alerteInformation("Information", "Enregistre avec succes !!!");
     }
 
 //    void initEvent() {
@@ -124,7 +128,6 @@ public class ctrl_Appros implements Initializable {
 //
 //        });
 //    }
-
     String initNum() throws SQLException, ClassNotFoundException {
         String query = "SELECT MAX(id) x FROM approentete";
         resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
@@ -152,7 +155,6 @@ public class ctrl_Appros implements Initializable {
         } catch (ClassNotFoundException | SQLException ex) {
         }
     }
-
 
     public void initCard() {
 
@@ -188,26 +190,24 @@ public class ctrl_Appros implements Initializable {
             detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
             try {
                 if (getInstance().isSave(detail, 2) == true) {
-                    System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
                     initCard();
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            System.out.println("insertion entete et details");
             // Commentaire
             // Insertion dans la table entete
             entete = new MdlEnteteAppro(txtNomFsseur.getText());
             try {
                 if (getInstance().isSave(entete, 2) == true) {
                     idAppro.setText(initNum());
-                    
+
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             // Commentaire
             // Insertion dans la table details
             detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
@@ -219,5 +219,33 @@ public class ctrl_Appros implements Initializable {
                 Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    String telephone(String nom) throws ClassNotFoundException, SQLException {
+        String query = "SELECT telephone FROM fournisseur WHERE nom = '" + nom + "'";
+        resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
+        if (resultSet.next()) {
+            return resultSet.getString("telephone");
+        }
+        return null;
+    }
+
+    String pu(String desiProduit) throws ClassNotFoundException, SQLException {
+        String query = "SELECT pu FROM produit WHERE designation = '" + desiProduit + "'";
+        resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
+        if (resultSet.next()) {
+            return resultSet.getString("pu");
+        }
+        return null;
+    }
+
+    @FXML
+    private void telephoneFsseur(KeyEvent event) throws ClassNotFoundException, SQLException {
+        txtTelephoneFsseur.setText(telephone(txtNomFsseur.getText()));
+    }
+
+    @FXML
+    private void puProduit(KeyEvent event) throws ClassNotFoundException, SQLException {
+        txtPuProduit.setText(pu(txtDesiProduit.getText()));
     }
 }

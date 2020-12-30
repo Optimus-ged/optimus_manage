@@ -25,7 +25,7 @@
             <Label layoutX="16.0" layoutY="54.0" text="Nom Client" textFill="#aaaaaa" />
             <AnchorPane layoutX="16.0" layoutY="77.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                <children>
-                  <TextField fx:id="txtNomClient" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Nom Client" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <TextField fx:id="txtNomClient" layoutX="37.0" layoutY="1.0" onKeyReleased="#NumClient" prefHeight="25.0" prefWidth="205.0" promptText="Nom Client" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                </children>
             </AnchorPane>
@@ -39,7 +39,7 @@
             <Label layoutX="18.0" layoutY="225.0" text="Designation Produit" textFill="#aaaaaa" />
             <AnchorPane layoutX="16.0" layoutY="248.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                <children>
-                  <TextField fx:id="txtDesiProduit" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Designation Produit" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <TextField fx:id="txtDesiProduit" layoutX="37.0" layoutY="1.0" onKeyReleased="#desiProduit" prefHeight="25.0" prefWidth="205.0" promptText="Designation Produit" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                </children>
             </AnchorPane>
@@ -101,6 +101,6 @@
             <VBox fx:id="vboxDetail" prefHeight="376.0" prefWidth="490.0" style="-fx-border-color: white;" />
          </content>
       </ScrollPane>
-      <Label fx:id="idFacture" layoutX="262.0" layoutY="17.0" text="0" />
+      <Label fx:id="idFacture" layoutX="262.0" layoutY="17.0" text="0" visible="false" />
    </children>
 </AnchorPane>
