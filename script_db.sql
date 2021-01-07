@@ -92,12 +92,11 @@ SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `deta
 
 -- VIEWS
 -- SOMMATION DES QUANTITES POUR LES DETAILS
-CREATE VIEW v_fact_detail_1 AS 
+CREATE VIEW sum_detail_fact AS 
 SELECT idEnteteFacture, SUM(qte) AS total_qte FROM detail_facture GROUP BY idEnteteFacture
 
--- VIEW PRINCIPALE
-CREATE VIEW v_fact_detail_2 AS
-SELECT 
+-- VIEW PRINCIPALE POUR FACTURE
+CREATE VIEW view_facture AS SELECT 
 ent.id AS id_entete, date_facture, nom, prenom, sexe, telephone, 
 designation, pu,qte, 
 total_qte
@@ -105,4 +104,23 @@ FROM client AS cli
 INNER JOIN entete_facture AS ent ON ent.idClient = cli.id
 INNER JOIN detail_facture AS det ON ent.id = det.idEnteteFacture
 INNER JOIN produit as prod On det.idProduit = prod.id
-INNER JOIN v_fact_detail_1 AS sum ON det.idEnteteFacture = sum.idEnteteFacture
+INNER JOIN sum_detail_fact AS sum ON det.idEnteteFacture = sum.idEnteteFacture
+
+-- SOMMATION DES QUANTITES POUR LES APPROS
+CREATE VIEW sum_detail_appros AS 
+SELECT idEnteteAppro, SUM(qte) AS total_qte FROM detailsappro GROUP BY idEnteteAppro
+
+-- SOMMATION DES QUANTITES PAR ID PRODUIT
+CREATE VIEW sum_appros_by_produit AS 
+SELECT idProduit, SUM(qte) AS total_entre FROM detailsappro GROUP BY idProduit
+
+CREATE VIEW sum_fact_by_produit AS 
+SELECT idProduit, SUM(qte) AS total_consomme FROM detail_facture GROUP BY idProduit
+
+-- VIEW PRINCIPALE POUR APPROS
+CREATE VIEW view_stock AS SELECT
+st.id, designation, pu, qte,  total_entre, total_consomme, qte+total_entre-total_consomme AS gestion_stock FROM stock AS st
+INNER JOIN produit AS prod ON st.idProduit = prod.id
+LEFT JOIN sum_appros_by_produit as sApro ON st.idProduit = sApro.idProduit
+LEFT join sum_fact_by_produit as sFact ON st.idProduit = sFact.idProduit
+
