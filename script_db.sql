@@ -71,6 +71,17 @@ CREATE TABLE detail_facture(
 ALTER TABLE detail_facture
 ADD CONSTRAINT fk_detFac1 FOREIGN KEY (idProduit) REFERENCES produit(id)
 
+CREATE TABLE stock(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    idProduit INT,
+    qte FLOAT
+)
+
+ALTER TABLE stock
+ADD CONSTRAINT st_prod FOREIGN KEY (idProduit) REFERENCES produit(id)
+
+
+
 TRUNCATE TABLE entete_facture;
 TRUNCATE TABLE detail_facture;
 TRUNCATE TABLE approentete;
@@ -78,3 +89,20 @@ TRUNCATE TABLE detailsappro
 
 
 SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id =2
+
+-- VIEWS
+-- SOMMATION DES QUANTITES POUR LES DETAILS
+CREATE VIEW v_fact_detail_1 AS 
+SELECT idEnteteFacture, SUM(qte) AS total_qte FROM detail_facture GROUP BY idEnteteFacture
+
+-- VIEW PRINCIPALE
+CREATE VIEW v_fact_detail_2 AS
+SELECT 
+ent.id AS id_entete, date_facture, nom, prenom, sexe, telephone, 
+designation, pu,qte, 
+total_qte
+FROM client AS cli 
+INNER JOIN entete_facture AS ent ON ent.idClient = cli.id
+INNER JOIN detail_facture AS det ON ent.id = det.idEnteteFacture
+INNER JOIN produit as prod On det.idProduit = prod.id
+INNER JOIN v_fact_detail_1 AS sum ON det.idEnteteFacture = sum.idEnteteFacture

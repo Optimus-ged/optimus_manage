@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -96,11 +97,39 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <ScrollPane layoutX="276.0" layoutY="124.0" prefHeight="377.0" prefWidth="508.0" style="-fx-border-color: white;">
+      <ScrollPane layoutX="276.0" layoutY="137.0" prefHeight="364.0" prefWidth="504.0" style="-fx-border-color: white;">
          <content>
-            <VBox fx:id="vboxDetail" prefHeight="376.0" prefWidth="490.0" style="-fx-border-color: white;" />
+            <VBox fx:id="vboxDetail" prefHeight="360.0" prefWidth="499.0" style="-fx-border-color: white;" />
          </content>
       </ScrollPane>
       <Label fx:id="idAppro" layoutX="262.0" layoutY="17.0" text="0" visible="false" />
+      <Label alignment="CENTER" layoutX="276.0" layoutY="97.0" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #F4F4F4;" text="Id" textFill="#aaaaaa">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+         <opaqueInsets>
+            <Insets left="50.0" />
+         </opaqueInsets>
+      </Label>
+      <Label alignment="CENTER" layoutX="376.0" layoutY="97.0" prefHeight="38.0" prefWidth="121.0" style="-fx-background-color: #F4F4F4;" text="Designation" textFill="#aaaaaa">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="499.0" layoutY="97.0" prefHeight="38.0" prefWidth="72.0" style="-fx-background-color: #F4F4F4;" text="Pu" textFill="#aaaaaa">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="573.0" layoutY="97.0" prefHeight="38.0" prefWidth="72.0" style="-fx-background-color: #F4F4F4;" text="Qte" textFill="#aaaaaa">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="647.0" layoutY="97.0" prefHeight="38.0" prefWidth="132.0" style="-fx-background-color: #F4F4F4;" text="Options" textFill="#aaaaaa">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

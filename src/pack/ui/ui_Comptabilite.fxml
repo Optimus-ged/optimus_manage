@@ -98,7 +98,7 @@
       </TableView>
       <ScrollPane layoutX="276.0" layoutY="124.0" prefHeight="377.0" prefWidth="508.0" style="-fx-border-color: white;">
          <content>
-            <VBox fx:id="vboxDetail" prefHeight="376.0" prefWidth="490.0" style="-fx-border-color: white;" />
+            <VBox fx:id="vboxDetail" prefHeight="373.0" prefWidth="503.0" style="-fx-border-color: white;" />
          </content>
       </ScrollPane>
       <Label fx:id="idFacture" layoutX="262.0" layoutY="17.0" text="0" visible="false" />
