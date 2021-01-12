@@ -24,6 +24,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import static pack.controller.ctrl_DetailAppro.txtDesignation1;
 import static pack.controller.ctrl_DetailAppro.txtId1;
@@ -76,6 +78,8 @@ public class ctrl_Appros implements Initializable {
     public ArrayList designation = new ArrayList();
     public ArrayList punitaire = new ArrayList();
     public ArrayList quantite = new ArrayList();
+    @FXML
+    private StackPane containerAppro;
     
 
     /**
@@ -247,5 +251,15 @@ public class ctrl_Appros implements Initializable {
     @FXML
     private void puProduit(KeyEvent event) throws ClassNotFoundException, SQLException {
         txtPuProduit.setText(pu(txtDesiProduit.getText()));
+    }
+
+    @FXML
+    private void shoFsseurDialog(MouseEvent event) throws IOException {
+        ctrl.dialogue(containerAppro, "/pack/ui/ui_Fsseur.fxml");
+    }
+
+    @FXML
+    private void showProduitDialog(MouseEvent event) throws IOException {
+        ctrl.dialogue(containerAppro, "/pack/ui/ui_produit.fxml");
     }
 }
