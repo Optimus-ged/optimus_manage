@@ -22,8 +22,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import static pack.controller.ctrl_DetailAppro.txtDesignation1;
 import static pack.controller.ctrl_DetailAppro.txtId1;
@@ -32,8 +33,6 @@ import static pack.controller.ctrl_DetailAppro.txtQte1;
 import pack.main.cls_controller;
 import pack.model.MdlConnexion;
 import pack.model.MdlDetailFacture;
-import pack.model.MdlDetailsAppro;
-import pack.model.MdlEnteteAppro;
 import pack.model.MdlEnteteFacture;
 import static pack.traitement.TttAppros.getInstance;
 
@@ -75,6 +74,8 @@ public class ctrl_Comptabilite implements Initializable {
     private Label idFacture;
     private ResultSet resultSet;
     private cls_controller ctrl;
+    @FXML
+    private StackPane containerFact;
 
     /**
      * Initializes the controller class.
@@ -207,4 +208,16 @@ public class ctrl_Comptabilite implements Initializable {
         txtPuProduit.setText(pu(txtDesiProduit.getText()));
     }
 
+
+    @FXML
+    private void showProductDialog(MouseEvent event) throws IOException {
+        ctrl.dialogue(containerFact, "/pack/ui/ui_produit.fxml");
+    }
+
+    @FXML
+    private void showClientInterface(MouseEvent event) throws IOException {
+        ctrl._interface(containerFact, "/pack/ui/ui_Client.fxml");
+    }
+
+  
 }

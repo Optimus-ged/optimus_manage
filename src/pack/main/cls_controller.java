@@ -7,6 +7,8 @@ package pack.main;
 
 import animatefx.animation.ZoomInLeft;
 import animatefx.animation.ZoomInRight;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
@@ -172,5 +174,14 @@ public class cls_controller {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         return list;
+    }
+    
+    public void dialogue(StackPane stp, String fichierFXML) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fichierFXML));
+        JFXDialogLayout dl = new JFXDialogLayout();
+        dl.setBody(root);
+
+        JFXDialog dialog = new JFXDialog(stp, dl, JFXDialog.DialogTransition.CENTER);
+        dialog.show(stp);
     }
 }
