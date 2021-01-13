@@ -5,9 +5,14 @@
  */
 package pack.controller;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -16,6 +21,19 @@ import javafx.fxml.Initializable;
  */
 public class ctrl_Fsseur implements Initializable {
 
+    @FXML
+    private Label txtId;
+    @FXML
+    private TextField txtNom;
+    @FXML
+    private TextField txtAddresse;
+    @FXML
+    private TextField txtPhone;
+    @FXML
+    private Label lblInfo;
+    @FXML
+    private FontAwesomeIconView font;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +41,9 @@ public class ctrl_Fsseur implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void btnEnre(ActionEvent event) {
+    }
     
 }

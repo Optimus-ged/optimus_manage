@@ -29,18 +29,14 @@ public class ctrl_produit implements Initializable {
     private MdlProduit pro;
     @FXML
     private Label txtId;
+    @FXML
     private TextField txtDesignation;
+    @FXML
     private TextField txtPu;
     @FXML
     private Label lblInfo;
     @FXML
     private FontAwesomeIconView font;
-    @FXML
-    private TextField txtNom;
-    @FXML
-    private TextField txtAddresse;
-    @FXML
-    private TextField txtPhone;
 
     /**
      * Initializes the controller class.
