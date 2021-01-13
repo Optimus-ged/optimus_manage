@@ -21,8 +21,9 @@ public class TttFsseur {
         
     }
     
-    public TttFsseur(int id, String addresse, String telephone){
+    public TttFsseur(int id,String nom, String addresse, String telephone){
         this.id = id;
+        this.nom = nom;
         this.addresse = addresse;
         this.telephone = telephone;
     }
