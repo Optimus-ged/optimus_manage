@@ -31,11 +31,12 @@ public class MdlFsseur {
         this.txtPhone = txtPhone;
         this.txtNom = txtNom;
         this.lblInfo = lblInfo;
+        this.font = font;
         ctrl = new cls_controller();
         fss = new TttFsseur();
     }
     
-     public void produitIn(int btn) throws ClassNotFoundException, SQLException{
+     public void fsseurIn(int btn) throws ClassNotFoundException, SQLException{
         if(btn == 1){
             if(champs.champs_vide.isFieldsempty(txtNom, txtAddresse, txtPhone)){
                 ctrl.showMssge(lblInfo, font, "Veuillez remplir tous les champs svp !", 0);        

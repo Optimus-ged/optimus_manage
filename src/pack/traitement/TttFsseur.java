@@ -34,7 +34,7 @@ public class TttFsseur {
             ps.setInt(1, id);
             ps.setString(2, nom);
             ps.setString(3, addresse);
-            ps.setString(3, telephone);
+            ps.setString(4, telephone);
             ps.executeUpdate();
         } else if (btn == 2) {
 //            PreparedStatement ps = MdlConnexion.getCnx().prepareCall("{Call sp_client_del(?)}");
