@@ -1,5 +1,5 @@
 DELIMITER $
-CREATE PROCEDURE sp_apptoDetail_in
+CREATE PROCEDURE sp_approDetail_in
 (
     IN desiProduit_ VARCHAR(50),
     IN qte_ FLOAT,
@@ -51,6 +51,39 @@ END
 
 //////////////////////////////////////////////////////////////
 -- TABLES
+CREATE TABLE client(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    sexe VARCHAR(1)
+    telephone VARCHAR(30)
+);
+
+CREATE TABLE agent(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    telephone VARCHAR(30)
+    sexe VARCHAR(1)
+    poste VARCHAR(30)
+);
+
+CREATE TABLE fournisseur(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(100),
+    addresse VARCHAR(100),
+    telephone VARCHAR(30)
+);
+
+
+CREATE TABLE produit(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    designation VARCHAR(100),
+    pu FLOAT,
+);
+
+
+
 CREATE TABLE entete_facture(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     idClient INT,

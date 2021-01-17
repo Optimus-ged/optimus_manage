@@ -33,7 +33,6 @@ public class ctrl_Client implements Initializable {
     private TextField txtPrenom;
     @FXML
     private ComboBox<String> cmbSexe;
-    @FXML
     private TextField txtPoste;
     @FXML
     private Label txtId;
@@ -41,6 +40,8 @@ public class ctrl_Client implements Initializable {
     private Label lblInfo;
     @FXML
     private FontAwesomeIconView font;
+    @FXML
+    private TextField txtTelephone;
 
    
 

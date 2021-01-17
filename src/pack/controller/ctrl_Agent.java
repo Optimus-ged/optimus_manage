@@ -31,7 +31,6 @@ public class ctrl_Agent implements Initializable {
     private TextField txtNom;
     @FXML
     private TextField txtPrenom;
-    @FXML
     private TextField txtpostnom;
     @FXML
     private ComboBox<String> cmbSexe;
@@ -43,6 +42,8 @@ public class ctrl_Agent implements Initializable {
     private Label lblInfo;
     @FXML
     private FontAwesomeIconView font;
+    @FXML
+    private TextField txtTelephone;
    
 
 
