@@ -31,7 +31,6 @@ public class ctrl_Agent implements Initializable {
     private TextField txtNom;
     @FXML
     private TextField txtPrenom;
-    private TextField txtpostnom;
     @FXML
     private ComboBox<String> cmbSexe;
     @FXML
@@ -53,7 +52,7 @@ public class ctrl_Agent implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ctrl = new cls_controller();
-        ag = new MdlAgent(txtNom, txtPrenom, txtpostnom, cmbSexe, txtPoste, txtId, lblInfo, font);
+        ag = new MdlAgent(txtNom, txtPrenom, txtTelephone, cmbSexe, txtPoste, txtId, lblInfo, font);
         ctrl.chargeCmbSexe(cmbSexe);
     }    
 

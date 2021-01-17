@@ -33,7 +33,6 @@ public class ctrl_Client implements Initializable {
     private TextField txtPrenom;
     @FXML
     private ComboBox<String> cmbSexe;
-    private TextField txtPoste;
     @FXML
     private Label txtId;
     @FXML
@@ -51,7 +50,7 @@ public class ctrl_Client implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ctrl = new cls_controller();
-        cli = new MdlClient(txtNom, txtPrenom, txtPrenom, cmbSexe, txtPoste, txtId, lblInfo, font);
+        cli = new MdlClient(txtNom, txtPrenom, txtPrenom, cmbSexe, txtTelephone, txtId, lblInfo, font);
         ctrl.chargeCmbSexe(cmbSexe);
     }    
 
