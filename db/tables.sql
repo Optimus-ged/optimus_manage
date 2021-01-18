@@ -3,7 +3,7 @@ CREATE TABLE client(
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(50),
     prenom VARCHAR(50),
-    sexe VARCHAR(1)
+    sexe VARCHAR(1),
     telephone VARCHAR(30)
 );
 
@@ -12,7 +12,7 @@ CREATE TABLE agent(
     nom VARCHAR(50),
     prenom VARCHAR(50),
     telephone VARCHAR(30)
-    sexe VARCHAR(1)
+    sexe VARCHAR(1),
     poste VARCHAR(30)
 );
 
@@ -31,7 +31,6 @@ CREATE TABLE produit(
 );
 
 
-
 CREATE TABLE entete_facture(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     idClient INT,
@@ -41,7 +40,30 @@ CREATE TABLE entete_facture(
 ALTER TABLE entete_facture
 ADD CONSTRAINT fk_entFac FOREIGN KEY (idClient) REFERENCES client(id)
 
+CREATE TABLE entete_appro(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    idClient INT,
+    date_appro VARCHAR(30)
+);
+
+ALTER TABLE entete_appro
+ADD CONSTRAINT fk_entAppro FOREIGN KEY (idClient) REFERENCES client(id)
+
 -- TABLES
+CREATE TABLE detail_appro(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    qte FLOAT,
+    idProduit INT,
+    idEnteteAppro INT
+)
+
+ALTER TABLE detail_appro
+ADD CONSTRAINT fk_detAppro FOREIGN KEY (idProduit) REFERENCES produit(id)
+
+ALTER TABLE detail_appro
+ADD CONSTRAINT fk_detAppro1 FOREIGN KEY (idEnteteAppro) REFERENCES entete_appro(id)
+
+
 CREATE TABLE detail_facture(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     qte FLOAT,
@@ -51,6 +73,8 @@ CREATE TABLE detail_facture(
 
 ALTER TABLE detail_facture
 ADD CONSTRAINT fk_detFac1 FOREIGN KEY (idProduit) REFERENCES produit(id)
+
+
 
 CREATE TABLE stock(
 	id INT PRIMARY KEY AUTO_INCREMENT,
