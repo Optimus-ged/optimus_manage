@@ -42,10 +42,10 @@
                   <ComboBox fx:id="cmbSexe" layoutX="36.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="197.0" promptText="Sexe" style="-fx-background-color: transparent;" />
                </children>
             </AnchorPane>
-            <Label layoutX="18.0" layoutY="197.0" text="Poste ocuppe" textFill="#aaaaaa" />
+            <Label layoutX="18.0" layoutY="197.0" prefWidth="72.0" text="Telephone" textFill="#aaaaaa" />
             <AnchorPane layoutX="16.0" layoutY="218.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                <children>
-                  <TextField fx:id="txtPoste" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Poste" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <TextField fx:id="txtTelephone" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Telephone" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                   <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                </children>
             </AnchorPane>
