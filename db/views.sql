@@ -40,18 +40,4 @@ LEFT join sum_fact_by_produit as sFact ON st.idProduit = sFact.idProduit
 --SELECT idProduit FROM fiche_de_stock WHERE date_fiche_de_stock = DATE_FORMAT(NOW(), "%d-%m-%Y")
 --st.id AS id_stock, dateStock as date_mvt, designation, pu, qte AS stock_initial,  (CASE  WHEN total_entre IS NULL THEN 0 ELSE total_entre END) total_entre, (CASE WHEN total_consomme IS NULL THEN 0 ELSE total_consomme END) total_consomme, COALESCE(qte-total_consomme, 0) AS stock_final FROM stock AS st
 
- INSERT INTO fiche_de_stock(
-    	date_fiche_de_stock,
-        idProduit,
-        stock_initial,
-        qte_entree,
-        qte_consommee,
-        stock_final
-    )VALUES(
-    	DATE_FORMAT(NOW(), "%d-%m-%Y"),
-        (SELECT COUNT(id) id FROM produit),
-        0,
-        0,
-        0,
-        0
-    );
+ SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = 1

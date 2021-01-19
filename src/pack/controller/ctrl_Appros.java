@@ -143,10 +143,7 @@ public class ctrl_Appros implements Initializable {
 
     public void initData(String ids) {
         try {
-            String query = "SELECT approentete.id,designation,detailsappro.qte,produit.pu FROM `detailsappro` INNER JOIN "
-                    + "                    produit ON produit.id=detailsappro.idProduit "
-                    + "                    INNER JOIN approentete "
-                    + "                    ON approentete.id=detailsappro.idEnteteAppro where approentete.id='" + ids + "'";
+            String query = "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id='" + ids + "'";
             resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
             while (resultSet.next()) {
                 System.out.println(resultSet.getString("id"));

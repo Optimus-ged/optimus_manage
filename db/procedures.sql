@@ -8,6 +8,7 @@ CREATE PROCEDURE sp_produit_in
     ppu FLOAT
 )
 BEGIN
+    DECLARE id_prod_stock INT;
     IF EXISTS(SELECT id FROM produit WHERE id = iidproduit) THEN
         UPDATE produit SET
             designation = ddesignation,
@@ -15,8 +16,9 @@ BEGIN
         WHERE id = iidproduit;
 
     ELSE
+        SET id_prod_stock = 
         INSERT INTO produit(designation, pu) VALUES(ddesignation, ppu);
-        INSERT INTO stock(idProduit, qte)VALUES(iidproduit, 0);
+        INSERT INTO stock(idProduit, qte)VALUES((SELECT COUNT(id)+1 FROM produit), 0);
     END IF;
 
     SELECT * FROM produit;
@@ -28,10 +30,13 @@ END
 DELIMITER $
 CREATE PROCEDURE sp_produit_del
 (
-    iid INT
+    ddesignation VARCHAR(100)
 )
 BEGIN 
+    DECLARE iid INT ;
+    SET iid = (SELECT id FROM produit WHERE designation = ddesignation);
     DELETE FROM produit WHERE id = iid;
+    SELECT * FROM produit;
 END
 
 -- Commentaire
@@ -61,9 +66,11 @@ END
 DELIMITER $
 CREATE PROCEDURE sp_agent_del
 (
-    iid INT
+    nnom VARCHAR(100)
 )
 BEGIN 
+    DECLARE iid INT;
+    SET iid = (SELECT id FROM agent WHERE nom = nnom);
     DELETE FROM agent WHERE id = iid;
 END
 
@@ -91,9 +98,11 @@ END
 DELIMITER $
 CREATE PROCEDURE sp_fournisseur_del
 (
-    iid INT
+    nnom VARCHAR(100)
 )
 BEGIN 
+    DECLARE iid INT;
+    SET iid = (SELECT id FROM fournisseur WHERE nom = nnom);
     DELETE FROM fournisseur WHERE id = iid;
 END
 
@@ -123,10 +132,13 @@ END
 DELIMITER $
 CREATE PROCEDURE sp_client_del
 (
-    iid INT
+    nnom VARCHAR(100)
 )
 BEGIN 
+    DECLARE iid INT;
+    SET iid = (SELECT id FROM client WHERE nom = nnom);
     DELETE FROM client WHERE id = iid;
+    SELECT * FROM client;
 END
 
 -- Commentaire
@@ -157,6 +169,8 @@ BEGIN
 END
 
 
+-- Commentaire
+-- Prodedure d'insertion dans la table appro details
 DELIMITER $
 CREATE PROCEDURE sp_approDetail_in
 (
@@ -177,6 +191,9 @@ BEGIN
    
 END
 
+
+-- Commentaire
+-- Prodedure d'insertion dans la table facture detail
 DELIMITER $
 CREATE PROCEDURE sp_factDetail_in
 (
