@@ -24,6 +24,17 @@ BEGIN
 END
 
 -- Commentaire
+-- Prodedure de suppression dans la table produit
+DELIMITER $
+CREATE PROCEDURE sp_produit_del
+(
+    iid INT
+)
+BEGIN 
+    DELETE FROM produit WHERE id = iid;
+END
+
+-- Commentaire
 -- Prodedure d'insertion dans la table agent
 DELIMITER $
 CREATE PROCEDURE sp_agent_in
@@ -46,6 +57,17 @@ BEGIN
 END
 
 -- Commentaire
+-- Prodedure de suppression dans la table agent
+DELIMITER $
+CREATE PROCEDURE sp_agent_del
+(
+    iid INT
+)
+BEGIN 
+    DELETE FROM agent WHERE id = iid;
+END
+
+-- Commentaire
 -- Prodedure d'insertion dans la table fournisseur
 DELIMITER $
 CREATE PROCEDURE sp_fournisseur_in
@@ -64,6 +86,16 @@ BEGIN
     SELECT * FROM fournisseur;
 END
 
+-- Commentaire
+-- Prodedure de suppression dans la table fournisseur
+DELIMITER $
+CREATE PROCEDURE sp_fournisseur_del
+(
+    iid INT
+)
+BEGIN 
+    DELETE FROM fournisseur WHERE id = iid;
+END
 
 -- Commentaire
 -- Prodedure d'insertion dans la table client
@@ -86,6 +118,16 @@ BEGIN
     SELECT * FROM client;
 END
 
+-- Commentaire
+-- Prodedure de suppression dans la table client
+DELIMITER $
+CREATE PROCEDURE sp_client_del
+(
+    iid INT
+)
+BEGIN 
+    DELETE FROM client WHERE id = iid;
+END
 
 -- Commentaire
 -- Prodedure d'insertion dans la table entete appro
