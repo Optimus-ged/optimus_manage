@@ -24,6 +24,7 @@ CREATE TABLE fournisseur(
 );
 
 
+
 CREATE TABLE produit(
     id INT PRIMARY KEY AUTO_INCREMENT,
     designation VARCHAR(100),
@@ -42,12 +43,12 @@ ADD CONSTRAINT fk_entFac FOREIGN KEY (idClient) REFERENCES client(id)
 
 CREATE TABLE entete_appro(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-    idClient INT,
+    idFournisseur INT,
     date_appro VARCHAR(30)
 );
 
 ALTER TABLE entete_appro
-ADD CONSTRAINT fk_entAppro FOREIGN KEY (idClient) REFERENCES client(id)
+ADD CONSTRAINT fk_entAppro FOREIGN KEY (idFournisseur) REFERENCES fournisseur(id)
 
 -- TABLES
 CREATE TABLE detail_appro(
@@ -72,7 +73,10 @@ CREATE TABLE detail_facture(
 )
 
 ALTER TABLE detail_facture
-ADD CONSTRAINT fk_detFac1 FOREIGN KEY (idProduit) REFERENCES produit(id)
+ADD CONSTRAINT fk_detFac1 FOREIGN KEY (idProduit) REFERENCES produit(id);
+
+ALTER TABLE detail_facture
+ADD CONSTRAINT fk_detFac2 FOREIGN KEY (idEnteteFacture) REFERENCES entete_facture(id)
 
 
 
