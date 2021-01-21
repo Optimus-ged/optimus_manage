@@ -116,8 +116,8 @@ ADD CONSTRAINT fk_detCre1 FOREIGN KEY (idProduit) REFERENCES produit(id);
 ALTER TABLE detail_credit
 ADD CONSTRAINT fk_detCre2 FOREIGN KEY (idEnteteCredit) REFERENCES entete_credit(id)
 
-
-
+-- Commentaire
+-- Creation de la table Stock
 CREATE TABLE stock(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     idProduit INT,
@@ -127,6 +127,8 @@ CREATE TABLE stock(
 ALTER TABLE stock
 ADD CONSTRAINT st_prod FOREIGN KEY (idProduit) REFERENCES produit(id)
 
+-- Commentaire
+-- Creation de la table fiche de stock
 CREATE TABLE fiche_de_stock(
     id INT PRIMARY KEY AUTO_INCREMENT,
     date_fiche_de_stock VARCHAR(30),
