@@ -1,4 +1,5 @@
--- TABLES
+-- Commentaire
+-- Creation de la table client
 CREATE TABLE client(
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(50),
@@ -7,6 +8,8 @@ CREATE TABLE client(
     telephone VARCHAR(30)
 );
 
+-- Commentaire
+-- Creation de la table agent
 CREATE TABLE agent(
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(50),
@@ -16,6 +19,8 @@ CREATE TABLE agent(
     poste VARCHAR(30)
 );
 
+-- Commentaire
+-- Creation de la table fournisseur
 CREATE TABLE fournisseur(
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(100),
@@ -23,15 +28,16 @@ CREATE TABLE fournisseur(
     telephone VARCHAR(30)
 );
 
-
-
+-- Commentaire
+-- Creation de la table produit
 CREATE TABLE produit(
     id INT PRIMARY KEY AUTO_INCREMENT,
     designation VARCHAR(100),
     pu FLOAT,
 );
 
-
+-- Commentaire
+-- Creation de la table enete facture
 CREATE TABLE entete_facture(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     idClient INT,
@@ -41,6 +47,8 @@ CREATE TABLE entete_facture(
 ALTER TABLE entete_facture
 ADD CONSTRAINT fk_entFac FOREIGN KEY (idClient) REFERENCES client(id)
 
+-- Commentaire
+-- Creation de la table entete approvisionnement
 CREATE TABLE entete_appro(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     idFournisseur INT,
@@ -50,7 +58,20 @@ CREATE TABLE entete_appro(
 ALTER TABLE entete_appro
 ADD CONSTRAINT fk_entAppro FOREIGN KEY (idFournisseur) REFERENCES fournisseur(id)
 
--- TABLES
+
+-- Commentaire
+-- Creation de la table entete credit
+CREATE TABLE entete_credit(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    idClient INT,
+    date_credit VARCHAR(30)
+);
+
+ALTER TABLE entete_credit
+ADD CONSTRAINT fk_entCre FOREIGN KEY (idClient) REFERENCES client(id)
+
+-- Commentaire
+-- Creation de la table details approvisionnement
 CREATE TABLE detail_appro(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     qte FLOAT,
@@ -64,7 +85,8 @@ ADD CONSTRAINT fk_detAppro FOREIGN KEY (idProduit) REFERENCES produit(id)
 ALTER TABLE detail_appro
 ADD CONSTRAINT fk_detAppro1 FOREIGN KEY (idEnteteAppro) REFERENCES entete_appro(id)
 
-
+-- Commentaire
+-- Creation de la table details facture
 CREATE TABLE detail_facture(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     qte FLOAT,
@@ -77,6 +99,22 @@ ADD CONSTRAINT fk_detFac1 FOREIGN KEY (idProduit) REFERENCES produit(id);
 
 ALTER TABLE detail_facture
 ADD CONSTRAINT fk_detFac2 FOREIGN KEY (idEnteteFacture) REFERENCES entete_facture(id)
+
+
+-- Commentaire
+-- Creation de la table details credit
+CREATE TABLE detail_credit(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    qte FLOAT,
+    idProduit INT,
+    idEnteteCredit INT
+)
+
+ALTER TABLE detail_credit
+ADD CONSTRAINT fk_detCre1 FOREIGN KEY (idProduit) REFERENCES produit(id);
+
+ALTER TABLE detail_credit
+ADD CONSTRAINT fk_detCre2 FOREIGN KEY (idEnteteCredit) REFERENCES entete_credit(id)
 
 
 
