@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane fx:id="containerAppro" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_Appros">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: transparent;">
@@ -116,7 +115,7 @@
                   <VBox fx:id="vboxDetail" prefHeight="360.0" prefWidth="370.0" style="-fx-border-color: white;" />
                </content>
             </ScrollPane>
-            <Label fx:id="idAppro" layoutX="262.0" layoutY="17.0" text="0" visible="false" />
+            <Label fx:id="idAppro" layoutX="262.0" layoutY="17.0" text="0" />
             <Label alignment="CENTER" layoutX="276.0" layoutY="97.0" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #F4F4F4;" text="Id" textFill="#aaaaaa">
                <font>
                   <Font name="Verdana" size="14.0" />

@@ -97,6 +97,7 @@ public class ctrl_Comptabilite implements Initializable {
         if (idFacture.getText().equals("0")) {
             // Commentaire
             // Insertion dans la table entete
+            System.out.println("Insertion dans la table entete");
             entete = new MdlEnteteFacture(txtNomClient.getText());
             try {
                 if (getInstance().isSave(entete, 1) == true) {
@@ -109,6 +110,7 @@ public class ctrl_Comptabilite implements Initializable {
             // Commentaire
             // Insertion dans la table details
             detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
+            System.out.println("Insertion dans la table detail");
             try {
                 if (getInstance().isSave(detail, 1) == true) {
                     initCard();
@@ -116,12 +118,14 @@ public class ctrl_Comptabilite implements Initializable {
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
+        } else if (!idFacture.getText().equals("0")) {
 //             Commentaire
 //             Insertion dans la table details
+            
             detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
             try {
                 if (getInstance().isSave(detail, 1) == true) {
+                    System.out.println("Insertion dans la table detauls >>>>>>>>>>>>>>>>>>>");
                     initCard();
                 }
             } catch (SQLException | ClassNotFoundException ex) {
@@ -130,7 +134,7 @@ public class ctrl_Comptabilite implements Initializable {
         }
     }
 
-     String telephone(String nom) throws ClassNotFoundException, SQLException {
+    String telephone(String nom) throws ClassNotFoundException, SQLException {
         String query = "SELECT telephone FROM client WHERE nom = '" + nom + "'";
         resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
         if (resultSet.next()) {
@@ -138,8 +142,8 @@ public class ctrl_Comptabilite implements Initializable {
         }
         return null;
     }
-    
-     String pu(String desiProduit) throws ClassNotFoundException, SQLException{
+
+    String pu(String desiProduit) throws ClassNotFoundException, SQLException {
         String query = "SELECT pu FROM produit WHERE designation = '" + desiProduit + "'";
         resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
         if (resultSet.next()) {
@@ -208,7 +212,6 @@ public class ctrl_Comptabilite implements Initializable {
         txtPuProduit.setText(pu(txtDesiProduit.getText()));
     }
 
-
     @FXML
     private void showProductDialog(MouseEvent event) throws IOException {
         ctrl.dialogue(containerFact, "/pack/ui/ui_produit.fxml");
@@ -219,5 +222,4 @@ public class ctrl_Comptabilite implements Initializable {
         ctrl._interface(containerFact, "/pack/ui/ui_Client.fxml");
     }
 
-  
 }

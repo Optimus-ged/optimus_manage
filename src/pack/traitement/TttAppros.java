@@ -53,7 +53,7 @@ public class TttAppros {
         } else if (btn == 1) {
             if (ob instanceof MdlEnteteFacture) {
                 MdlEnteteFacture enteteFact = (MdlEnteteFacture) ob;
-                preparedStatemant = MdlConnexion.getCnx().prepareCall("Call sp_entete_facture (?)");
+                preparedStatemant = MdlConnexion.getCnx().prepareCall("Call sp_enteteFacture (?)");
                 preparedStatemant.setString(1, enteteFact.getNom());
                 int x = preparedStatemant.executeUpdate();
                 if (x != 0) {

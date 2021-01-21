@@ -48,12 +48,12 @@
             </Text>
             <Pane layoutX="402.0" layoutY="187.0" prefHeight="35.0" prefWidth="376.0" style="-fx-background-color: #F3F3F3;">
                <children>
-                  <TextField fx:id="txt_nom" layoutX="3.0" layoutY="4.0" prefHeight="27.0" prefWidth="366.0" promptText="Nom d'Utilisateur" style="-fx-background-color: transparent; -fx-border-color: transparent;" />
+                  <TextField fx:id="txt_nom" layoutX="3.0" layoutY="4.0" prefHeight="27.0" prefWidth="366.0" promptText="Nom d'Utilisateur" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="samy" />
                </children>
             </Pane>
             <Pane layoutX="402.0" layoutY="234.0" prefHeight="35.0" prefWidth="376.0" style="-fx-background-color: #F3F3F3;">
                <children>
-                  <CustomPasswordField fx:id="txt_password" layoutX="4.0" layoutY="5.0" prefHeight="25.0" prefWidth="366.0" promptText="Mot de passe" style="-fx-background-color: transparent;" />
+                  <CustomPasswordField fx:id="txt_password" layoutX="4.0" layoutY="5.0" prefHeight="25.0" prefWidth="366.0" promptText="Mot de passe" style="-fx-background-color: transparent;" text="vukungu" />
                </children>
             </Pane>
             <Label layoutX="585.0" layoutY="295.0" text="Mot de passe oublié ?" textFill="#212b38">

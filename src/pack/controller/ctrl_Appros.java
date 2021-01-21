@@ -133,7 +133,7 @@ public class ctrl_Appros implements Initializable {
 //        });
 //    }
     String initNum() throws SQLException, ClassNotFoundException {
-        String query = "SELECT MAX(id) x FROM approentete";
+        String query = "SELECT MAX(id) x FROM entete_appro";
         resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
         if (resultSet.next()) {
             return resultSet.getString("x");

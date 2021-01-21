@@ -80,5 +80,13 @@ public class ctrl_Principal implements Initializable {
     private void onApproClicked(MouseEvent event) throws IOException {
         ctrl._interface(principalContainer, "/pack/ui/ui_Appros.fxml");
     }
+
+    @FXML
+    private void onCreditCliked(MouseEvent event) {
+    }
+
+    @FXML
+    private void onPaiementCliked(MouseEvent event) {
+    }
     
 }
