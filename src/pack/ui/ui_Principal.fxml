@@ -76,7 +76,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="308.0" onMouseClicked="#onParametresClicked" prefHeight="27.0" prefWidth="147.0">
+                        <AnchorPane layoutY="392.0" onMouseClicked="#onParametresClicked" prefHeight="27.0" prefWidth="147.0">
                            <children>
                               <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Paramètres" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
                                  <font>
@@ -90,7 +90,7 @@
                         </AnchorPane>
                         <AnchorPane layoutY="223.0" onMouseClicked="#onComptabiliteCliked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Comptabilite" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Facturation" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -100,7 +100,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="266.0" onMouseClicked="#onRapportsClicked" prefHeight="27.0" prefWidth="147.0">
+                        <AnchorPane layoutY="350.0" onMouseClicked="#onRapportsClicked" prefHeight="27.0" prefWidth="147.0">
                            <children>
                               <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Rapports" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
                                  <font>
@@ -119,7 +119,31 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <FontAwesomeIconView fill="#727272" glyphName="ADD" size="20" />
+                                    <FontAwesomeIconView fill="#727272" glyphName="HOME" size="20" />
+                                 </graphic>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutY="263.0" onMouseClicked="#onCreditCliked" prefHeight="27.0" prefWidth="147.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Credit" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <MaterialDesignIconView fill="#727272" glyphName="DIAMOND" size="20" />
+                                 </graphic>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutY="306.0" onMouseClicked="#onPaiementCliked" prefHeight="27.0" prefWidth="147.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Paiement" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <MaterialDesignIconView fill="#727272" glyphName="DIAMOND" size="20" />
                                  </graphic>
                               </Label>
                            </children>
