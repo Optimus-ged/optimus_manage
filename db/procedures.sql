@@ -152,22 +152,8 @@ BEGIN
     DECLARE iid INT;
     SET iid = (SELECT id FROM fournisseur WHERE nom = nnomFsseur);
     INSERT INTO `entete_appro`( `idFournisseur`, `date_appro`) VALUES (iid, DATE_FORMAT(NOW(), "%d-%m-%Y"));
+    SELECT * FROM entete_appro;
 END
-
-
--- Commentaire
--- Prodedure d'insertion dans la table entete facture
-DELIMITER $
-CREATE PROCEDURE sp_enteteFacture
-(
-    nnomClient VARCHAR(50)
-)
-BEGIN 
-    DECLARE iid INT;
-    SET iid = (SELECT id FROM client WHERE nom = nnomClient);
-    INSERT INTO `entete_facture`( `idClient`, `date_facture`) VALUES (iid, DATE_FORMAT(NOW(), "%d-%m-%Y"));
-END
-
 
 -- Commentaire
 -- Prodedure d'insertion dans la table appro details
@@ -182,13 +168,13 @@ BEGIN
 	DECLARE idProduit_ INT;
     SET idProduit_ = (SELECT id FROM produit WHERE designation = desiProduit_);
     
-    IF EXISTS(SELECT idProduit FROM detailsappro WHERE idEnteteAppro = idEntAppro_) THEN
-        UPDATE detailsappro SET qte = qte+qte_ WHERE idEnteteAppro = idEntAppro_ AND idProduit=idProduit_;
+    IF EXISTS(SELECT idProduit FROM detail_appro WHERE idProduit = idProduit_) THEN
+        UPDATE detail_appro SET qte = qte_ WHERE idEnteteAppro = idEntAppro_ AND idProduit=idProduit_;
     ELSE
-        INSERT INTO detailsappro(idProduit, qte, idEnteteAppro)
+        INSERT INTO detail_appro(idProduit, qte, idEnteteAppro)
         VALUES(idProduit_, qte_, idEntAppro_);
     END IF;
-   
+   SELECT * FROM detail_appro;
 END
 
 
@@ -205,24 +191,28 @@ BEGIN
 	DECLARE idProduit_ INT;
     SET idProduit_ = (SELECT id FROM produit WHERE designation = desiProduit_);
     
-    IF NOT EXISTS(SELECT idProduit FROM detail_facture WHERE idEnteteFacture = idEntFacture_) THEN
+    
+    IF NOT EXISTS(SELECT idProduit FROM detail_facture WHERE idProduit = idProduit_) THEN
         INSERT INTO detail_facture(idProduit, qte, idEnteteFacture)
             VALUES(idProduit_, qte_, idEntFacture_);
     ELSE
-        UPDATE detail_facture SET qte = qte+qte_ WHERE idEnteteFacture = idEntFacture_ AND idProduit=idProduit_;
+        UPDATE detail_facture SET qte = qte_ WHERE idEnteteFacture = idEntFacture_ AND idProduit=idProduit_;
     END IF;
    
 END
 
+
+-- Commentaire
+-- Prodedure d'insertion dans la table entete facture
 DELIMITER $
 CREATE PROCEDURE sp_entete_facture(
 	IN _nomClient VARCHAR(50)
 )
 BEGIN 
-	DECLARE _id INT;
-    SET _id = (SELECT id FROM client WHERE nom = _nomClient);
-    INSERT INTO entete_facture(idClient, dateFacture)
-    VALUES(_id, sysdate());
+    DECLARE iid INT;
+    SET iid = (SELECT id FROM client WHERE nom = nnomClient);
+    INSERT INTO `entete_facture`( `idClient`, `date_facture`) VALUES (iid, DATE_FORMAT(NOW(), "%d-%m-%Y"));
+    SELECT * FROM entete_facture;
 END
 
 
