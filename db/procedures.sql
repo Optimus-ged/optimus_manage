@@ -234,7 +234,7 @@ UPDATE stock SET qte = qte+ qte_ WHERE idProduit = idProduit_;
         (SELECT date_facture FROM view_facture WHERE id_entete = idEntFacture_),
         (SELECT idClient FROM view_facture WHERE id_entete = idEntFacture_),
         idProduit_,
-        (SELECT qte FROM view_facture WHERE id_entete = idProduit_),
+        (SELECT qte FROM view_facture WHERE id_produit = idProduit_ AND id_entete = idEntFacture_),
         (SELECT total_qte FROM view_facture WHERE id_entete = idEntFacture_)
     );
 

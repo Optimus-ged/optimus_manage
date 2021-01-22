@@ -8,8 +8,8 @@ SELECT idEnteteFacture, SUM(qte) AS total_qte FROM detail_facture GROUP BY idEnt
 -- Commentaire
 -- View principale pour facture
 CREATE VIEW view_facture AS SELECT 
-ent.id AS id_entete, date_facture, cli.id, nom, prenom, sexe, telephone, 
-designation, pu,qte, 
+ent.id AS id_entete, date_facture, cli.id AS idClient, nom, prenom, sexe, telephone, 
+prod.id as id_produit,designation, pu,qte, 
 total_qte
 FROM client AS cli 
 INNER JOIN entete_facture AS ent ON ent.idClient = cli.id
