@@ -207,10 +207,10 @@
                   <Circle fill="#1f93ff00" layoutX="26.0" layoutY="68.0" radius="8.0" stroke="#39828f" strokeType="INSIDE" />
                   <Pane layoutY="90.0" prefHeight="542.0" prefWidth="207.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="90.0">
                      <children>
-                        <AnchorPane layoutX="3.0" layoutY="3.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="201.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3;">
+                        <AnchorPane layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3;">
                            <children>
-                              <TextField layoutX="1.0" layoutY="1.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="24.0" prefWidth="167.0" promptText="Recherchez ici !!!" style="-fx-background-color: white;" />
-                              <JFXButton contentDisplay="CENTER" layoutX="167.0" prefHeight="25.0" prefWidth="32.0" textFill="#727272">
+                              <TextField layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="167.0" promptText="Recherchez ici !!!" style="-fx-background-color: white;" />
+                              <JFXButton contentDisplay="CENTER" layoutX="166.0" layoutY="3.0" prefHeight="25.0" prefWidth="32.0" textFill="#727272">
                                  <graphic>
                                     <FontAwesomeIconView fill="#727272" glyphName="SEARCH" size="14" />
                                  </graphic>

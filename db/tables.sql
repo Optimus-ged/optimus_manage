@@ -151,3 +151,9 @@ TRUNCATE TABLE detailsappro;
 TRUNCATE TABLE fiche_de_stock;
 TRUNCATE TABLE stock;
 TRUNCATE TABLE produit;
+
+
+DELETE FROM detail_facture;
+DELETE FROM entete_facture;
+DELETE FROM detail_appro;
+DELETE from entete_appro;
