@@ -8,7 +8,7 @@ SELECT idEnteteFacture, SUM(qte) AS total_qte FROM detail_facture GROUP BY idEnt
 -- Commentaire
 -- View principale pour facture
 CREATE VIEW view_facture AS SELECT 
-ent.id AS id_entete, date_facture, cli.id AS idClient, nom, prenom, sexe, telephone, 
+ent.id AS id_entete, date_facture,type_vente, cli.id AS idClient, nom, prenom, sexe, telephone, 
 prod.id as id_produit,designation, pu,qte, 
 total_qte
 FROM client AS cli 
@@ -16,6 +16,20 @@ INNER JOIN entete_facture AS ent ON ent.idClient = cli.id
 INNER JOIN detail_facture AS det ON ent.id = det.idEnteteFacture
 INNER JOIN produit as prod On det.idProduit = prod.id
 INNER JOIN sum_detail_fact AS sum ON det.idEnteteFacture = sum.idEnteteFacture
+WHERE type_vente = 1
+
+-- Commentaire
+-- view principale pour credit facture
+CREATE VIEW view_facture_credit AS SELECT 
+ent.id AS id_entete, date_facture,type_vente, cli.id AS idClient, nom, prenom, sexe, telephone, 
+prod.id as id_produit,designation, pu,qte, 
+total_qte
+FROM client AS cli 
+INNER JOIN entete_facture AS ent ON ent.idClient = cli.id
+INNER JOIN detail_facture AS det ON ent.id = det.idEnteteFacture
+INNER JOIN produit as prod On det.idProduit = prod.id
+INNER JOIN sum_detail_fact AS sum ON det.idEnteteFacture = sum.idEnteteFacture
+WHERE type_vente = 2
 
 -- Commentaire
 -- View de sommation de qte pour details approvisionnement

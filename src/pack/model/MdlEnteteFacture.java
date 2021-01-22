@@ -11,16 +11,26 @@ package pack.model;
  */
 public class MdlEnteteFacture {
      private String nom;
+     private int typeVente;
 
-    public MdlEnteteFacture(String nom) {
+    public MdlEnteteFacture(String nom, int typeVente) {
         this.nom = nom;
+        this.typeVente = typeVente;
     }
 
     public void setNom(String nom) {
         this.nom = nom;
     }
+    
+    public void setType(int typeVente) {
+        this.typeVente = typeVente;
+    }
 
     public String getNom() {
         return nom;
+    }
+    
+    public int getType() {
+        return typeVente;
     }
 }

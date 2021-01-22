@@ -82,7 +82,8 @@ public class ctrl_Principal implements Initializable {
     }
 
     @FXML
-    private void onCreditCliked(MouseEvent event) {
+    private void onCreditCliked(MouseEvent event) throws IOException {
+        ctrl._interface(principalContainer, "/pack/ui/ui_CreditVente.fxml");
     }
 
     @FXML

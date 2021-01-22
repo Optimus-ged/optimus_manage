@@ -76,6 +76,12 @@ public class ctrl_Comptabilite implements Initializable {
     private cls_controller ctrl;
     @FXML
     private StackPane containerFact;
+    @FXML
+    private Label lbl_typeVente;
+    @FXML
+    private Label lblCategorie;
+    @FXML
+    private Label lbl_rubrique;
 
     /**
      * Initializes the controller class.
@@ -98,7 +104,7 @@ public class ctrl_Comptabilite implements Initializable {
             // Commentaire
             // Insertion dans la table entete
             System.out.println("Insertion dans la table entete");
-            entete = new MdlEnteteFacture(txtNomClient.getText());
+            entete = new MdlEnteteFacture(txtNomClient.getText(), Integer.parseInt(lbl_typeVente.getText()));
             try {
                 if (getInstance().isSave(entete, 1) == true) {
                     idFacture.setText(initNum());
@@ -121,7 +127,7 @@ public class ctrl_Comptabilite implements Initializable {
         } else if (!idFacture.getText().equals("0")) {
 //             Commentaire
 //             Insertion dans la table details
-            
+
             detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
             try {
                 if (getInstance().isSave(detail, 1) == true) {
@@ -220,6 +226,14 @@ public class ctrl_Comptabilite implements Initializable {
     @FXML
     private void showClientInterface(MouseEvent event) throws IOException {
         ctrl._interface(containerFact, "/pack/ui/ui_Client.fxml");
+    }
+
+    @FXML
+    private void vendreAcredit(ActionEvent event) {
+        lbl_typeVente.setText("2");
+        lblCategorie.setText("a Credit");
+        lbl_rubrique.setText("a credit");
+        idFacture.setText("0");
     }
 
 }

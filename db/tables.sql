@@ -41,6 +41,7 @@ CREATE TABLE produit(
 CREATE TABLE entete_facture(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     idClient INT,
+    type_vente INT,
     date_facture VARCHAR(30)
 );
 
@@ -177,3 +178,5 @@ DELETE FROM detail_appro;
 DELETE FROM entete_appro;
 DELETE FROM stock;
 DELETE FROM produit;
+DELETE FROM fiche_de_stock;
+DELETE FROM historique_client;
