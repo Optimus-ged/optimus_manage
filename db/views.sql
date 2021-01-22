@@ -8,7 +8,7 @@ SELECT idEnteteFacture, SUM(qte) AS total_qte FROM detail_facture GROUP BY idEnt
 -- Commentaire
 -- View principale pour facture
 CREATE VIEW view_facture AS SELECT 
-ent.id AS id_entete, date_facture, nom, prenom, sexe, telephone, 
+ent.id AS id_entete, date_facture, cli.id, nom, prenom, sexe, telephone, 
 designation, pu,qte, 
 total_qte
 FROM client AS cli 
@@ -25,7 +25,7 @@ SELECT idEnteteAppro, SUM(qte) AS total_qte FROM detailsappro GROUP BY idEnteteA
 -- Commentaire
 -- View pour sommation de qte par id pour approvisionnement
 CREATE VIEW sum_appros_by_produit AS 
-SELECT idProduit, SUM(qte) AS total_entre FROM detailsappro GROUP BY idProduit
+SELECT idProduit, SUM(qte) AS total_entre FROM detail_appro GROUP BY idProduit
 
 -- Commentaire
 -- View pour sommation de qte par id pour facture
@@ -40,7 +40,7 @@ SELECT dateStock, SUM(qte) AS total_consomme FROM detail_facture GROUP BY idProd
 -- Commentaire
 -- View principale pour approvisionnement
 CREATE VIEW view_stock AS SELECT
-st.id AS id_stock, dateStock as date_mvt, prod.id AS idProduit, designation, pu, qte AS stock_initial,  (CASE  WHEN total_entre IS NULL THEN 0 ELSE total_entre END) total_entre, (CASE WHEN total_consomme IS NULL THEN 0 ELSE total_consomme END) total_consomme, (CASE WHEN total_consomme IS NULL THEN qte ELSE total_entre - total_consomme END) AS stock_final FROM stock AS st
+st.id AS id_stock, prod.id AS idProduit, designation, pu, qte AS stock_initial,  (CASE  WHEN total_entre IS NULL THEN 0 ELSE total_entre END) total_entre, (CASE WHEN total_consomme IS NULL THEN 0 ELSE total_consomme END) total_consomme, (CASE WHEN total_consomme IS NULL THEN qte ELSE total_entre - total_consomme END) AS stock_final FROM stock AS st
 INNER JOIN produit AS prod ON st.idProduit = prod.id
 LEFT JOIN sum_appros_by_produit as sApro ON st.idProduit = sApro.idProduit
 LEFT join sum_fact_by_produit as sFact ON st.idProduit = sFact.idProduit

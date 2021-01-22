@@ -157,49 +157,92 @@ END
 
 -- Commentaire
 -- Prodedure d'insertion dans la table appro details
-DELIMITER $
-CREATE PROCEDURE sp_approDetail_in
-(
-    IN desiProduit_ VARCHAR(50),
-    IN qte_ FLOAT,
-    IN idEntAppro_ INT
+DELIMITER $$
+CREATE PROCEDURE sp_approDetail_in (
+    IN `desiProduit_` VARCHAR(50), 
+    IN `qte_` FLOAT, 
+    IN `idEntAppro_` INT
 )
 BEGIN 
 	DECLARE idProduit_ INT;
     SET idProduit_ = (SELECT id FROM produit WHERE designation = desiProduit_);
-    
-    IF EXISTS(SELECT idProduit FROM detail_appro WHERE idProduit = idProduit_) THEN
+       
+    IF EXISTS(SELECT idProduit FROM detail_appro WHERE idProduit = idProduit_ AND idEnteteAppro = idEntAppro_ ) THEN
         UPDATE detail_appro SET qte = qte_ WHERE idEnteteAppro = idEntAppro_ AND idProduit=idProduit_;
+        
+        UPDATE stock SET qte = qte_ WHERE idProduit = idProduit_;
     ELSE
         INSERT INTO detail_appro(idProduit, qte, idEnteteAppro)
         VALUES(idProduit_, qte_, idEntAppro_);
+        
+        UPDATE stock SET qte = qte + qte_ WHERE idProduit = idProduit_; 
     END IF;
-   SELECT * FROM detail_appro;
-END
+
+    INSERT INTO `fiche_de_stock`(
+        `date_fiche_de_stock`, 
+        `idProduit`, 
+        `stock_initial`, 
+        `qte_entree`, 
+        `qte_consommee`, 
+        `stock_final`
+    ) VALUES (
+        DATE_FORMAT(NOW(), "%d-%m-%Y"),
+        idProduit_,
+        (SELECT stock_initial FROM view_stock WHERE idProduit = idProduit_),
+        (SELECT total_entre FROM view_stock WHERE idProduit = idProduit_),
+        (SELECT total_consomme FROM view_stock WHERE idProduit = idProduit_),
+        (SELECT stock_final FROM view_stock WHERE idProduit = idProduit_)
+    );
+
+    SELECT * FROM entete_appro;
+    SELECT * FROM detail_appro;
+    SELECT * FROM stock;
+END$$
+DELIMITER ;
 
 
 -- Commentaire
 -- Prodedure d'insertion dans la table facture detail
-DELIMITER $
-CREATE PROCEDURE sp_factDetail_in
-(
-    IN desiProduit_ VARCHAR(50),
-    IN qte_ FLOAT,
-    IN idEntFacture_ INT
+DELIMITER $$
+CREATE PROCEDURE  sp_factDetail_in(
+    IN `desiProduit_` VARCHAR(50), 
+    IN `qte_` FLOAT, 
+    IN `idEntFacture_` INT
 )
 BEGIN 
 	DECLARE idProduit_ INT;
     SET idProduit_ = (SELECT id FROM produit WHERE designation = desiProduit_);
+       
+    IF EXISTS(SELECT idProduit FROM detail_facture WHERE idProduit = idProduit_ AND idEnteteFacture = idEntFacture_) THEN
     
-    
-    IF NOT EXISTS(SELECT idProduit FROM detail_facture WHERE idProduit = idProduit_) THEN
-        INSERT INTO detail_facture(idProduit, qte, idEnteteFacture)
-            VALUES(idProduit_, qte_, idEntFacture_);
+        UPDATE detail_facture SET qte = qte_ WHERE idProduit=idProduit_  AND idEnteteFacture = idEntFacture_;
+        
+UPDATE stock SET qte = qte+ qte_ WHERE idProduit = idProduit_;
     ELSE
-        UPDATE detail_facture SET qte = qte_ WHERE idEnteteFacture = idEntFacture_ AND idProduit=idProduit_;
+     INSERT INTO detail_facture(idProduit, qte, idEnteteFacture)
+            VALUES(idProduit_, qte_, idEntFacture_);
+       UPDATE stock SET qte = qte+ qte_ WHERE idProduit = idProduit_;
     END IF;
+
+   INSERT INTO `historique_client`(
+       `date_vente`, 
+       `idClient`, 
+       `idProduit`, 
+       `qte`, 
+       `qte_total`
+    ) VALUES (
+        (SELECT date_facture FROM view_facture WHERE id_entete = idEntFacture_),
+        (SELECT idClient FROM view_facture WHERE id_entete = idEntFacture_),
+        idProduit_,
+        (SELECT qte FROM view_facture WHERE id_entete = idProduit_),
+        (SELECT total_qte FROM view_facture WHERE id_entete = idEntFacture_)
+    );
+
+    SELECT * FROM entete_facture;
+    SELECT * FROM detail_facture;
    
-END
+END$$
+DELIMITER ;
 
 
 -- Commentaire

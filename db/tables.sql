@@ -139,8 +139,26 @@ CREATE TABLE fiche_de_stock(
     stock_final FLOAT
 );
 
+
 ALTER TABLE fiche_de_stock
 ADD CONSTRAINT fk_fiche_stock FOREIGN KEY(idProduit)REFERENCES produit(id)
+
+
+CREATE TABLE historique_client(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    date_vente VARCHAR(30),
+    idClient INT
+    idProduit INT,
+    qte FLOAT,
+    qte_total FLOAT
+);
+
+ALTER TABLE historique_client
+ADD CONSTRAINT fk_hisclient FOREIGN KEY(idProduit)REFERENCES produit(id);
+
+ALTER TABLE historique_client
+ADD CONSTRAINT fk_hisclient2 FOREIGN KEY(idClient)REFERENCES client(id);
+
 
 
 
@@ -156,4 +174,6 @@ TRUNCATE TABLE produit;
 DELETE FROM detail_facture;
 DELETE FROM entete_facture;
 DELETE FROM detail_appro;
-DELETE from entete_appro;
+DELETE FROM entete_appro;
+DELETE FROM stock;
+DELETE FROM produit;
