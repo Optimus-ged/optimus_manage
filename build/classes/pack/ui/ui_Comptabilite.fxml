@@ -99,8 +99,8 @@
                   </AnchorPane>
                </children>
             </Pane>
-            <Label fx:id="idFacture" layoutX="399.0" layoutY="17.0" text="0" />
-            <Label fx:id="lbl_typeVente" layoutX="424.0" layoutY="17.0" text="1" />
+            <Label fx:id="idFacture" layoutX="399.0" layoutY="17.0" text="0" visible="false" />
+            <Label fx:id="lbl_typeVente" layoutX="424.0" layoutY="17.0" text="1" visible="false" />
             <Label fx:id="lblCategorie" layoutX="124.0" layoutY="14.0" prefHeight="23.0" prefWidth="105.0" text="Cash" textFill="#d74838">
                <font>
                   <Font name="Verdana" size="18.0" />
