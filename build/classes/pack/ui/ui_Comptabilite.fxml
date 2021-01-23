@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -22,7 +21,7 @@
                   <Font name="Verdana" size="18.0" />
                </font>
             </Label>
-            <Pane layoutY="71.0" prefHeight="502.0" prefWidth="281.0" style="-fx-background-color: transparent;">
+            <Pane layoutY="57.0" prefHeight="447.0" prefWidth="281.0" style="-fx-background-color: transparent;">
                <children>
                   <Label layoutX="16.0" layoutY="54.0" text="Nom Client" textFill="#aaaaaa" />
                   <AnchorPane layoutX="16.0" layoutY="77.0" prefHeight="28.0" prefWidth="205.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
@@ -53,23 +52,17 @@
                         <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                      </children>
                   </AnchorPane>
-                  <JFXButton fx:id="btnEnre" layoutX="16.0" layoutY="412.0" onAction="#enregAppros" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
+                  <JFXButton fx:id="btnEnre" layoutX="16.0" layoutY="406.0" onAction="#enregAppros" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="140.0" layoutY="412.0" onAction="#ajouterProduit" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Ajouter" textFill="WHITE">
+                  <JFXButton layoutX="140.0" layoutY="406.0" onAction="#ajouterProduit" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Ajouter" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </JFXButton>
                   <Label fx:id="txtId" layoutX="126.0" layoutY="11.0" text="0" visible="false" />
-                  <Pane layoutX="11.0" layoutY="464.0" prefHeight="30.0" prefWidth="215.0">
-                     <children>
-                        <Label fx:id="lblInfo" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
-                        <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />
-                     </children>
-                  </Pane>
                   <AnchorPane layoutX="16.0" layoutY="302.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <TextField fx:id="txtPuProduit" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Pu" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
@@ -86,7 +79,7 @@
                         <Font name="Verdana" size="14.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="152.0" layoutY="433.0" size="20" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="152.0" layoutY="427.0" size="20" />
                   <AnchorPane layoutX="229.0" layoutY="77.0" onMouseClicked="#showClientInterface" prefHeight="28.0" prefWidth="28.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="6.0" prefHeight="17.0" prefWidth="28.0" text=". . ." textAlignment="CENTER" />
@@ -136,50 +129,38 @@
                   <Font name="Verdana" size="11.0" />
                </font>
             </Label>
-            <Pane layoutX="279.0" layoutY="109.0" prefHeight="403.0" prefWidth="375.0" style="-fx-background-color: grey;">
+            <Pane layoutX="14.0" layoutY="508.0" prefHeight="126.0" prefWidth="252.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="21.0">
                <children>
-                  <Pane layoutX="11.0" prefHeight="28.0" prefWidth="38.0" style="-fx-background-color: transparent;">
+                  <Pane layoutX="2.0" prefHeight="28.0" prefWidth="105.0" style="-fx-background-color: transparent;">
                      <children>
-                        <Label layoutX="5.0" prefHeight="28.0" prefWidth="28.0" text="Id" textFill="#dddada">
+                        <Label layoutX="4.0" prefHeight="28.0" prefWidth="86.0" text="Designation" textFill="#dddada">
                            <font>
-                              <Font name="Verdana" size="14.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets left="50.0" />
-                           </opaqueInsets>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="58.0" prefHeight="28.0" prefWidth="145.0" style="-fx-background-color: transparent;">
-                     <children>
-                        <Label layoutX="8.0" prefHeight="28.0" prefWidth="86.0" text="Designation" textFill="#dddada">
-                           <font>
-                              <Font name="Verdana" size="14.0" />
+                              <Font name="Verdana" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="203.0" prefHeight="28.0" prefWidth="86.0" style="-fx-background-color: transparent;">
+                  <Pane layoutX="116.0" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: transparent;">
                      <children>
-                        <Label layoutX="3.0" prefHeight="28.0" prefWidth="28.0" text="Pu" textFill="#dddada">
+                        <Label layoutX="1.0" prefHeight="28.0" prefWidth="28.0" text="Pu" textFill="#dddada">
                            <font>
-                              <Font name="Verdana" size="14.0" />
+                              <Font name="Verdana" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="289.0" prefHeight="28.0" prefWidth="86.0" style="-fx-background-color: transparent;">
+                  <Pane layoutX="187.0" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: transparent;">
                      <children>
-                        <Label layoutX="4.0" minWidth="-Infinity" prefHeight="28.0" prefWidth="70.0" text="Quantite" textFill="#dddada">
+                        <Label layoutX="12.0" minWidth="-Infinity" prefHeight="28.0" prefWidth="32.0" text="Qte" textFill="#dddada">
                            <font>
-                              <Font name="Verdana" size="14.0" />
+                              <Font name="Verdana" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <ScrollPane layoutX="1.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="372.0" prefWidth="373.0" style="-fx-border-color: white;">
+                  <ScrollPane layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="252.0" style="-fx-border-color: white;">
                      <content>
-                        <VBox fx:id="vboxDetail" prefHeight="368.0" prefWidth="368.0" style="-fx-border-color: white;" />
+                        <VBox fx:id="vboxDetail" prefHeight="92.0" prefWidth="248.0" style="-fx-border-color: white;" />
                      </content>
                   </ScrollPane>
                </children>

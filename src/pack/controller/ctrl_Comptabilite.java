@@ -27,7 +27,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import static pack.controller.ctrl_DetailAppro.txtDesignation1;
-import static pack.controller.ctrl_DetailAppro.txtId1;
 import static pack.controller.ctrl_DetailAppro.txtPu1;
 import static pack.controller.ctrl_DetailAppro.txtQte1;
 import pack.main.cls_controller;
@@ -55,10 +54,6 @@ public class ctrl_Comptabilite implements Initializable {
     private JFXButton btnEnre;
     @FXML
     private Label txtId;
-    @FXML
-    private Label lblInfo;
-    @FXML
-    private FontAwesomeIconView font;
     @FXML
     private TextField txtPuProduit;
     @FXML
@@ -194,9 +189,8 @@ public class ctrl_Comptabilite implements Initializable {
         vboxDetail.setSpacing(2);
 
         for (int index = 0; index < id.size(); index++) {
-            txtId1 = id.get(index).toString();
             txtDesignation1 = designation.get(index).toString();
-            txtPu1 = punitaire.get(index).toString();
+            txtPu1 = punitaire.get(index).toString() + " Fc";
             txtQte1 = quantite.get(index).toString();
             try {
                 node[index] = FXMLLoader.load(getClass().getResource("/pack/composants/ui_DetailAppro.fxml"));

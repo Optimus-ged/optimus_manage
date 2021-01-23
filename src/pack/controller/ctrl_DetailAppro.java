@@ -29,7 +29,6 @@ public class ctrl_DetailAppro implements Initializable {
     private Label txtQte;
     @FXML
     public static FontAwesomeIconView close;
-    public static String txtId1;
     public static String txtDesignation1;
     public static String txtPu1;
     public static String txtQte1;
@@ -41,7 +40,6 @@ public class ctrl_DetailAppro implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        txtId.setText(txtId1);
         txtDesignation.setText(txtDesignation1);
         txtPu.setText(txtPu1);
         txtQte.setText(txtQte1);

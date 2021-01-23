@@ -217,6 +217,26 @@
                               </JFXButton>
                            </children>
                         </AnchorPane>
+                        <Label layoutX="5.0" layoutY="40.0" text="Saisissez dans la barre de ">
+                           <font>
+                              <Font name="Verdana" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="55.0" text="recherche ci-haut le numero de">
+                           <font>
+                              <Font name="Verdana" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="69.0" text="la facture concernee et trouvez les">
+                           <font>
+                              <Font name="Verdana" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="7.0" layoutY="83.0" text="resultats">
+                           <font>
+                              <Font name="Verdana" size="11.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
                   <Label alignment="CENTER" layoutY="629.0" prefHeight="36.0" prefWidth="207.0" style="-fx-background-color: #F6F7F9;" text="\@ Copy right by Optimus Technology" textAlignment="CENTER" textFill="#867c7c" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="7.0">
