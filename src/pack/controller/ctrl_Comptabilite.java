@@ -6,6 +6,7 @@
 package pack.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
@@ -77,6 +78,8 @@ public class ctrl_Comptabilite implements Initializable {
     private Label lblCategorie;
     @FXML
     private Label lbl_rubrique;
+    @FXML
+    private JFXListView<?> lstview_produit;
 
     /**
      * Initializes the controller class.
@@ -115,6 +118,7 @@ public class ctrl_Comptabilite implements Initializable {
             try {
                 if (getInstance().isSave(detail, 1) == true) {
                     initCard();
+                    initList(lstview_produit, idFacture.getText());
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
@@ -228,6 +232,20 @@ public class ctrl_Comptabilite implements Initializable {
         lblCategorie.setText("a Credit");
         lbl_rubrique.setText("a credit");
         idFacture.setText("0");
+    }
+
+    void initList(JFXListView list, String ids) {
+        try {
+            list.getItems().clear();
+            resultSet = MdlConnexion.getCnx().createStatement().executeQuery("SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + ids + "'");
+            while (resultSet.next()) {
+                txtDesignation1 = resultSet.getString("designation");
+                txtPu1 = resultSet.getString("pu") + " Fc";
+                txtQte1 = resultSet.getString("qte");
+                list.getItems().add(FXMLLoader.load(getClass().getResource("/pack/composants/ui_DetailAppro.fxml")));
+            }
+        } catch (Exception ex) {
+        }
     }
 
 }
