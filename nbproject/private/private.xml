@@ -7,7 +7,9 @@
             <file>file:/F:/projects/java-desk/OptimusManage/src/pack/model/MdlEnteteFacture.java</file>
             <file>file:/F:/projects/java-desk/OptimusManage/src/pack/controller/ctrl_Principal.java</file>
             <file>file:/F:/projects/java-desk/OptimusManage/src/pack/controller/ctrl_Comptabilite.java</file>
+            <file>file:/F:/projects/java-desk/OptimusManage/src/pack/controller/ctrl_Appros.java</file>
             <file>file:/F:/projects/java-desk/OptimusManage/src/pack/traitement/TttFacturation.java</file>
+            <file>file:/F:/projects/java-desk/OptimusManage/src/pack/controller/ctrl_DetailAppro.java</file>
         </group>
     </open-files>
 </project-private>
