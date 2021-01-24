@@ -6,17 +6,17 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="229.0" style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_DetailAppro">
    <children>
-      <Label fx:id="txtPu" layoutX="113.0" minHeight="28.0" prefHeight="28.0" prefWidth="71.0" text="1000">
+      <Label fx:id="txtPu" layoutX="108.0" minHeight="28.0" prefHeight="28.0" prefWidth="56.0" text="1000" AnchorPane.leftAnchor="108.0">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="txtDesignation" contentDisplay="CENTER" layoutX="4.0" prefHeight="28.0" prefWidth="96.0" text="Designation">
+      <Label fx:id="txtDesignation" contentDisplay="CENTER" layoutX="-2.0" prefHeight="28.0" prefWidth="96.0" text="Designation" AnchorPane.leftAnchor="-2.0">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="txtQte" layoutX="197.0" minHeight="28.0" prefHeight="28.0" prefWidth="29.0" text="20">
+      <Label fx:id="txtQte" layoutX="187.0" minHeight="28.0" prefHeight="28.0" prefWidth="29.0" text="20" AnchorPane.rightAnchor="13.0">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>

@@ -19,7 +19,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -29,6 +28,10 @@ import javafx.scene.layout.VBox;
 import static pack.controller.ctrl_DetailAppro.txtDesignation1;
 import static pack.controller.ctrl_DetailAppro.txtPu1;
 import static pack.controller.ctrl_DetailAppro.txtQte1;
+import static pack.controller.ctrl_tousLesFactures.contact_;
+import static pack.controller.ctrl_tousLesFactures.idFacture_;
+import static pack.controller.ctrl_tousLesFactures.nomClient_;
+import static pack.controller.ctrl_tousLesFactures.sexe_;
 import pack.main.cls_controller;
 import pack.model.MdlConnexion;
 import pack.model.MdlDetailFacture;
@@ -56,7 +59,6 @@ public class ctrl_Comptabilite implements Initializable {
     private Label txtId;
     @FXML
     private TextField txtPuProduit;
-    @FXML
     private VBox vboxDetail;
 
     private MdlEnteteFacture entete;
@@ -79,6 +81,8 @@ public class ctrl_Comptabilite implements Initializable {
     private Label lbl_rubrique;
     @FXML
     private JFXListView<?> lstview_produit;
+    @FXML
+    private JFXListView<?> list_tousLesFactures;
 
     /**
      * Initializes the controller class.
@@ -88,6 +92,13 @@ public class ctrl_Comptabilite implements Initializable {
         ctrl = new cls_controller();
         ctrl.ChargememtCompression(txtNomClient, "client", "nom");
         ctrl.ChargememtCompression(txtDesiProduit, "produit", "designation");
+        initList(
+                list_tousLesFactures,
+                2,
+                "/pack/composants/ui_tousLesFactures.fxml",
+                "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
+                + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
+        );
     }
 
     @FXML
@@ -116,8 +127,13 @@ public class ctrl_Comptabilite implements Initializable {
             System.out.println("Insertion dans la table detail");
             try {
                 if (getInstance().isSave(detail, 1) == true) {
-                    initCard();
-                    initList(lstview_produit, idFacture.getText());
+//                    initCard();
+                    initList(
+                            lstview_produit,
+                            1,
+                            "/pack/composants/ui_DetailAppro.fxml",
+                            "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
+                    );
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
@@ -125,12 +141,15 @@ public class ctrl_Comptabilite implements Initializable {
         } else if (!idFacture.getText().equals("0")) {
 //             Commentaire
 //             Insertion dans la table details
-
             detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
             try {
                 if (getInstance().isSave(detail, 1) == true) {
-                    System.out.println("Insertion dans la table detauls >>>>>>>>>>>>>>>>>>>");
-                    initCard();
+                    initList(
+                            lstview_produit,
+                            1,
+                            "/pack/composants/ui_DetailAppro.fxml",
+                            "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
+                    );
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
@@ -165,46 +184,44 @@ public class ctrl_Comptabilite implements Initializable {
         return null;
     }
 
-    public void initData(String ids) {
-        try {
-            String query = "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + ids + "'";
-            resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
-            while (resultSet.next()) {
-                id.add(resultSet.getString("id"));
-                designation.add(resultSet.getString("designation"));
-                punitaire.add(resultSet.getString("pu"));
-                quantite.add(resultSet.getString("qte"));
-            }
-
-        } catch (ClassNotFoundException | SQLException ex) {
-        }
-    }
-
-    public void initCard() {
-
-        id.clear();
-        designation.clear();
-        punitaire.clear();
-        quantite.clear();
-        initData(idFacture.getText());
-        Node[] node = new Node[id.size()];
-        vboxDetail.getChildren().clear();
-        vboxDetail.setSpacing(2);
-
-        for (int index = 0; index < id.size(); index++) {
-            txtDesignation1 = designation.get(index).toString();
-            txtPu1 = punitaire.get(index).toString() + " Fc";
-            txtQte1 = quantite.get(index).toString();
-            try {
-                node[index] = FXMLLoader.load(getClass().getResource("/pack/composants/ui_DetailAppro.fxml"));
-            } catch (IOException ex) {
-//                    Logger.getLogger(CtrlUsers.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            vboxDetail.getChildren().add(node[index]);
-        }
-
-    }
-
+//    public void initData(String ids) {
+//        try {
+//            String query = "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + ids + "'";
+//            resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
+//            while (resultSet.next()) {
+//                id.add(resultSet.getString("id"));
+//                designation.add(resultSet.getString("designation"));
+//                punitaire.add(resultSet.getString("pu"));
+//                quantite.add(resultSet.getString("qte"));
+//            }
+//
+//        } catch (ClassNotFoundException | SQLException ex) {
+//        }
+//    }
+//    public void initCard() {
+//
+//        id.clear();
+//        designation.clear();
+//        punitaire.clear();
+//        quantite.clear();
+//        initData(idFacture.getText());
+//        Node[] node = new Node[id.size()];
+//        vboxDetail.getChildren().clear();
+//        vboxDetail.setSpacing(2);
+//
+//        for (int index = 0; index < id.size(); index++) {
+//            txtDesignation1 = designation.get(index).toString();
+//            txtPu1 = punitaire.get(index).toString() + " Fc";
+//            txtQte1 = quantite.get(index).toString();
+//            try {
+//                node[index] = FXMLLoader.load(getClass().getResource("/pack/composants/ui_DetailAppro.fxml"));
+//            } catch (IOException ex) {
+////                    Logger.getLogger(CtrlUsers.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            vboxDetail.getChildren().add(node[index]);
+//        }
+//
+//    }
     @FXML
     private void NumClient(KeyEvent event) throws ClassNotFoundException, SQLException {
         txtTelephoneClient.setText(telephone(txtNomClient.getText()));
@@ -233,16 +250,28 @@ public class ctrl_Comptabilite implements Initializable {
         idFacture.setText("0");
     }
 
-    void initList(JFXListView list, String ids) {
+    void initList(JFXListView list, int btn, String uiFx, String requette) {
         try {
             list.getItems().clear();
-            resultSet = MdlConnexion.getCnx().createStatement().executeQuery("SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + ids + "'");
-            while (resultSet.next()) {
-                txtDesignation1 = resultSet.getString("designation");
-                txtPu1 = resultSet.getString("pu") + " Fc";
-                txtQte1 = resultSet.getString("qte");
-                list.getItems().add(FXMLLoader.load(getClass().getResource("/pack/composants/ui_DetailAppro.fxml")));
+
+            resultSet = MdlConnexion.getCnx().createStatement().executeQuery(requette);
+            if (btn == 1) {
+                while (resultSet.next()) {
+                    txtDesignation1 = resultSet.getString("designation");
+                    txtPu1 = resultSet.getString("pu") + " Fc";
+                    txtQte1 = resultSet.getString("qte");
+                    list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
+                }
+            } else if (btn == 2) {
+                while (resultSet.next()) {
+                    idFacture_ = resultSet.getString("id");
+                    nomClient_ = resultSet.getString("nom");;
+                    sexe_ = resultSet.getString("sexe");;
+                    contact_ = resultSet.getString("telephone");;
+                    list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
+                }
             }
+
         } catch (Exception ex) {
         }
     }

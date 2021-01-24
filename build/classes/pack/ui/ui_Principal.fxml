@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Label?>
@@ -47,7 +48,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <MaterialDesignIconView fill="#727272" glyphName="ACCOUNT_CIRCLE" size="20" />
+                                    <MaterialDesignIconView fill="#212b38" glyphName="ACCOUNT_CIRCLE" size="20" />
                                  </graphic>
                               </Label>
                            </children>
@@ -59,7 +60,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <MaterialDesignIconView fill="#727272" glyphName="ACCOUNT_PLUS" size="20" />
+                                    <MaterialDesignIconView fill="#212b38" glyphName="ACCOUNT_PLUS" size="20" />
                                  </graphic>
                               </Label>
                            </children>
@@ -71,7 +72,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <FontAwesomeIconView fill="#727272" glyphName="HOME" size="20" />
+                                    <FontAwesomeIconView fill="#212b38" glyphName="HOME" size="20" />
                                  </graphic>
                               </Label>
                            </children>
@@ -83,7 +84,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <FontAwesomeIconView fill="#727272" glyphName="COGS" size="20" />
+                                    <FontAwesomeIconView fill="#212b38" glyphName="COGS" size="20" />
                                  </graphic>
                               </Label>
                            </children>
@@ -95,7 +96,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <MaterialDesignIconView fill="#727272" glyphName="DIAMOND" size="20" />
+                                    <MaterialDesignIconView fill="#212b38" glyphName="DIAMOND" size="20" />
                                  </graphic>
                               </Label>
                            </children>
@@ -107,7 +108,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <MaterialDesignIconView fill="#727272" glyphName="FILE_DOCUMENT_BOX" size="20" />
+                                    <MaterialDesignIconView fill="#212b38" glyphName="FILE_DOCUMENT_BOX" size="20" />
                                  </graphic>
                               </Label>
                            </children>
@@ -119,7 +120,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <FontAwesomeIconView fill="#727272" glyphName="HOME" size="20" />
+                                    <FontAwesomeIconView fill="#212b38" glyphName="HOME" size="20" />
                                  </graphic>
                               </Label>
                            </children>
@@ -131,7 +132,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <MaterialDesignIconView fill="#727272" glyphName="DIAMOND" size="20" />
+                                    <MaterialDesignIconView fill="#212b38" glyphName="DIAMOND" size="20" />
                                  </graphic>
                               </Label>
                            </children>
@@ -143,7 +144,7 @@
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <MaterialDesignIconView fill="#727272" glyphName="DIAMOND" size="20" />
+                                    <MaterialDesignIconView fill="#212b38" glyphName="DIAMOND" size="20" />
                                  </graphic>
                               </Label>
                            </children>
@@ -170,7 +171,7 @@
                         </Label>
                         <JFXButton alignment="CENTER" cache="true" contentDisplay="CENTER" layoutX="121.0" layoutY="46.0" onAction="#deconnection" prefHeight="25.0" prefWidth="28.0" textFill="#26324b">
                            <graphic>
-                              <FontAwesomeIconView glyphName="POWER_OFF" size="16" />
+                              <FontAwesomeIconView fill="#212b38" glyphName="POWER_OFF" size="16" />
                            </graphic>
                         </JFXButton>
                      </children>
@@ -207,32 +208,53 @@
                   <Circle fill="#1f93ff00" layoutX="26.0" layoutY="68.0" radius="8.0" stroke="#39828f" strokeType="INSIDE" />
                   <Pane layoutY="90.0" prefHeight="542.0" prefWidth="207.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="90.0">
                      <children>
-                        <AnchorPane layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3;">
+                        <AnchorPane layoutX="3.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3;">
                            <children>
                               <TextField layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="167.0" promptText="Recherchez ici !!!" style="-fx-background-color: white;" />
                               <JFXButton contentDisplay="CENTER" layoutX="166.0" layoutY="3.0" prefHeight="25.0" prefWidth="32.0" textFill="#727272">
                                  <graphic>
-                                    <FontAwesomeIconView fill="#727272" glyphName="SEARCH" size="14" />
+                                    <FontAwesomeIconView fill="#212b38" glyphName="SEARCH" size="14" />
                                  </graphic>
                               </JFXButton>
                            </children>
                         </AnchorPane>
-                        <Label layoutX="5.0" layoutY="40.0" text="Saisissez dans la barre de ">
+                        <Label layoutX="5.0" layoutY="40.0" text="Selectionnez la date en appuillant ">
                            <font>
                               <Font name="Verdana" size="11.0" />
                            </font>
                         </Label>
-                        <Label layoutX="6.0" layoutY="55.0" text="recherche ci-haut le numero de">
+                        <Label layoutX="6.0" layoutY="55.0" text="sur l'icone situee a droite du">
                            <font>
                               <Font name="Verdana" size="11.0" />
                            </font>
                         </Label>
-                        <Label layoutX="6.0" layoutY="69.0" text="la facture concernee et trouvez les">
+                        <Label layoutX="6.0" layoutY="69.0" text="champs de saisi ci-haut">
                            <font>
                               <Font name="Verdana" size="11.0" />
                            </font>
                         </Label>
-                        <Label layoutX="7.0" layoutY="83.0" text="resultats">
+                        <AnchorPane layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3;">
+                           <children>
+                              <TextField layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="167.0" promptText="Selectionner la date" style="-fx-background-color: white;" />
+                              <JFXDatePicker defaultColor="#212b38" layoutX="175.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="28.0" />
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="5.0" layoutY="169.0" text="Saisissez dans la barre de ">
+                           <font>
+                              <Font name="Verdana" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="184.0" text="recherche ci-haut le numero de">
+                           <font>
+                              <Font name="Verdana" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="198.0" text="la facture concernee et trouvez les">
+                           <font>
+                              <Font name="Verdana" size="11.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="212.0" text="resultats">
                            <font>
                               <Font name="Verdana" size="11.0" />
                            </font>

@@ -5,88 +5,86 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <StackPane fx:id="containerFact" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_Comptabilite">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: transparent;">
          <children>
-            <Label layoutX="15.0" layoutY="14.0" prefHeight="23.0" prefWidth="121.0" text="Facturation" textFill="#464d86">
+            <Label layoutX="8.0" layoutY="14.0" prefHeight="23.0" prefWidth="121.0" text="Facturation" textFill="#464d86">
                <font>
                   <Font name="Verdana" size="18.0" />
                </font>
             </Label>
             <Pane layoutY="57.0" prefHeight="447.0" prefWidth="281.0" style="-fx-background-color: transparent;">
                <children>
-                  <Label layoutX="16.0" layoutY="54.0" text="Nom Client" textFill="#aaaaaa" />
-                  <AnchorPane layoutX="16.0" layoutY="77.0" prefHeight="28.0" prefWidth="205.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+                  <Label layoutX="9.0" layoutY="54.0" text="Nom Client" textFill="#aaaaaa" />
+                  <AnchorPane layoutX="9.0" layoutY="77.0" prefHeight="28.0" prefWidth="205.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <TextField fx:id="txtNomClient" layoutX="37.0" layoutY="1.0" onKeyReleased="#NumClient" prefHeight="25.0" prefWidth="165.0" promptText="Nom Client" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                         <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="17.0" layoutY="137.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+                  <AnchorPane layoutX="10.0" layoutY="137.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <TextField fx:id="txtTelephoneClient" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Contact Client" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                         <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                      </children>
                   </AnchorPane>
-                  <Label layoutX="18.0" layoutY="115.0" text="Contact Client" textFill="#aaaaaa" />
-                  <Label layoutX="18.0" layoutY="225.0" text="Designation Produit" textFill="#aaaaaa" />
-                  <AnchorPane layoutX="16.0" layoutY="248.0" prefHeight="28.0" prefWidth="205.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+                  <Label layoutX="11.0" layoutY="115.0" text="Contact Client" textFill="#aaaaaa" />
+                  <Label layoutX="11.0" layoutY="225.0" text="Designation Produit" textFill="#aaaaaa" />
+                  <AnchorPane layoutX="9.0" layoutY="248.0" prefHeight="28.0" prefWidth="205.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <TextField fx:id="txtDesiProduit" layoutX="37.0" layoutY="1.0" onKeyReleased="#desiProduit" prefHeight="25.0" prefWidth="165.0" promptText="Designation Produit" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                         <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                      </children>
                   </AnchorPane>
-                  <Label layoutX="16.0" layoutY="281.0" text="Pu" textFill="#aaaaaa" />
-                  <Label layoutX="18.0" layoutY="339.0" text="Quantite" textFill="#aaaaaa" />
-                  <AnchorPane layoutX="16.0" layoutY="360.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+                  <Label layoutX="9.0" layoutY="281.0" text="Pu" textFill="#aaaaaa" />
+                  <Label layoutX="11.0" layoutY="339.0" text="Quantite" textFill="#aaaaaa" />
+                  <AnchorPane layoutX="9.0" layoutY="360.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <TextField fx:id="txtQteProduit" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Quantite" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                         <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                      </children>
                   </AnchorPane>
-                  <JFXButton fx:id="btnEnre" layoutX="16.0" layoutY="406.0" onAction="#enregAppros" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
+                  <JFXButton fx:id="btnEnre" layoutX="9.0" layoutY="406.0" onAction="#enregAppros" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="140.0" layoutY="406.0" onAction="#ajouterProduit" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Ajouter" textFill="WHITE">
+                  <JFXButton layoutX="133.0" layoutY="406.0" onAction="#ajouterProduit" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Ajouter" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </JFXButton>
                   <Label fx:id="txtId" layoutX="126.0" layoutY="11.0" text="0" visible="false" />
-                  <AnchorPane layoutX="16.0" layoutY="302.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+                  <AnchorPane layoutX="9.0" layoutY="302.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <TextField fx:id="txtPuProduit" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Pu" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                         <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                      </children>
                   </AnchorPane>
-                  <Label layoutX="18.0" layoutY="194.0" prefHeight="23.0" prefWidth="65.0" text="Details" textFill="#464d86">
+                  <Label layoutX="11.0" layoutY="194.0" prefHeight="23.0" prefWidth="65.0" text="Details" textFill="#464d86">
                      <font>
                         <Font name="Verdana" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="16.0" layoutY="26.0" prefHeight="23.0" prefWidth="65.0" text="Entete" textFill="#464d86">
+                  <Label layoutX="9.0" layoutY="26.0" prefHeight="23.0" prefWidth="65.0" text="Entete" textFill="#464d86">
                      <font>
                         <Font name="Verdana" size="14.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="152.0" layoutY="427.0" size="20" />
-                  <AnchorPane layoutX="229.0" layoutY="77.0" onMouseClicked="#showClientInterface" prefHeight="28.0" prefWidth="28.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+                  <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="145.0" layoutY="427.0" size="20" />
+                  <AnchorPane layoutX="222.0" layoutY="77.0" onMouseClicked="#showClientInterface" prefHeight="28.0" prefWidth="28.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="6.0" prefHeight="17.0" prefWidth="28.0" text=". . ." textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="229.0" layoutY="248.0" onMouseClicked="#showProductDialog" prefHeight="28.0" prefWidth="28.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+                  <AnchorPane layoutX="222.0" layoutY="248.0" onMouseClicked="#showProductDialog" prefHeight="28.0" prefWidth="28.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="6.0" prefHeight="17.0" prefWidth="28.0" text=". . ." textAlignment="CENTER" />
                      </children>
@@ -95,46 +93,46 @@
             </Pane>
             <Label fx:id="idFacture" layoutX="399.0" layoutY="17.0" text="0" visible="false" />
             <Label fx:id="lbl_typeVente" layoutX="424.0" layoutY="17.0" text="1" visible="false" />
-            <Label fx:id="lblCategorie" layoutX="124.0" layoutY="14.0" prefHeight="23.0" prefWidth="105.0" text="Cash" textFill="#d74838">
+            <Label fx:id="lblCategorie" layoutX="117.0" layoutY="14.0" prefHeight="23.0" prefWidth="105.0" text="Cash" textFill="#d74838">
                <font>
                   <Font name="Verdana" size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="732.0" layoutY="19.0" onAction="#vendreAcredit" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Credit" textFill="WHITE" AnchorPane.rightAnchor="4.0">
+            <JFXButton layoutX="732.0" layoutY="19.0" onAction="#vendreAcredit" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Credit" textFill="WHITE" AnchorPane.rightAnchor="5.0">
                <font>
                   <Font name="Verdana" size="12.0" />
                </font>
             </JFXButton>
-            <Label layoutX="604.0" layoutY="17.0" text="Cliquer sur ce bouton" AnchorPane.rightAnchor="78.0">
+            <Label layoutX="605.0" layoutY="17.0" text="Cliquer sur ce bouton" AnchorPane.rightAnchor="77.0">
                <font>
                   <Font name="Verdana" size="11.0" />
                </font>
             </Label>
-            <Label layoutX="557.0" layoutY="32.0" text="si vous voulez vendre a credit" AnchorPane.rightAnchor="78.0">
+            <Label layoutX="558.0" layoutY="32.0" text="si vous voulez vendre a credit" AnchorPane.rightAnchor="77.0">
                <font>
                   <Font name="Verdana" size="11.0" />
                </font>
             </Label>
-            <Label layoutX="16.0" layoutY="40.0" text="Cette interface vous permet">
+            <Label layoutX="9.0" layoutY="40.0" text="Cette interface vous permet">
                <font>
                   <Font name="Verdana" size="11.0" />
                </font>
             </Label>
-            <Label layoutX="175.0" layoutY="40.0" text="de faire des ventes">
+            <Label layoutX="168.0" layoutY="40.0" text="de faire des ventes">
                <font>
                   <Font name="Verdana" size="11.0" />
                </font>
             </Label>
-            <Label fx:id="lbl_rubrique" layoutX="286.0" layoutY="40.0" text="au comptant">
+            <Label fx:id="lbl_rubrique" layoutX="279.0" layoutY="40.0" text="au comptant">
                <font>
                   <Font name="Verdana" size="11.0" />
                </font>
             </Label>
-            <Pane layoutX="14.0" layoutY="508.0" prefHeight="126.0" prefWidth="252.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="21.0" AnchorPane.topAnchor="508.0">
+            <Pane layoutX="7.0" layoutY="508.0" prefHeight="28.0" prefWidth="252.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="119.0" AnchorPane.topAnchor="508.0">
                <children>
                   <Pane layoutX="2.0" prefHeight="28.0" prefWidth="105.0" style="-fx-background-color: transparent;">
                      <children>
-                        <Label layoutX="4.0" prefHeight="28.0" prefWidth="86.0" text="Designation" textFill="#dddada">
+                        <Label layoutX="5.0" prefHeight="28.0" prefWidth="86.0" text="Designation" textFill="#dddada">
                            <font>
                               <Font name="Verdana" size="12.0" />
                            </font>
@@ -143,7 +141,7 @@
                   </Pane>
                   <Pane layoutX="116.0" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: transparent;">
                      <children>
-                        <Label layoutX="1.0" prefHeight="28.0" prefWidth="28.0" text="Pu" textFill="#dddada">
+                        <Label layoutX="2.0" prefHeight="28.0" prefWidth="28.0" text="Pu" textFill="#dddada">
                            <font>
                               <Font name="Verdana" size="12.0" />
                            </font>
@@ -152,21 +150,17 @@
                   </Pane>
                   <Pane layoutX="187.0" prefHeight="28.0" prefWidth="60.0" style="-fx-background-color: transparent;">
                      <children>
-                        <Label layoutX="12.0" minWidth="-Infinity" prefHeight="28.0" prefWidth="32.0" text="Qte" textFill="#dddada">
+                        <Label layoutX="13.0" minWidth="-Infinity" prefHeight="28.0" prefWidth="32.0" text="Qte" textFill="#dddada">
                            <font>
                               <Font name="Verdana" size="12.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <ScrollPane layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="252.0" style="-fx-border-color: white;">
-                     <content>
-                        <VBox fx:id="vboxDetail" prefHeight="92.0" prefWidth="248.0" style="-fx-border-color: white;" />
-                     </content>
-                  </ScrollPane>
                </children>
             </Pane>
-            <JFXListView fx:id="lstview_produit" focusTraversable="false" layoutX="392.0" layoutY="128.0" minHeight="400.0" prefWidth="248.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="127.0" AnchorPane.leftAnchor="392.0" AnchorPane.rightAnchor="161.0" />
+            <JFXListView fx:id="lstview_produit" focusTraversable="false" layoutX="7.0" layoutY="536.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="104.0" prefWidth="252.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="536.0" />
+            <JFXListView fx:id="list_tousLesFactures" focusTraversable="false" layoutX="269.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="527.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="135.0" />
          </children>
       </AnchorPane>
    </children>
