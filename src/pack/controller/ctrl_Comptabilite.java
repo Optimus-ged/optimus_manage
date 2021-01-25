@@ -83,6 +83,9 @@ public class ctrl_Comptabilite implements Initializable {
     private JFXListView<?> lstview_produit;
     @FXML
     private JFXListView<?> list_tousLesFactures;
+    private boolean cash = true;
+    @FXML
+    private JFXButton btn_typeVente;
 
     /**
      * Initializes the controller class.
@@ -116,6 +119,7 @@ public class ctrl_Comptabilite implements Initializable {
             try {
                 if (getInstance().isSave(entete, 1) == true) {
                     idFacture.setText(initNum());
+
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
@@ -134,6 +138,13 @@ public class ctrl_Comptabilite implements Initializable {
                             "/pack/composants/ui_DetailAppro.fxml",
                             "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
                     );
+                    initList(
+                            list_tousLesFactures,
+                            2,
+                            "/pack/composants/ui_tousLesFactures.fxml",
+                            "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
+                            + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
+                    );
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
@@ -149,6 +160,13 @@ public class ctrl_Comptabilite implements Initializable {
                             1,
                             "/pack/composants/ui_DetailAppro.fxml",
                             "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
+                    );
+                    initList(
+                            list_tousLesFactures,
+                            2,
+                            "/pack/composants/ui_tousLesFactures.fxml",
+                            "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
+                            + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
                     );
                 }
             } catch (SQLException | ClassNotFoundException ex) {
@@ -244,10 +262,21 @@ public class ctrl_Comptabilite implements Initializable {
 
     @FXML
     private void vendreAcredit(ActionEvent event) {
-        lbl_typeVente.setText("2");
-        lblCategorie.setText("a Credit");
-        lbl_rubrique.setText("a credit");
-        idFacture.setText("0");
+        cash = !cash;
+        if (!cash) {
+            lbl_typeVente.setText("2");
+            btn_typeVente.setText("Cash");
+            lblCategorie.setText("a Credit");
+            lbl_rubrique.setText("a credit");
+            idFacture.setText("0");
+        } else {
+            lbl_typeVente.setText("1");
+            btn_typeVente.setText("Credit");
+            lblCategorie.setText("Cash");
+            lbl_rubrique.setText("au comptant");
+            idFacture.setText("0");
+        }
+
     }
 
     void initList(JFXListView list, int btn, String uiFx, String requette) {

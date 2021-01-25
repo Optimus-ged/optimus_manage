@@ -98,7 +98,7 @@
                   <Font name="Verdana" size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="732.0" layoutY="19.0" onAction="#vendreAcredit" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Credit" textFill="WHITE" AnchorPane.rightAnchor="5.0">
+            <JFXButton fx:id="btn_typeVente" layoutX="732.0" layoutY="19.0" onAction="#vendreAcredit" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Credit" textFill="WHITE" AnchorPane.rightAnchor="5.0">
                <font>
                   <Font name="Verdana" size="12.0" />
                </font>
@@ -108,7 +108,7 @@
                   <Font name="Verdana" size="11.0" />
                </font>
             </Label>
-            <Label layoutX="558.0" layoutY="32.0" text="si vous voulez vendre a credit" AnchorPane.rightAnchor="77.0">
+            <Label layoutX="558.0" layoutY="32.0" text="pour changer le type de vente" AnchorPane.rightAnchor="77.0">
                <font>
                   <Font name="Verdana" size="11.0" />
                </font>
