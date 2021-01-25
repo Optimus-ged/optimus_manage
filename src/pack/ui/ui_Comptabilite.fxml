@@ -161,6 +161,30 @@
             </Pane>
             <JFXListView fx:id="lstview_produit" focusTraversable="false" layoutX="7.0" layoutY="536.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="104.0" prefWidth="252.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="536.0" />
             <JFXListView fx:id="list_tousLesFactures" focusTraversable="false" layoutX="269.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="527.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="135.0" />
+            <Pane layoutX="269.0" layoutY="90.0" prefHeight="45.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="5.0">
+               <children>
+                  <Label layoutX="17.0" layoutY="14.0" text="N° fact" textFill="#464d86">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="117.0" layoutY="14.0" text="Client" textFill="#464d86">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="319.0" layoutY="14.0" text="Sexe" textFill="#464d86">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="398.0" layoutY="14.0" text="Contact client" textFill="#464d86">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </children>

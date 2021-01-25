@@ -160,7 +160,14 @@ ADD CONSTRAINT fk_hisclient FOREIGN KEY(idProduit)REFERENCES produit(id);
 ALTER TABLE historique_client
 ADD CONSTRAINT fk_hisclient2 FOREIGN KEY(idClient)REFERENCES client(id);
 
+ALTER TABLE historique_client
+ADD prix_vente FLOAT;
 
+ALTER TABLE historique_client
+ADD prix_vente_total FLOAT;
+
+ALTER TABLE historique_client
+ADD type_vente VARCHAR(30);
 
 
 TRUNCATE TABLE entete_facture;

@@ -6,17 +6,30 @@ CREATE VIEW sum_detail_fact AS
 SELECT idEnteteFacture, SUM(qte) AS total_qte FROM detail_facture GROUP BY idEnteteFacture
 
 -- Commentaire
+-- View de sommation prix de vente (PAT)
+CREATE VIEW sum_prix_vente AS 
+SELECT id_entete, SUM(prix_vente) AS prix_vente_total FROM view_facture GROUP BY id_entete
+
+-- Commentaire
 -- View principale pour facture
 CREATE VIEW view_facture AS SELECT 
 ent.id AS id_entete, date_facture,type_vente, cli.id AS idClient, nom, prenom, sexe, telephone, 
-prod.id as id_produit,designation, pu,qte, 
+prod.id as id_produit,designation, pu,qte, (pu*qte) AS prix_vente,
 total_qte
 FROM client AS cli 
 INNER JOIN entete_facture AS ent ON ent.idClient = cli.id
 INNER JOIN detail_facture AS det ON ent.id = det.idEnteteFacture
 INNER JOIN produit as prod On det.idProduit = prod.id
 INNER JOIN sum_detail_fact AS sum ON det.idEnteteFacture = sum.idEnteteFacture
-WHERE type_vente = 1
+-- WHERE type_vente = 1
+
+-- Commentaire
+-- View definitive pour facture
+CREATE VIEW view_facture_finale AS SELECT 
+f.id_entete, date_facture,(CASE WHEN type_vente=1 THEN "Cash" ELSE "Credit" END) AS  type_vente, idClient, nom, prenom, sexe, telephone,
+id_produit,designation, pu,qte, prix_vente, total_qte, prix_vente_total
+FROM view_facture AS f
+INNER JOIN sum_prix_vente AS v ON f.id_entete = v.id_entete
 
 -- Commentaire
 -- view principale pour credit facture
