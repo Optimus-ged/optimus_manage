@@ -47,7 +47,7 @@ WHERE type_vente = 2
 -- Commentaire
 -- View de sommation de qte pour details approvisionnement
 CREATE VIEW sum_detail_appros AS 
-SELECT idEnteteAppro, SUM(qte) AS total_qte FROM detailsappro GROUP BY idEnteteAppro
+SELECT idEnteteAppro, SUM(qte) AS total_qte FROM detail_appro GROUP BY idEnteteAppro
 
 -- Commentaire
 -- View pour sommation de qte par id pour approvisionnement
@@ -75,3 +75,6 @@ LEFT join sum_fact_by_produit as sFact ON st.idProduit = sFact.idProduit
 --st.id AS id_stock, dateStock as date_mvt, designation, pu, qte AS stock_initial,  (CASE  WHEN total_entre IS NULL THEN 0 ELSE total_entre END) total_entre, (CASE WHEN total_consomme IS NULL THEN 0 ELSE total_consomme END) total_consomme, COALESCE(qte-total_consomme, 0) AS stock_final FROM stock AS st
 
  SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = 1
+
+ SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent
+INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur

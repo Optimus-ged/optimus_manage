@@ -7,7 +7,9 @@ package pack.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -16,12 +18,28 @@ import javafx.fxml.Initializable;
  */
 public class ctrl_tousLesAppros implements Initializable {
 
+    @FXML
+    private Label idFsseur;
+    @FXML
+    private Label nomFsseur;
+    @FXML
+    private Label contact;
+    @FXML
+    private Label addresseFsseur;
+
     /**
      * Initializes the controller class.
      */
+    public static String idFsseur_;
+    public static String nomFsseur_;
+    public static String contact_;
+    public static String addresseFsseir_;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        idFsseur.setText(idFsseur_);
+        nomFsseur.setText(nomFsseur_);
+        contact.setText(contact_);
+        addresseFsseur.setText(addresseFsseir_);
     }    
     
 }

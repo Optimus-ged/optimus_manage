@@ -6,7 +6,7 @@
 package pack.controller;
 
 import com.jfoenix.controls.JFXButton;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -26,10 +26,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+
 import static pack.controller.ctrl_DetailAppro.txtDesignation1;
 import static pack.controller.ctrl_DetailAppro.txtPu1;
 import static pack.controller.ctrl_DetailAppro.txtQte1;
+import static pack.controller.ctrl_produitDetail.txtPu_;
+import static pack.controller.ctrl_produitDetail.txtQte_;
+import static pack.controller.ctrl_produitDetail.txtDesignation_;
+import static pack.controller.ctrl_tousLesAppros.addresseFsseir_;
+import static pack.controller.ctrl_tousLesAppros.nomFsseur_;
+import static pack.controller.ctrl_tousLesAppros.idFsseur_;
+import static pack.controller.ctrl_tousLesAppros.contact_;
 import pack.main.cls_controller;
 import pack.model.MdlConnexion;
 import pack.model.MdlDetailsAppro;
@@ -42,6 +49,7 @@ import static pack.traitement.TttAppros.getInstance;
  * @author Optimus
  */
 public class ctrl_Appros implements Initializable {
+
     private cls_controller ctrl;
 
     @FXML
@@ -55,17 +63,9 @@ public class ctrl_Appros implements Initializable {
     @FXML
     private Label txtId;
     @FXML
-    private Label lblInfo;
-    @FXML
-    private FontAwesomeIconView font;
-    @FXML
     private TextField txtPuProduit;
     @FXML
     private JFXButton btnEnre;
-    @FXML
-    private VBox vboxDetail;
-
-   
 
     private ResultSet resultSet;
     private Statement statement;
@@ -79,7 +79,10 @@ public class ctrl_Appros implements Initializable {
     public ArrayList quantite = new ArrayList();
     @FXML
     private StackPane containerAppro;
-    
+    @FXML
+    private JFXListView<?> lstview_produit;
+    @FXML
+    private JFXListView<?> list_tousLesAppros;
 
     /**
      * Initializes the controller class.
@@ -89,6 +92,13 @@ public class ctrl_Appros implements Initializable {
         ctrl = new cls_controller();
         ctrl.ChargememtCompression(txtNomFsseur, "fournisseur", "nom");
         ctrl.ChargememtCompression(txtDesiProduit, "produit", "designation");
+        initListView(
+                list_tousLesAppros,
+                2,
+                "/pack/composants/ui_tousLesAppros.fxml",
+                " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
+                + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
+        );
     }
 
     @FXML
@@ -156,41 +166,54 @@ public class ctrl_Appros implements Initializable {
         }
     }
 
-    public void initCard() {
-
-        id.clear();
-        designation.clear();
-        punitaire.clear();
-        quantite.clear();
-        initData(idAppro.getText());
-        Node[] node = new Node[id.size()];
-        vboxDetail.getChildren().clear();
-        vboxDetail.setSpacing(2);
-
-        for (int index = 0; index < id.size(); index++) {
-            
-            txtDesignation1 = designation.get(index).toString();
-            txtPu1 = punitaire.get(index).toString() ;
-            txtQte1 = quantite.get(index).toString();
-            try {
-                node[index] = FXMLLoader.load(getClass().getResource("/pack/composants/ui_DetailAppro.fxml"));
-            } catch (IOException ex) {
-//                    Logger.getLogger(CtrlUsers.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            vboxDetail.getChildren().add(node[index]);
-        }
-
-    }
-
+//    public void initCard() {
+//
+//        id.clear();
+//        designation.clear();
+//        punitaire.clear();
+//        quantite.clear();
+//        initData(idAppro.getText());
+//        Node[] node = new Node[id.size()];
+//        vboxDetail.getChildren().clear();
+//        vboxDetail.setSpacing(2);
+//
+//        for (int index = 0; index < id.size(); index++) {
+//
+//            txtDesignation1 = designation.get(index).toString();
+//            txtPu1 = punitaire.get(index).toString();
+//            txtQte1 = quantite.get(index).toString();
+//            try {
+//                node[index] = FXMLLoader.load(getClass().getResource("/pack/composants/ui_DetailAppro.fxml"));
+//            } catch (IOException ex) {
+////                    Logger.getLogger(CtrlUsers.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            vboxDetail.getChildren().add(node[index]);
+//        }
+//
+//    }
     @FXML
     private void ajouterProduit(ActionEvent event) {
+
         if (!idAppro.getText().equals("0")) {
             // Commentaire
             // Insertion dans la table details
             detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
             try {
                 if (getInstance().isSave(detail, 2) == true) {
-                    initCard();
+//                    initCard();
+                    initListView(
+                            lstview_produit,
+                            1,
+                            "/pack/composants/ui_produitDetail.fxml",
+                            "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
+                    );
+                    initListView(
+                            list_tousLesAppros,
+                            2,
+                            "/pack/composants/ui_tousLesAppros.fxml",
+                            " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
+                            + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
+                    );
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
@@ -213,7 +236,20 @@ public class ctrl_Appros implements Initializable {
             detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
             try {
                 if (getInstance().isSave(detail, 2) == true) {
-                    initCard();
+//                    initCard();
+                    initListView(
+                            lstview_produit,
+                            1,
+                            "/pack/composants/ui_produitDetail.fxml",
+                            "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
+                    );
+                    initListView(
+                            list_tousLesAppros,
+                            2,
+                            "/pack/composants/ui_tousLesAppros.fxml",
+                            " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
+                            + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
+                    );
                 }
             } catch (SQLException | ClassNotFoundException ex) {
                 Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
@@ -257,5 +293,30 @@ public class ctrl_Appros implements Initializable {
     @FXML
     private void showProduitDialog(MouseEvent event) throws IOException {
         ctrl.dialogue(containerAppro, "/pack/ui/ui_produit.fxml");
+    }
+
+    private void initListView(JFXListView list, int btn, String uiFx, String requette) {
+        list.getItems().clear();
+        try {
+            resultSet = MdlConnexion.getCnx().createStatement().executeQuery(requette);
+            if (btn == 1) {
+                while (resultSet.next()) {
+                    txtDesignation_ = resultSet.getString("designation");
+                    txtPu_ = resultSet.getString("pu") + "Fc";
+                    txtQte_ = resultSet.getString("qte");
+                    list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
+                }
+            } else {
+                while (resultSet.next()) {
+                    idFsseur_ = resultSet.getString("id");
+                    nomFsseur_ = resultSet.getString("nom");
+                    contact_ = resultSet.getString("telephone");
+                    addresseFsseir_ = resultSet.getString("addresse");
+                    list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
+                }
+            }
+
+        } catch (Exception e) {
+        }
     }
 }

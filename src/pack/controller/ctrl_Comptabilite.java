@@ -110,6 +110,7 @@ public class ctrl_Comptabilite implements Initializable {
 
     @FXML
     private void ajouterProduit(ActionEvent event) {
+
         if (idFacture.getText().equals("0")) {
             // Commentaire
             // Insertion dans la table entete
@@ -293,9 +294,9 @@ public class ctrl_Comptabilite implements Initializable {
             } else if (btn == 2) {
                 while (resultSet.next()) {
                     idFacture_ = resultSet.getString("id");
-                    nomClient_ = resultSet.getString("nom");;
-                    sexe_ = resultSet.getString("sexe");;
-                    contact_ = resultSet.getString("telephone");;
+                    nomClient_ = resultSet.getString("nom");
+                    sexe_ = resultSet.getString("sexe");
+                    contact_ = resultSet.getString("telephone");
                     list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
                 }
             }
