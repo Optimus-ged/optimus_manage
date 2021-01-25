@@ -15,7 +15,7 @@
    <children>
       <AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: transparent;">
          <children>
-            <Label layoutX="8.0" layoutY="14.0" prefHeight="23.0" prefWidth="121.0" text="Facturation" textFill="#464d86">
+            <Label layoutX="8.0" layoutY="14.0" prefHeight="23.0" prefWidth="106.0" text="Facturation" textFill="#464d86">
                <font>
                   <Font name="Verdana" size="18.0" />
                </font>
@@ -51,12 +51,12 @@
                         <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
                      </children>
                   </AnchorPane>
-                  <JFXButton fx:id="btnEnre" layoutX="9.0" layoutY="406.0" onAction="#enregAppros" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
+                  <JFXButton fx:id="btnEnre" layoutX="10.0" layoutY="406.0" onAction="#enregAppros" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="133.0" layoutY="406.0" onAction="#ajouterProduit" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Ajouter" textFill="WHITE">
+                  <JFXButton layoutX="133.0" layoutY="406.0" onAction="#ajouterProduit" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Ajouter" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -79,12 +79,12 @@
                      </font>
                   </Label>
                   <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="145.0" layoutY="427.0" size="20" />
-                  <AnchorPane layoutX="222.0" layoutY="77.0" onMouseClicked="#showClientInterface" prefHeight="28.0" prefWidth="28.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+                  <AnchorPane layoutX="220.0" layoutY="77.0" onMouseClicked="#showClientInterface" prefHeight="28.0" prefWidth="28.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="6.0" prefHeight="17.0" prefWidth="28.0" text=". . ." textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="222.0" layoutY="248.0" onMouseClicked="#showProductDialog" prefHeight="28.0" prefWidth="28.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+                  <AnchorPane layoutX="220.0" layoutY="248.0" onMouseClicked="#showProductDialog" prefHeight="28.0" prefWidth="28.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="6.0" prefHeight="17.0" prefWidth="28.0" text=". . ." textAlignment="CENTER" />
                      </children>
