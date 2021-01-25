@@ -8,7 +8,11 @@ CREATE PROCEDURE sp_produit_in
     ppu FLOAT
 )
 BEGIN
-    DECLARE id_prod_stock INT;
+    DECLARE stock_initial_ FLOAT;
+    DECLARE qte_entree_ FLOAT;
+    DECLARE qte_consommee_ FLOAT;
+    DECLARE stock_final_ FLOAT;
+
     IF EXISTS(SELECT id FROM produit WHERE id = iidproduit) THEN
         UPDATE produit SET
             designation = ddesignation,
@@ -16,13 +20,40 @@ BEGIN
         WHERE id = iidproduit;
 
     ELSE
-        SET id_prod_stock = 
         INSERT INTO produit(designation, pu) VALUES(ddesignation, ppu);
-        INSERT INTO stock(idProduit, qte)VALUES((SELECT COUNT(id)+1 FROM produit), 0);
+        INSERT INTO stock(idProduit, qte)VALUES((SELECT MAX(id) id FROM produit), 0);
     END IF;
 
-    SELECT * FROM produit;
-    SELECT * FROM stock;
+    SET stock_initial_ = (SELECT stock_initial FROM view_stock WHERE idProduit = idProduit_);
+    SET qte_entree_ = (SELECT total_entre FROM view_stock WHERE idProduit = idProduit_);
+    SET qte_consommee_ =  (SELECT total_consomme FROM view_stock WHERE idProduit = idProduit_);
+    SET stock_final_ = (SELECT stock_final FROM view_stock WHERE idProduit = idProduit_);
+
+    IF NOT EXISTS(SELECT idProduit FROM fiche_de_stock WHERE idProduit = iidproduit AND date_fiche_de_stock = DATE_FORMAT(NOW(), "%d/%m/%Y"))THEN
+        INSERT INTO `fiche_de_stock`(
+        `date_fiche_de_stock`, 
+        `idProduit`, 
+        `stock_initial`, 
+        `qte_entree`, 
+        `qte_consommee`, 
+        `stock_final`
+        ) VALUES (
+            DATE_FORMAT(NOW(), "%d/%m/%Y"),
+            iidproduit,
+            stock_initial_,
+            qte_entree_,
+            qte_consommee_,
+            stock_final_
+        );
+    ELSE
+        UPDATE `fiche_de_stock` SET 
+            `date_fiche_de_stock`= DATE_FORMAT(NOW(), "%d/%m/%Y"),
+            `stock_initial`=stock_initial_,
+            `qte_entree`=qte_entree_,
+            `qte_consommee`=qte_consommee_,
+            `stock_final`=stock_final_
+            WHERE idProduit = iidproduit AND date_fiche_de_stock = DATE_FORMAT(NOW(), "%d/%m/%Y");
+    END IF;
 END
 
 -- Commentaire
@@ -165,39 +196,52 @@ CREATE PROCEDURE sp_approDetail_in (
 )
 BEGIN 
 	DECLARE idProduit_ INT;
+    DECLARE stock_initial_ FLOAT;
+    DECLARE qte_entree_ FLOAT;
+    DECLARE qte_consommee_ FLOAT;
+    DECLARE stock_final_ FLOAT;
     SET idProduit_ = (SELECT id FROM produit WHERE designation = desiProduit_);
        
     IF EXISTS(SELECT idProduit FROM detail_appro WHERE idProduit = idProduit_ AND idEnteteAppro = idEntAppro_ ) THEN
-        UPDATE detail_appro SET qte = qte_ WHERE idEnteteAppro = idEntAppro_ AND idProduit=idProduit_;
-        
-        UPDATE stock SET qte = qte_ WHERE idProduit = idProduit_;
+        UPDATE detail_appro SET qte = qte+qte_ WHERE idEnteteAppro = idEntAppro_ AND idProduit=idProduit_;      
+        UPDATE stock SET qte = qte + qte_ WHERE idProduit = idProduit_;
     ELSE
         INSERT INTO detail_appro(idProduit, qte, idEnteteAppro)
         VALUES(idProduit_, qte_, idEntAppro_);
-        
         UPDATE stock SET qte = qte + qte_ WHERE idProduit = idProduit_; 
     END IF;
+	
+    SET stock_initial_ = (SELECT stock_initial FROM view_stock WHERE idProduit = idProduit_);
+    SET qte_entree_ = (SELECT total_entre FROM view_stock WHERE idProduit = idProduit_);
+    SET qte_consommee_ =  (SELECT total_consomme FROM view_stock WHERE idProduit = idProduit_);
+    SET stock_final_ = (SELECT stock_final FROM view_stock WHERE idProduit = idProduit_);
 
-    INSERT INTO `fiche_de_stock`(
+    IF NOT EXISTS(SELECT idProduit FROM fiche_de_stock WHERE idProduit = iidproduit AND date_fiche_de_stock = DATE_FORMAT(NOW(), "%d/%m/%Y"))THEN
+        INSERT INTO `fiche_de_stock`(
         `date_fiche_de_stock`, 
         `idProduit`, 
         `stock_initial`, 
         `qte_entree`, 
         `qte_consommee`, 
         `stock_final`
-    ) VALUES (
-        DATE_FORMAT(NOW(), "%d-%m-%Y"),
-        idProduit_,
-        (SELECT stock_initial FROM view_stock WHERE idProduit = idProduit_),
-        (SELECT total_entre FROM view_stock WHERE idProduit = idProduit_),
-        (SELECT total_consomme FROM view_stock WHERE idProduit = idProduit_),
-        (SELECT stock_final FROM view_stock WHERE idProduit = idProduit_)
-    );
-
-    SELECT * FROM entete_appro;
-    SELECT * FROM detail_appro;
-    SELECT * FROM stock;
-END$$
+        ) VALUES (
+            DATE_FORMAT(NOW(), "%d/%m/%Y"),
+            iidproduit,
+            stock_initial_,
+            qte_entree_,
+            qte_consommee_,
+            stock_final_
+        );
+    ELSE
+        UPDATE `fiche_de_stock` SET 
+            `date_fiche_de_stock`= DATE_FORMAT(NOW(), "%d/%m/%Y"),
+            `stock_initial`=stock_initial_,
+            `qte_entree`=qte_entree_,
+            `qte_consommee`=qte_consommee_,
+            `stock_final`=stock_final_
+            WHERE idProduit = iidproduit AND date_fiche_de_stock = DATE_FORMAT(NOW(), "%d/%m/%Y");
+    END IF;
+END
 DELIMITER ;
 
 

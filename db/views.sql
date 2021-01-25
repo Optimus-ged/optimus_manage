@@ -67,8 +67,9 @@ SELECT dateStock, SUM(qte) AS total_consomme FROM detail_facture GROUP BY idProd
 -- Commentaire
 -- View principale pour approvisionnement
 CREATE VIEW view_stock AS SELECT
-st.id AS id_stock, prod.id AS idProduit, designation, pu, qte AS stock_initial,  (CASE  WHEN total_entre IS NULL THEN 0 ELSE total_entre END) total_entre, (CASE WHEN total_consomme IS NULL THEN 0 ELSE total_consomme END) total_consomme, (CASE WHEN total_consomme IS NULL THEN qte ELSE total_entre - total_consomme END) AS stock_final FROM stock AS st
+st.id AS id_stock,ent.date_appro, prod.id AS idProduit, designation, pu, qte AS stock_initial,  (CASE  WHEN total_entre IS NULL THEN 0 ELSE total_entre END) total_entre, (CASE WHEN total_consomme IS NULL THEN 0 ELSE total_consomme END) total_consomme, (CASE WHEN total_consomme IS NULL THEN qte ELSE total_entre - total_consomme END) AS stock_final FROM stock AS st
 INNER JOIN produit AS prod ON st.idProduit = prod.id
+INNER JOIN entete_appro AS ent ON ent.
 LEFT JOIN sum_appros_by_produit as sApro ON st.idProduit = sApro.idProduit
 LEFT join sum_fact_by_produit as sFact ON st.idProduit = sFact.idProduit
 --SELECT idProduit FROM fiche_de_stock WHERE date_fiche_de_stock = DATE_FORMAT(NOW(), "%d-%m-%Y")
