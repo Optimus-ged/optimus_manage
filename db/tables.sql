@@ -169,6 +169,8 @@ ADD prix_vente_total FLOAT;
 ALTER TABLE historique_client
 ADD type_vente VARCHAR(30);
 
+ALTER TABLE historique_client
+ADD id_entete INT;
 
 TRUNCATE TABLE entete_facture;
 TRUNCATE TABLE detail_facture;
@@ -184,6 +186,6 @@ DELETE FROM entete_facture;
 DELETE FROM detail_appro;
 DELETE FROM entete_appro;
 DELETE FROM stock;
-DELETE FROM produit;
 DELETE FROM fiche_de_stock;
 DELETE FROM historique_client;
+DELETE FROM produit;
