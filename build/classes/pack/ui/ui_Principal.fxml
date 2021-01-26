@@ -43,7 +43,7 @@
                      <children>
                         <AnchorPane layoutY="140.0" onMouseClicked="#onNouvAgentClicked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Nouvel Agent" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                              <Label layoutX="10.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Nouvel Agent" textFill="#8b8f98" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -55,7 +55,7 @@
                         </AnchorPane>
                         <AnchorPane layoutY="95.0" onMouseClicked="#onNouvClientCliked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Nouveau client" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                              <Label layoutX="10.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Nouveau client" textFill="#8b8f98" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -67,7 +67,7 @@
                         </AnchorPane>
                         <AnchorPane layoutY="50.0" onMouseClicked="#onAccueilCliked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text=" Accueil" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                              <Label layoutX="11.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text=" Accueil" textFill="#8b8f98" AnchorPane.leftAnchor="11.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -77,9 +77,9 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="392.0" onMouseClicked="#onParametresClicked" prefHeight="27.0" prefWidth="147.0">
+                        <AnchorPane layoutY="345.0" onMouseClicked="#onParametresClicked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Paramètres" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                              <Label layoutX="10.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Paramètres" textFill="#8b8f98" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -91,19 +91,17 @@
                         </AnchorPane>
                         <AnchorPane layoutY="223.0" onMouseClicked="#onComptabiliteCliked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Facturation" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                              <Label layoutX="37.0" layoutY="4.0" prefHeight="20.0" prefWidth="103.0" text="Facturation" textFill="#8b8f98" AnchorPane.leftAnchor="37.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
-                                 <graphic>
-                                    <MaterialDesignIconView fill="#212b38" glyphName="DIAMOND" size="20" />
-                                 </graphic>
                               </Label>
+                              <MaterialDesignIconView glyphName="CARDS" layoutX="11.0" layoutY="21.0" size="20" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="350.0" onMouseClicked="#onRapportsClicked" prefHeight="27.0" prefWidth="147.0">
+                        <AnchorPane layoutY="303.0" onMouseClicked="#onRapportsClicked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Rapports" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                              <Label layoutX="10.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Rapports" textFill="#8b8f98" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -115,38 +113,24 @@
                         </AnchorPane>
                         <AnchorPane layoutY="182.0" onMouseClicked="#onApproClicked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text="Approvisionnement" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                              <Label layoutX="10.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text="Approvisionnement" textFill="#8b8f98" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
                                  <graphic>
-                                    <FontAwesomeIconView fill="#212b38" glyphName="HOME" size="20" />
+                                    <FontAwesomeIconView fill="#212b38" glyphName="BAR_CHART" size="20" />
                                  </graphic>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="263.0" onMouseClicked="#onCreditCliked" prefHeight="27.0" prefWidth="147.0">
+                        <AnchorPane layoutY="259.0" onMouseClicked="#onPaiementCliked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Credit" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
+                              <Label layoutX="38.0" layoutY="4.0" prefHeight="20.0" prefWidth="66.0" text="Paiement" textFill="#8b8f98" AnchorPane.leftAnchor="38.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
-                                 <graphic>
-                                    <MaterialDesignIconView fill="#212b38" glyphName="DIAMOND" size="20" />
-                                 </graphic>
                               </Label>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutY="306.0" onMouseClicked="#onPaiementCliked" prefHeight="27.0" prefWidth="147.0">
-                           <children>
-                              <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="127.0" text="Paiement" textFill="#8b8f98" AnchorPane.leftAnchor="14.0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                                 <graphic>
-                                    <MaterialDesignIconView fill="#212b38" glyphName="DIAMOND" size="20" />
-                                 </graphic>
-                              </Label>
+                              <MaterialDesignIconView glyphName="POLL" layoutX="11.0" layoutY="20.0" size="20" />
                            </children>
                         </AnchorPane>
                      </children>
