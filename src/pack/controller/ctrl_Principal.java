@@ -29,6 +29,10 @@ public class ctrl_Principal implements Initializable {
     private StackPane principalContainer;
     @FXML
     private AnchorPane anp_principal;
+    @FXML
+    private StackPane HomeContainer;
+    
+    public static StackPane HomeContainer2;
 
     /**
      * Initializes the controller class.
@@ -37,6 +41,7 @@ public class ctrl_Principal implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
          // Initialisation objets
         ctrl = new pack.main.cls_controller();
+        HomeContainer2 = HomeContainer;
     }    
 
     @FXML
@@ -68,12 +73,12 @@ public class ctrl_Principal implements Initializable {
 
     @FXML
     private void onNouvClientCliked(MouseEvent event) throws IOException {
-        ctrl._interface(principalContainer, "/pack/ui/ui_Client.fxml");
+        ctrl.dialogue(HomeContainer2, "/pack/ui/ui_Client.fxml");
     }
 
     @FXML
     private void onNouvAgentClicked(MouseEvent event) throws IOException {
-        ctrl._interface(principalContainer, "/pack/ui/ui_Agent.fxml");
+        ctrl.dialogue(HomeContainer2, "/pack/ui/ui_Agent.fxml");
     }
 
     @FXML
@@ -81,13 +86,13 @@ public class ctrl_Principal implements Initializable {
         ctrl._interface(principalContainer, "/pack/ui/ui_Appros.fxml");
     }
 
-    @FXML
     private void onCreditCliked(MouseEvent event) throws IOException {
         ctrl._interface(principalContainer, "/pack/ui/ui_CreditVente.fxml");
     }
 
     @FXML
-    private void onPaiementCliked(MouseEvent event) {
+    private void onPaiementCliked(MouseEvent event) throws IOException {
+        ctrl._interface(principalContainer, "/pack/ui/ui_Paiement.fxml");
     }
     
 }

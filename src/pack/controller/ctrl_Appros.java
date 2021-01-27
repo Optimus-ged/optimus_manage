@@ -26,10 +26,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
-
-import static pack.controller.ctrl_DetailAppro.txtDesignation1;
-import static pack.controller.ctrl_DetailAppro.txtPu1;
-import static pack.controller.ctrl_DetailAppro.txtQte1;
 import static pack.controller.ctrl_produitDetail.txtPu_;
 import static pack.controller.ctrl_produitDetail.txtQte_;
 import static pack.controller.ctrl_produitDetail.txtDesignation_;
@@ -37,6 +33,7 @@ import static pack.controller.ctrl_tousLesAppros.addresseFsseir_;
 import static pack.controller.ctrl_tousLesAppros.nomFsseur_;
 import static pack.controller.ctrl_tousLesAppros.idFsseur_;
 import static pack.controller.ctrl_tousLesAppros.contact_;
+import static pack.controller.ctrl_Principal.HomeContainer2;
 import pack.main.cls_controller;
 import pack.model.MdlConnexion;
 import pack.model.MdlDetailsAppro;
@@ -287,12 +284,12 @@ public class ctrl_Appros implements Initializable {
 
     @FXML
     private void shoFsseurDialog(MouseEvent event) throws IOException {
-        ctrl.dialogue(containerAppro, "/pack/ui/ui_Fsseur.fxml");
+        ctrl.dialogue(HomeContainer2, "/pack/ui/ui_Fsseur.fxml");
     }
 
     @FXML
     private void showProduitDialog(MouseEvent event) throws IOException {
-        ctrl.dialogue(containerAppro, "/pack/ui/ui_produit.fxml");
+        ctrl.dialogue(HomeContainer2, "/pack/ui/ui_produit.fxml");
     }
 
     private void initListView(JFXListView list, int btn, String uiFx, String requette) {

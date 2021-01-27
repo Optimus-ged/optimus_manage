@@ -32,6 +32,7 @@ import static pack.controller.ctrl_tousLesFactures.contact_;
 import static pack.controller.ctrl_tousLesFactures.idFacture_;
 import static pack.controller.ctrl_tousLesFactures.nomClient_;
 import static pack.controller.ctrl_tousLesFactures.sexe_;
+import static pack.controller.ctrl_Principal.HomeContainer2;
 import pack.main.cls_controller;
 import pack.model.MdlConnexion;
 import pack.model.MdlDetailFacture;
@@ -252,12 +253,12 @@ public class ctrl_Comptabilite implements Initializable {
 
     @FXML
     private void showProductDialog(MouseEvent event) throws IOException {
-        ctrl.dialogue(containerFact, "/pack/ui/ui_produit.fxml");
+        ctrl.dialogue(HomeContainer2, "/pack/ui/ui_produit.fxml");
     }
 
     @FXML
     private void showClientInterface(MouseEvent event) throws IOException {
-        ctrl._interface(containerFact, "/pack/ui/ui_Client.fxml");
+        ctrl.dialogue(HomeContainer2, "/pack/ui/ui_Client.fxml");
     }
 
     @FXML

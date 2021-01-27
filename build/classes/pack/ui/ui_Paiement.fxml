@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="801.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_Paiement">
+   <children>
+      <Label layoutX="32.0" layoutY="14.0" prefHeight="23.0" prefWidth="167.0" text="Paiement facture" textFill="#464d86">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutY="57.0" prefHeight="447.0" prefWidth="281.0" style="-fx-background-color: transparent;">
+         <children>
+            <Label layoutX="8.0" layoutY="29.0" text="Nom Client" textFill="#aaaaaa" />
+            <AnchorPane layoutX="8.0" layoutY="52.0" prefHeight="28.0" prefWidth="252.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+               <children>
+                  <TextField fx:id="txtNomClient" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="214.0" promptText="Nom Client" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="8.0" layoutY="112.0" prefHeight="28.0" prefWidth="252.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+               <children>
+                  <TextField fx:id="txtMontant" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Montant" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+                  <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="8.0" layoutY="90.0" text="Montant" textFill="#aaaaaa" />
+            <JFXButton fx:id="btnEnre" layoutX="9.0" layoutY="158.0" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="135.0" layoutY="158.0" prefHeight="25.0" prefWidth="125.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="txtId" layoutX="126.0" layoutY="11.0" text="0" visible="false" />
+            <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="147.0" layoutY="181.0" size="20" text="" />
+            <Pane layoutX="5.0" layoutY="224.0" prefHeight="30.0" prefWidth="215.0">
+               <children>
+                  <Label fx:id="lblInfo" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
+                  <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Label layoutX="9.0" layoutY="40.0" text="Cette interface vous permet">
+         <font>
+            <Font name="Verdana" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="40.0" text="de passer a l'enregistrement des paiements des factures">
+         <font>
+            <Font name="Verdana" size="11.0" />
+         </font>
+      </Label>
+      <JFXListView focusTraversable="false" layoutX="269.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="527.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="135.0" />
+      <Pane layoutX="269.0" layoutY="90.0" prefHeight="45.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="5.0">
+         <children>
+            <Label layoutX="17.0" layoutY="14.0" text="N° fact" textFill="#464d86">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="14.0" text="Client" textFill="#464d86">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="319.0" layoutY="14.0" text="Sexe" textFill="#464d86">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="398.0" layoutY="14.0" text="Contact client" textFill="#464d86">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <MaterialDesignIconView glyphName="POLL" layoutX="8.0" layoutY="32.0" size="20" />
+   </children>
+</AnchorPane>
