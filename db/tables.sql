@@ -95,12 +95,24 @@ CREATE TABLE detail_facture(
     idEnteteFacture INT
 )
 
+
 ALTER TABLE detail_facture
 ADD CONSTRAINT fk_detFac1 FOREIGN KEY (idProduit) REFERENCES produit(id);
 
 ALTER TABLE detail_facture
 ADD CONSTRAINT fk_detFac2 FOREIGN KEY (idEnteteFacture) REFERENCES entete_facture(id)
 
+-- Commentaire
+-- CReation de la table paiement
+CREATE TABLE paiement(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    idEnteteFacture INT,
+    datePaiement VARCHAR(30),
+    montantPaye FLOAT
+);
+
+ALTER TABLE paiement
+ADD CONSTRAINT fk_pyt FOREIGN KEY (idEnteteFacture) REFERENCES entete_facture(id);
 
 -- Commentaire
 -- Creation de la table details credit

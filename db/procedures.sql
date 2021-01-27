@@ -267,11 +267,11 @@ BEGIN
 
     IF EXISTS(SELECT idProduit FROM detail_facture WHERE idProduit = idProduit_ AND idEnteteFacture = idEntFacture_) THEN
         UPDATE detail_facture SET qte = qte + qte_ WHERE idProduit=idProduit_  AND idEnteteFacture = idEntFacture_;
-        UPDATE stock SET qte = qte+ qte_ WHERE idProduit = idProduit_;
+        UPDATE stock SET qte = qte - qte_ WHERE idProduit = idProduit_;
     ELSE
         INSERT INTO detail_facture(idProduit, qte, idEnteteFacture)
         VALUES(idProduit_, qte_, idEntFacture_);
-        UPDATE stock SET qte = qte + qte_ WHERE idProduit = idProduit_;
+        UPDATE stock SET qte = qte - qte_ WHERE idProduit = idProduit_;
     END IF;
     
     SET dateVente_ = (DATE_FORMAT(NOW(), "%d/%m/%Y"));
@@ -319,7 +319,21 @@ BEGIN
             id_entete_
             );
       END IF;
-END$$
+
+    IF EXISTS (SELECT id FROM entete_facture WHERE id = idEntFacture_ AND type_vente = 2) THEN
+        IF NOT EXISTS(SELECT id FROM paiement WHERE idEnteteFacture = idEntFacture_)THEN 
+            INSERT INTO `paiement`(
+                `idEnteteFacture`, 
+                `datePaiement`, 
+                `montantPaye`
+            ) VALUES (
+                idEntFacture_,
+                DATE_FORMAT(NOW(), "%d-%m-%Y"),
+                0
+            );
+        END IF;
+    END IF;
+END
 DELIMITER ;
 
 
