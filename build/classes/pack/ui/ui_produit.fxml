@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Label?>
@@ -53,5 +54,25 @@
             <Font name="Verdana" size="11.0" />
          </font>
       </Label>
+      <JFXListView fx:id="lstview_produit" focusTraversable="false" layoutX="264.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;" />
+      <Pane layoutX="264.0" layoutY="79.0" prefHeight="45.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;">
+         <children>
+            <Label layoutX="17.0" layoutY="14.0" text="N° produit" textFill="#464d86">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="122.0" layoutY="14.0" text="Designation produit" textFill="#464d86">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="319.0" layoutY="14.0" text="Pu" textFill="#464d86">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
