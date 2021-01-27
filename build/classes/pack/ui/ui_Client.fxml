@@ -84,20 +84,20 @@
          </font>
       </Label>
       <MaterialDesignIconView fill="#212b38" glyphName="ACCOUNT_PLUS" layoutX="8.0" layoutY="33.0" size="20" />
-      <JFXListView fx:id="lstview_produit" focusTraversable="false" layoutX="264.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;" />
+      <JFXListView fx:id="lstview_client" focusTraversable="false" layoutX="264.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;" />
       <Pane layoutX="264.0" layoutY="79.0" prefHeight="45.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;">
          <children>
-            <Label layoutX="17.0" layoutY="14.0" text="Id Fsseur" textFill="#464d86">
+            <Label layoutX="17.0" layoutY="14.0" text="Id Client" textFill="#464d86">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="122.0" layoutY="14.0" text="Fournisseur" textFill="#464d86">
+            <Label layoutX="122.0" layoutY="14.0" text="Client" textFill="#464d86">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="297.0" layoutY="14.0" text="Addresse" textFill="#464d86">
+            <Label layoutX="297.0" layoutY="14.0" text="Sexe" textFill="#464d86">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>

@@ -26,13 +26,20 @@ public class ctrl_ClientItem implements Initializable {
     private Label sexe;
     @FXML
     private Label contact;
+    
+    public static String idClient_;
+    public static String client_;
+    public static String sexe_;
+    public static String contact_;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        idClient.setText(idClient_);
+        client.setText(client_);
+        sexe.setText(sexe_);
+        contact.setText(contact_);
+    }       
 }
