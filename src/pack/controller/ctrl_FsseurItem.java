@@ -26,13 +26,22 @@ public class ctrl_FsseurItem implements Initializable {
     private Label addresse;
     @FXML
     private Label contact;
+    
+    public static String idFsseur_;
+    public static String nom_;
+    public static String addresse_;
+    public static String contact_;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        idFsseur.setText(idFsseur_);
+        nom.setText(nom_);
+        addresse.setText(addresse_);
+        contact.setText(contact_);
     }    
+    
     
 }
