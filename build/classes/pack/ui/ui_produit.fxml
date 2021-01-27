@@ -36,7 +36,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Pane layoutX="26.0" layoutY="257.0" prefHeight="30.0" prefWidth="215.0">
+      <Pane layoutX="5.0" layoutY="249.0" prefHeight="30.0" prefWidth="215.0">
          <children>
             <Label fx:id="lblInfo" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
             <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />

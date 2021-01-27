@@ -61,12 +61,12 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></JFXButton>
-            <JFXButton layoutX="132.0" layoutY="333.0" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: red; -fx-border-color: red;" text="Supprimer" textFill="WHITE">
+            <JFXButton layoutX="132.0" layoutY="333.0" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Supprimer" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></JFXButton>
             <Label fx:id="txtId" layoutX="126.0" layoutY="11.0" text="0" visible="false" />
-            <Pane layoutX="11.0" layoutY="372.0" prefHeight="30.0" prefWidth="215.0">
+            <Pane layoutX="4.0" layoutY="372.0" prefHeight="30.0" prefWidth="215.0">
                <children>
                   <Label fx:id="lblInfo" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
                   <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />
