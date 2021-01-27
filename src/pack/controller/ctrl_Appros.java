@@ -312,7 +312,6 @@ public class ctrl_Appros implements Initializable {
                     list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
                 }
             }
-
         } catch (Exception e) {
         }
     }

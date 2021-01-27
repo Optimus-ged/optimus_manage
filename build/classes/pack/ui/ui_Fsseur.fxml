@@ -9,54 +9,56 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="340.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_Fsseur">
+<AnchorPane id="AnchorPane" prefHeight="456.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_Fsseur">
    <children>
-      <Pane prefHeight="41.0" prefWidth="600.0" style="-fx-background-color: #E9E9E9;">
-         <children>
-            <Label layoutX="214.0" layoutY="13.0" prefHeight="15.0" prefWidth="163.0" text="NOUVEAU FOURNISSEUR">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="txtId" layoutX="463.0" layoutY="12.0" text="0" />
-         </children>
-      </Pane>
-      <AnchorPane layoutX="35.0" layoutY="93.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+      <AnchorPane layoutX="8.0" layoutY="93.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
          <children>
             <TextField fx:id="txtNom" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Nom" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
             <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
          </children>
       </AnchorPane>
-      <Label layoutX="36.0" layoutY="71.0" text="Nom" textFill="#aaaaaa" />
-      <AnchorPane layoutX="35.0" layoutY="157.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+      <Label layoutX="8.0" layoutY="71.0" text="Nom" textFill="#aaaaaa" />
+      <AnchorPane layoutX="8.0" layoutY="157.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
          <children>
             <TextField fx:id="txtAddresse" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Addresse" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
             <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
          </children>
       </AnchorPane>
-      <Label layoutX="36.0" layoutY="135.0" text="Addresse" textFill="#aaaaaa" />
-      <JFXButton buttonType="RAISED" layoutX="34.0" layoutY="261.0" onAction="#btnEnre" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
+      <Label layoutX="8.0" layoutY="135.0" text="Addresse" textFill="#aaaaaa" />
+      <JFXButton layoutX="9.0" layoutY="264.0" onAction="#btnEnre" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #40e440; -fx-border-color: #40e440;" text="Enregistrer">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="158.0" layoutY="261.0" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: grey; -fx-border-color: grey;" text="Ajouter" textFill="WHITE">
+      <JFXButton layoutX="129.0" layoutY="264.0" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #d74838; -fx-border-color: #d74838;" text="Ajouter" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <AnchorPane layoutX="35.0" layoutY="218.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
+      <AnchorPane layoutX="8.0" layoutY="218.0" prefHeight="28.0" prefWidth="241.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
          <children>
-            <TextField fx:id="txtPhone" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Telephone" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
+            <TextField fx:id="txtPhone" layoutX="37.0" layoutY="2.0" prefHeight="25.0" prefWidth="205.0" promptText="Telephone" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
             <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
          </children>
       </AnchorPane>
-      <Label layoutX="36.0" layoutY="196.0" text="Telephone" textFill="#aaaaaa" />
-      <Pane layoutX="24.0" layoutY="307.0" prefHeight="30.0" prefWidth="215.0">
+      <Label layoutX="8.0" layoutY="196.0" text="Telephone" textFill="#aaaaaa" />
+      <Pane layoutX="4.0" layoutY="307.0" prefHeight="30.0" prefWidth="215.0">
          <children>
             <Label fx:id="lblInfo" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
             <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />
          </children>
       </Pane>
+      <Label fx:id="txtId" layoutX="224.0" layoutY="69.0" text="0" visible="false" />
+      <FontAwesomeIconView fill="#464d86" glyphName="AREA_CHART" layoutX="8.0" layoutY="33.0" size="20" />
+      <Label layoutX="39.0" layoutY="15.0" prefHeight="23.0" prefWidth="215.0" text="Nouveau fournisseur" textFill="#464d86">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="9.0" layoutY="40.0" text="Cette interface vous permet de passer a l'enregistrement des nouveaux produits">
+         <font>
+            <Font name="Verdana" size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
