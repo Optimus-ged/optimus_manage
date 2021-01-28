@@ -256,7 +256,7 @@ public class ctrl_Appros implements Initializable {
                     }
                 }
             } else {
-                System.out.println("pu ou qte invalide");
+                ctrl.alerteInformation("Erreur", "Pu ou Quantite invalide\nVerifier svp !!!");
             }
         }
 

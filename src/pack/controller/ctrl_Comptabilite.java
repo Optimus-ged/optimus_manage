@@ -111,67 +111,74 @@ public class ctrl_Comptabilite implements Initializable {
 
     @FXML
     private void ajouterProduit(ActionEvent event) {
+        if (champs.champs_vide.isFieldsempty(txtNomClient, txtTelephoneClient, txtDesiProduit, txtPuProduit, txtQteProduit)) {
+            ctrl.alerteInformation("Erreur", "Veuillez completer tous les champs SVP !!!");
+        } else {
+            if (ctrl.isNumber(txtPuProduit.getText()) && ctrl.isNumber(txtQteProduit.getText())) {
+                if (idFacture.getText().equals("0")) {
+                    // Commentaire
+                    // Insertion dans la table entete
+                    System.out.println("Insertion dans la table entete");
+                    entete = new MdlEnteteFacture(txtNomClient.getText(), Integer.parseInt(lbl_typeVente.getText()));
+                    try {
+                        if (getInstance().isSave(entete, 1) == true) {
+                            idFacture.setText(initNum());
 
-        if (idFacture.getText().equals("0")) {
-            // Commentaire
-            // Insertion dans la table entete
-            System.out.println("Insertion dans la table entete");
-            entete = new MdlEnteteFacture(txtNomClient.getText(), Integer.parseInt(lbl_typeVente.getText()));
-            try {
-                if (getInstance().isSave(entete, 1) == true) {
-                    idFacture.setText(initNum());
+                        }
+                    } catch (SQLException | ClassNotFoundException ex) {
+                        Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
-                }
-            } catch (SQLException | ClassNotFoundException ex) {
-                Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            // Commentaire
-            // Insertion dans la table details
-            detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
-            System.out.println("Insertion dans la table detail");
-            try {
-                if (getInstance().isSave(detail, 1) == true) {
+                    // Commentaire
+                    // Insertion dans la table details
+                    detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
+                    System.out.println("Insertion dans la table detail");
+                    try {
+                        if (getInstance().isSave(detail, 1) == true) {
 //                    initCard();
-                    initList(
-                            lstview_produit,
-                            1,
-                            "/pack/composants/ui_DetailAppro.fxml",
-                            "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
-                    );
-                    initList(
-                            list_tousLesFactures,
-                            2,
-                            "/pack/composants/ui_tousLesFactures.fxml",
-                            "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
-                            + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
-                    );
-                }
-            } catch (SQLException | ClassNotFoundException ex) {
-                Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } else if (!idFacture.getText().equals("0")) {
+                            initList(
+                                    lstview_produit,
+                                    1,
+                                    "/pack/composants/ui_DetailAppro.fxml",
+                                    "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
+                            );
+                            initList(
+                                    list_tousLesFactures,
+                                    2,
+                                    "/pack/composants/ui_tousLesFactures.fxml",
+                                    "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
+                                    + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
+                            );
+                        }
+                    } catch (SQLException | ClassNotFoundException ex) {
+                        Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else if (!idFacture.getText().equals("0")) {
 //             Commentaire
 //             Insertion dans la table details
-            detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
-            try {
-                if (getInstance().isSave(detail, 1) == true) {
-                    initList(
-                            lstview_produit,
-                            1,
-                            "/pack/composants/ui_DetailAppro.fxml",
-                            "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
-                    );
-                    initList(
-                            list_tousLesFactures,
-                            2,
-                            "/pack/composants/ui_tousLesFactures.fxml",
-                            "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
-                            + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
-                    );
+                    detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
+                    try {
+                        if (getInstance().isSave(detail, 1) == true) {
+                            initList(
+                                    lstview_produit,
+                                    1,
+                                    "/pack/composants/ui_DetailAppro.fxml",
+                                    "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
+                            );
+                            initList(
+                                    list_tousLesFactures,
+                                    2,
+                                    "/pack/composants/ui_tousLesFactures.fxml",
+                                    "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
+                                    + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
+                            );
+                        }
+                    } catch (SQLException | ClassNotFoundException ex) {
+                        Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            } catch (SQLException | ClassNotFoundException ex) {
-                Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
+            } else {
+                ctrl.alerteInformation("Erreur", "Pu ou Quantite invalide\nVerifier svp !!!");
             }
         }
     }
