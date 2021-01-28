@@ -69,6 +69,11 @@ public class ctrl_Fsseur implements Initializable {
     @FXML
     private void btnEnre(ActionEvent event) throws ClassNotFoundException, SQLException {
         fss.fsseurIn(1);
+         initList(
+              lstview_fsseur,
+              "SELECT * FROM fournisseur",
+              "/pack/composants/ui_FsseurItem.fxml"
+        );
     }
     
     private void initList(JFXListView list, String requette, String uiFx){

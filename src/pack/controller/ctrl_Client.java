@@ -73,6 +73,11 @@ public class ctrl_Client implements Initializable {
     @FXML
     private void enregClient(ActionEvent event) throws ClassNotFoundException, SQLException {
         cli.clientIn(1);
+         initList(
+              lstview_client,
+              "SELECT id, nom, sexe, telephone FROM client",
+              "/pack/composants/ui_ClientItem.fxml"
+        );
     }
     
     private void initList(JFXListView list, String requette, String uiFx){

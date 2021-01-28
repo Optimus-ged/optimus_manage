@@ -65,6 +65,11 @@ public class ctrl_produit implements Initializable {
     @FXML
     private void btnEnre(ActionEvent event) throws ClassNotFoundException, SQLException {
         pro.produitIn(1);
+        initList(
+              lstview_produit,
+              "SELECT id, designation, pu FROM produit",
+              "/pack/composants/ui_ProduitItem.fxml"
+        );
     }
     
     private void initList(JFXListView list, String requette, String uiFx){
