@@ -350,4 +350,20 @@ BEGIN
     SELECT * FROM entete_facture;
 END
 
+-- Commentaire
+-- procedure d'enregistrement paiement
+DELIMITER $
+CREATE PROCEDURE sp_paiement_in(
+    iidEnteteFacture INT,
+    mmontantPayt FLOAT
+)
+BEGIN 
+    IF EXISTS(SELECT id FROM paiement WHERE idEnteteFacture = iidEnteteFacture) THEN 
+        UPDATE paiement SET 
+            datePaiement = DATE_FORMAT(NOW(), "%d-%m-%Y"),
+            montantPaye = mmontantPayt
+        WHERE idEnteteFacture = iidEnteteFacture;
+    END IF;
+END
+
 

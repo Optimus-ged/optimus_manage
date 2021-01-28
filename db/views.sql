@@ -13,14 +13,15 @@ SELECT id_entete, SUM(prix_vente) AS prix_vente_total FROM view_facture GROUP BY
 -- Commentaire
 -- View principale pour facture
 CREATE VIEW view_facture AS SELECT 
-ent.id AS id_entete, date_facture,type_vente, cli.id AS idClient, nom, prenom, sexe, telephone, 
+ent.id AS id_entete, date_facture,(CASE WHEN type_vente = 1 THEN 'cash' ELSE 'credit' END) type_vente, cli.id AS idClient, nom, prenom, sexe, telephone, 
 prod.id as id_produit,designation, pu,qte, (pu*qte) AS prix_vente,
 total_qte
 FROM client AS cli 
 INNER JOIN entete_facture AS ent ON ent.idClient = cli.id
 INNER JOIN detail_facture AS det ON ent.id = det.idEnteteFacture
 INNER JOIN produit as prod On det.idProduit = prod.id
-INNER JOIN sum_detail_fact AS sum ON det.idEnteteFacture = sum.idEnteteFacture
+INNER JOIN sum_detail_fact AS sum ON det.idEnteteFacture = sum.idEnteteFacture 
+ORDER BY id_entete ASC
 -- WHERE type_vente = 1
 
 -- Commentaire
@@ -79,3 +80,48 @@ LEFT join sum_fact_by_produit as sFact ON st.idProduit = sFact.idProduit
 
  SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent
 INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur
+
+-- Commentaire
+-- View pour paiement
+SELECT `id_entete`, datePaiement, `type_vente`, `idClient`, `nom`, `prenom`, `sexe`, 
+`telephone`, `id_produit`, `designation`, `pu`, `qte`, `prix_vente`, `total_qte`, 
+`prix_vente_total` AS montant_a_paye, montantPaye AS montant_deja_paye, (prix_vente_total-montantPaye) AS reste
+FROM `view_facture_finale` as fi
+INNER JOIN paiement AS p ON fi.id_entete = p.idEnteteFacture
+
+SELECT 
+e.id, idProduit,pu, qte, designation, (pu*qte) AS total_a_payer
+FROM detail_facture AS d
+INNER JOIN produit AS p ON d.idProduit = p.id
+INNER JOIN entete_facture AS e ON d.idEnteteFacture = e.id
+WHERE type_vente = 2
+
+CREATE VIEW view_detail_pyt_2 AS 
+SELECT id, idProduit, SUM(total_a_payer) AS A_payer FROM view_detail_pyt_1 GROUP BY id
+
+CREATE VIEW view_detail_pyt_3
+SELECT `d.id`,  `total_a_payer` AS total,
+A_payer
+FROM `view_detail_pyt_1` AS p
+INNER JOIN view_detail_pyt_2 AS d ON p.id = d.id
+
+-- Commentaire
+-- view facture credit finale
+CREATE VIEW facture_credit_finale SELECT 
+f.id_entete, datepaiement,(CASE WHEN type_vente=1 THEN "Cash" ELSE "Credit" END) AS  type_vente, idClient, nom, prenom, sexe, telephone,
+id_produit,designation, pu,qte, prix_vente, total_qte, prix_vente_total AS total_a_payer,
+montantpaye, (prix_vente_total - montantpaye) AS reste
+FROM view_facture AS f
+INNER JOIN sum_prix_vente AS v ON f.id_entete = v.id_entete
+INNER JOIN paiement AS p ON f.id_entete = p.idEnteteFacture
+
+-- Commentaire
+-- View de liaison entre entete facture et client
+CREATE VIEW view_entete_facture AS SELECT
+e.id, e.idClient, type_vente, date_facture,
+nom, prenom, sexe,  telephone
+FROM entete_facture AS e
+INNER JOIN client AS c ON c.id = e.idClient
+
+
+
