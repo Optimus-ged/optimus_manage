@@ -17,6 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -183,5 +185,43 @@ public class cls_controller {
 
         JFXDialog dialog = new JFXDialog(stp, dl, JFXDialog.DialogTransition.CENTER);
         dialog.show(stp);
+    }
+    
+     public boolean isValidMail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
+                + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+                + "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null) {
+            return false;
+        }
+        return pat.matcher(email).matches();
+    }
+     
+     
+    public boolean isNumber(String txtString) {
+        char[] tab = txtString.toCharArray();
+        boolean estUnNombre = true;
+        for (int i = 0; i < tab.length; i++) {
+            if (Character.isDigit(tab[i])) {
+            } // ne rien faire ;-)
+            else {
+                if (tab[i] != '.' && tab[i] != '-' && tab[i] != '*') {
+                    estUnNombre = false;
+                }
+            } // remplace le point '.' par virgule ',' ou ajoute un caractère comme '+' ;-)
+        }
+        return estUnNombre;
+    }
+    
+    private static Pattern p;
+    private static Matcher m;
+
+    public boolean isValideTel(String txtString) {
+        p = Pattern.compile("^[+0-9-\\(\\)\\s]*{6,14}$");
+        m = p.matcher(txtString);
+        return m.matches();
     }
 }

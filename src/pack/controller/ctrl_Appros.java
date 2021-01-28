@@ -189,68 +189,77 @@ public class ctrl_Appros implements Initializable {
 //    }
     @FXML
     private void ajouterProduit(ActionEvent event) {
-
-        if (!idAppro.getText().equals("0")) {
-            // Commentaire
-            // Insertion dans la table details
-            detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
-            try {
-                if (getInstance().isSave(detail, 2) == true) {
-//                    initCard();
-                    initListView(
-                            lstview_produit,
-                            1,
-                            "/pack/composants/ui_produitDetail.fxml",
-                            "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
-                    );
-                    initListView(
-                            list_tousLesAppros,
-                            2,
-                            "/pack/composants/ui_tousLesAppros.fxml",
-                            " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
-                            + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
-                    );
-                }
-            } catch (SQLException | ClassNotFoundException ex) {
-                Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        if (champs.champs_vide.isFieldsempty(txtNomFsseur, txtTelephoneFsseur, txtPuProduit, txtDesiProduit, txtPuProduit, txtQteProduit)) {
+            ctrl.alerteInformation("Erreur", "Veuillez completer tous les champs SVP !!!");
         } else {
-            // Commentaire
-            // Insertion dans la table entete
-            entete = new MdlEnteteAppro(txtNomFsseur.getText());
-            try {
-                if (getInstance().isSave(entete, 2) == true) {
-                    idAppro.setText(initNum());
-
-                }
-            } catch (SQLException | ClassNotFoundException ex) {
-                Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            // Commentaire
-            // Insertion dans la table details
-            detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
-            try {
-                if (getInstance().isSave(detail, 2) == true) {
+            if (ctrl.isNumber(txtPuProduit.getText()) && ctrl.isNumber(txtQteProduit.getText())) {
+                System.out.println("ce sont tous des nombres");
+                if (!idAppro.getText().equals("0")) {
+                    // Commentaire
+                    // Insertion dans la table details
+                    detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
+                    try {
+                        if (getInstance().isSave(detail, 2) == true) {
 //                    initCard();
-                    initListView(
-                            lstview_produit,
-                            1,
-                            "/pack/composants/ui_produitDetail.fxml",
-                            "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
-                    );
-                    initListView(
-                            list_tousLesAppros,
-                            2,
-                            "/pack/composants/ui_tousLesAppros.fxml",
-                            " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
-                            + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
-                    );
+                            initListView(
+                                    lstview_produit,
+                                    1,
+                                    "/pack/composants/ui_produitDetail.fxml",
+                                    "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
+                            );
+                            initListView(
+                                    list_tousLesAppros,
+                                    2,
+                                    "/pack/composants/ui_tousLesAppros.fxml",
+                                    " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
+                                    + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
+                            );
+                        }
+                    } catch (SQLException | ClassNotFoundException ex) {
+                        Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    // Commentaire
+                    // Insertion dans la table entete
+                    entete = new MdlEnteteAppro(txtNomFsseur.getText());
+                    try {
+                        if (getInstance().isSave(entete, 2) == true) {
+                            idAppro.setText(initNum());
+
+                        }
+                    } catch (SQLException | ClassNotFoundException ex) {
+                        Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    // Commentaire
+                    // Insertion dans la table details
+                    detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
+                    try {
+                        if (getInstance().isSave(detail, 2) == true) {
+//                    initCard();
+                            initListView(
+                                    lstview_produit,
+                                    1,
+                                    "/pack/composants/ui_produitDetail.fxml",
+                                    "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
+                            );
+                            initListView(
+                                    list_tousLesAppros,
+                                    2,
+                                    "/pack/composants/ui_tousLesAppros.fxml",
+                                    " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
+                                    + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
+                            );
+                        }
+                    } catch (SQLException | ClassNotFoundException ex) {
+                        Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            } catch (SQLException | ClassNotFoundException ex) {
-                Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
+            } else {
+                System.out.println("pu ou qte invalide");
             }
         }
+
     }
 
     String telephone(String nom) throws ClassNotFoundException, SQLException {
