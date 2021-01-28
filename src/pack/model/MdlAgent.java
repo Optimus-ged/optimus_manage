@@ -44,20 +44,25 @@ public class MdlAgent {
             if (champs.champs_vide.isFieldsempty(txtNom, txtPrenom, txtpostnom, txtPoste)) {
                 ctrl.showMssge(lblInfo, font, "Veuillez remplir tous les champs svp !", 0);
             } else {
-                ag = new TttAgent(
-                        Integer.parseInt(txtId.getText()),
-                        txtNom.getText(),
-                        txtPrenom.getText(),
-                        cmbSexe.getValue(),
-                        txtpostnom.getText(),
-                        txtPoste.getText()                        
-                );
-                ag.agent(1);
-                ctrl.alerteInformation("Information", "Enregistre !!!");
+                if (ctrl.isValideTel(txtpostnom.getText())) {
+                    ag = new TttAgent(
+                            Integer.parseInt(txtId.getText()),
+                            txtNom.getText(),
+                            txtPrenom.getText(),
+                            cmbSexe.getValue(),
+                            txtpostnom.getText(),
+                            txtPoste.getText()
+                    );
+                    ag.agent(1);
+                    ctrl.alerteInformation("Information", "Enregistre !!!");
+                } else {
+                    ctrl.alerteInformation("Erreur", "Numero de telephone invalide !!!");
+                }
+
             }
         } else if (btn == 2) {
             if (champs.champs_vide.isFieldsempty(txtNom, txtPrenom, txtpostnom, txtPoste)) {
-                ctrl.showMssge(lblInfo, font, "Veuillez selectionner un element !", 0);         
+                ctrl.showMssge(lblInfo, font, "Veuillez selectionner un element !", 0);
             } else {
                 ag = new TttAgent(
                         Integer.parseInt(txtId.getText()),
@@ -65,7 +70,7 @@ public class MdlAgent {
                         txtPrenom.getText(),
                         cmbSexe.getValue(),
                         txtpostnom.getText(),
-                        txtPoste.getText()   
+                        txtPoste.getText()
                 );
                 ag.agent(2);
                 ctrl.alerteInformation("Information", "Supprime !!!");
