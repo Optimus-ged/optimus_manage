@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import static pack.controller.ctrl_FsseurItem.idFsseur_;
 import static pack.controller.ctrl_FsseurItem.nom_;
 import static pack.controller.ctrl_FsseurItem.addresse_;
@@ -51,6 +52,8 @@ public class ctrl_Fsseur implements Initializable {
     
     @FXML
     private JFXListView<?> lstview_fsseur;
+    @FXML
+    private TextField txtRecherche;
 
     /**
      * Initializes the controller class.
@@ -89,6 +92,15 @@ public class ctrl_Fsseur implements Initializable {
             }
         } catch (Exception e) {
         }
+    }
+
+    @FXML
+    private void selectFsseur(KeyEvent event) {
+         initList(
+              lstview_fsseur,
+              "SELECT * FROM fournisseur WHERE nom LIKE '%"+ txtRecherche.getText() +"%'",
+              "/pack/composants/ui_FsseurItem.fxml"
+        );
     }
     
 }
