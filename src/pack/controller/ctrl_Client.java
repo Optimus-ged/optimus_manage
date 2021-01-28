@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import pack.main.cls_controller;
 import pack.model.MdlClient;
 import static pack.controller.ctrl_ClientItem.client_;
@@ -53,6 +54,8 @@ public class ctrl_Client implements Initializable {
     private ResultSet res;
     @FXML
     private JFXListView<?> lstview_client;
+    @FXML
+    private TextField txtRecherche;
    
 
     /**
@@ -63,10 +66,10 @@ public class ctrl_Client implements Initializable {
         ctrl = new cls_controller();
         cli = new MdlClient(txtNom, txtPrenom, txtPrenom, cmbSexe, txtTelephone, txtId, lblInfo, font);
         ctrl.chargeCmbSexe(cmbSexe);
-         initList(
-              lstview_client,
-              "SELECT id, nom, sexe, telephone FROM client",
-              "/pack/composants/ui_ClientItem.fxml"
+        initList(
+                lstview_client,
+                "SELECT id, nom, sexe, telephone FROM client",
+                "/pack/composants/ui_ClientItem.fxml"
         );
     }    
 
@@ -93,6 +96,15 @@ public class ctrl_Client implements Initializable {
             }
         } catch (Exception e) {
         }
+    }
+
+    @FXML
+    private void selectClient(KeyEvent event) {
+         initList(
+              lstview_client,
+              "SELECT id, nom, sexe, telephone FROM client WHERE nom LIKE '%"+ txtRecherche.getText() +"%'",
+              "/pack/composants/ui_ClientItem.fxml"
+        );
     }
     
 }
