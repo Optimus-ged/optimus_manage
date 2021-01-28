@@ -66,7 +66,7 @@
                      <children>
                         <TextField fx:id="txtPuProduit" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="205.0" promptText="Pu" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />
                         <MaterialDesignIconView fill="#40e440" glyphName="PENCIL" layoutX="10.0" layoutY="20.0" size="16" />
-                        <Label layoutX="234.0" layoutY="6.0" text="Fc" />
+                        <Label layoutX="235.0" layoutY="6.0" text="Fc" />
                      </children>
                   </AnchorPane>
                   <Label layoutX="8.0" layoutY="194.0" prefHeight="23.0" prefWidth="65.0" text="Details" textFill="#464d86">

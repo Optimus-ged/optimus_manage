@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -33,6 +34,13 @@ public class ctrl_Principal implements Initializable {
     private StackPane HomeContainer;
     
     public static StackPane HomeContainer2;
+    @FXML
+    private Label lbl_user_connect;
+    @FXML
+    private Label lbl_post_user;
+    
+    public static String lbl_user_connect_;
+    public static String lbl_post_user_;
 
     /**
      * Initializes the controller class.
@@ -42,6 +50,8 @@ public class ctrl_Principal implements Initializable {
          // Initialisation objets
         ctrl = new pack.main.cls_controller();
         HomeContainer2 = HomeContainer;
+        lbl_user_connect.setText(lbl_user_connect_);
+        lbl_post_user.setText(lbl_post_user_);
     }    
 
     @FXML
