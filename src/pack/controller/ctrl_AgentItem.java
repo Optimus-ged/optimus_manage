@@ -32,9 +32,22 @@ public class ctrl_AgentItem implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    public static String idAgent_;
+    public static String agent_;
+    public static String sexe_;
+    public static String poste_;
+    public static String contact_;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+        idAgent.setText(idAgent_);
+        agent.setText(agent_);
+        sexe.setText(sexe_);
+        poste.setText(poste_);
+        contact.setText(contact_);
+    }   
+    
+    
     
 }

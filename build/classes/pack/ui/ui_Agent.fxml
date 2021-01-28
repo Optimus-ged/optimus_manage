@@ -89,7 +89,7 @@
             <Font name="Verdana" size="11.0" />
          </font>
       </Label>
-      <JFXListView fx:id="lstview_produit" focusTraversable="false" layoutX="264.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;" />
+      <JFXListView fx:id="lstview_agents" focusTraversable="false" layoutX="264.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;" />
       <Pane layoutX="264.0" layoutY="79.0" prefHeight="45.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;">
          <children>
             <Label layoutX="17.0" layoutY="14.0" text="Id Agent" textFill="#464d86">
