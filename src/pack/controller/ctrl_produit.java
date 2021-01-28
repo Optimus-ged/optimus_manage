@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import pack.main.cls_controller;
 import pack.model.MdlProduit;
 import static pack.controller.ctrl_ProduitItem.designation_;
@@ -47,6 +48,8 @@ public class ctrl_produit implements Initializable {
     private FontAwesomeIconView font;
     @FXML
     private JFXListView<?> lstview_produit;
+    @FXML
+    private TextField txtRecherche;
 
     /**
      * Initializes the controller class.
@@ -84,5 +87,14 @@ public class ctrl_produit implements Initializable {
             }
         } catch (Exception e) {
         }
+    }
+
+    @FXML
+    private void selectProduit(KeyEvent event) {
+        initList(
+              lstview_produit,
+              "SELECT id, designation, pu FROM produit WHERE designation LIKE '%"+ txtRecherche.getText() +"%'",
+              "/pack/composants/ui_ProduitItem.fxml"
+        );
     }
 }
