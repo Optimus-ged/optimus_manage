@@ -14,13 +14,13 @@ import pack.model.MdlConnexion;
  * @author Optimus
  */
 public class TttAgent {
-    private String nom, prenom, postnom, sexe, post;
+    private String nom, prenom,sexe, telephone,  post;
     private int id;
 
-    public TttAgent(String nom, String prenom, String postnom, String sexe, String post, int id) {
+    public TttAgent(int id, String nom, String prenom,String sexe, String telephone, String post) {
         this.nom = nom;
         this.prenom = prenom;
-        this.postnom = postnom;
+        this.telephone = telephone;
         this.sexe = sexe;
         this.post = post;
         this.id = id;
@@ -36,8 +36,8 @@ public class TttAgent {
             ps.setInt(1,id);
             ps.setString(2, nom);
             ps.setString(3, prenom);
-            ps.setString(4, postnom);
-            ps.setString(5, sexe);
+            ps.setString(4, sexe);
+            ps.setString(5, telephone);
             ps.setString(6, post);
             ps.executeUpdate();
         }

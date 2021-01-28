@@ -45,12 +45,12 @@ public class MdlAgent {
                 ctrl.showMssge(lblInfo, font, "Veuillez remplir tous les champs svp !", 0);
             } else {
                 ag = new TttAgent(
+                        Integer.parseInt(txtId.getText()),
                         txtNom.getText(),
                         txtPrenom.getText(),
-                        txtpostnom.getText(),
                         cmbSexe.getValue(),
-                        txtPoste.getText(),
-                        Integer.parseInt(txtId.getText())
+                        txtpostnom.getText(),
+                        txtPoste.getText()                        
                 );
                 ag.agent(1);
                 ctrl.alerteInformation("Information", "Enregistre !!!");
@@ -60,12 +60,12 @@ public class MdlAgent {
                 ctrl.showMssge(lblInfo, font, "Veuillez selectionner un element !", 0);         
             } else {
                 ag = new TttAgent(
+                        Integer.parseInt(txtId.getText()),
                         txtNom.getText(),
                         txtPrenom.getText(),
-                        txtpostnom.getText(),
                         cmbSexe.getValue(),
-                        txtPoste.getText(),
-                        Integer.parseInt(txtId.getText())
+                        txtpostnom.getText(),
+                        txtPoste.getText()   
                 );
                 ag.agent(2);
                 ctrl.alerteInformation("Information", "Supprime !!!");
