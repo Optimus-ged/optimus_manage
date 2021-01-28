@@ -31,7 +31,7 @@
 	<group name="id">
 		<groupExpression><![CDATA[$F{id}]]></groupExpression>
 		<groupFooter>
-			<band height="6"/>
+			<band height="1"/>
 		</groupFooter>
 	</group>
 	<background>
@@ -128,16 +128,6 @@
 			</frame>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="7" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="4bb7fcc2-c654-4cc8-a2a1-87514ddf581d"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
-	</columnFooter>
 	<pageFooter>
 		<band height="25" splitType="Stretch"/>
 	</pageFooter>

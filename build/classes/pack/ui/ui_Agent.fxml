@@ -119,5 +119,15 @@
             </Label>
          </children>
       </Pane>
+      <AnchorPane layoutX="591.0" layoutY="21.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3;">
+         <children>
+            <TextField fx:id="rechercheAgent" layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#selectAgent" prefHeight="28.0" prefWidth="167.0" promptText="Recherchez ici !!!" style="-fx-background-color: white;" />
+            <JFXButton contentDisplay="CENTER" layoutX="166.0" layoutY="3.0" prefHeight="25.0" prefWidth="32.0" textFill="#727272">
+               <graphic>
+                  <FontAwesomeIconView fill="#212b38" glyphName="SEARCH" size="14" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
