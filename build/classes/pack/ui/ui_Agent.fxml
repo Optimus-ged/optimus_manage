@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXListView?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -102,17 +103,17 @@
                   <Font name="Verdana" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="366.0" layoutY="14.0" text="Sexe" textFill="#464d86">
+            <Label layoutX="327.0" layoutY="14.0" text="Sexe" textFill="#464d86">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="449.0" layoutY="14.0" text="Post" textFill="#464d86">
+            <Label layoutX="393.0" layoutY="14.0" text="Post" textFill="#464d86">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="239.0" layoutY="14.0" text="Contact" textFill="#464d86">
+            <Label layoutX="197.0" layoutY="14.0" text="Contact" textFill="#464d86">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
@@ -129,5 +130,6 @@
             </JFXButton>
          </children>
       </AnchorPane>
+      <Accordion />
    </children>
 </AnchorPane>

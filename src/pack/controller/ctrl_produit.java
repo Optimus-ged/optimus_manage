@@ -86,7 +86,7 @@ public class ctrl_produit implements Initializable {
             }
         } catch (Exception e) {
         }
-    }
+}
 
     @FXML
     private void selectProduit(KeyEvent event) {

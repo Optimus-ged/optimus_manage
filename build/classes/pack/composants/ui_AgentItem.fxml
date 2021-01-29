@@ -6,22 +6,22 @@
 
 <AnchorPane id="AnchorPane" prefHeight="32.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_AgentItem">
    <children>
-      <Label fx:id="idAgent" layoutX="9.0" layoutY="10.0" prefHeight="15.0" prefWidth="22.0" text="Id">
+      <Label fx:id="idAgent" layoutX="8.0" layoutY="10.0" prefHeight="15.0" prefWidth="22.0" text="Id">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="agent" layoutX="59.0" layoutY="9.0" text="Agent">
+      <Label fx:id="agent" layoutX="89.0" layoutY="9.0" text="Agent">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="sexe" layoutX="292.0" layoutY="9.0" text="Sexe">
+      <Label fx:id="sexe" layoutX="319.0" layoutY="9.0" text="Sexe">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="poste" layoutX="365.0" layoutY="9.0" text="poste">
+      <Label fx:id="poste" layoutX="384.0" layoutY="9.0" text="poste">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
