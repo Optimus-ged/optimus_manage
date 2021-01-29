@@ -102,7 +102,7 @@
                   <Font name="Verdana" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="434.0" layoutY="14.0" text="Contact" textFill="#464d86">
+            <Label layoutX="410.0" layoutY="14.0" text="Contact" textFill="#464d86">
                <font>
                   <Font name="Verdana" size="14.0" />
                </font>
