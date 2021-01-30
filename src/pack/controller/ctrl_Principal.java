@@ -41,6 +41,10 @@ public class ctrl_Principal implements Initializable {
     
     public static String lbl_user_connect_;
     public static String lbl_post_user_;
+    @FXML
+    private Label lbl_pour_apprp;
+    @FXML
+    private Label lbl_pour_fact;
 
     /**
      * Initializes the controller class.
