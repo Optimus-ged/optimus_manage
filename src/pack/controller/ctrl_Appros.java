@@ -31,7 +31,7 @@ import static pack.controller.ctrl_produitDetail.txtDesignation_;
 import static pack.controller.ctrl_tousLesAppros.addresseFsseir_;
 import static pack.controller.ctrl_tousLesAppros.nomFsseur_;
 import static pack.controller.ctrl_tousLesAppros.idFsseur_;
-import static pack.controller.ctrl_tousLesAppros.contact_;
+import static pack.controller.ctrl_tousLesAppros.contactA_;
 import static pack.controller.ctrl_Principal.HomeContainer2;
 import pack.main.cls_controller;
 import pack.model.MdlConnexion;
@@ -317,7 +317,7 @@ public class ctrl_Appros implements Initializable {
                 while (resultSet.next()) {
                     idFsseur_ = resultSet.getString("id");
                     nomFsseur_ = resultSet.getString("nom");
-                    contact_ = resultSet.getString("telephone");
+                    contactA_ = resultSet.getString("telephone");
                     addresseFsseir_ = resultSet.getString("addresse");
                     list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
                 }

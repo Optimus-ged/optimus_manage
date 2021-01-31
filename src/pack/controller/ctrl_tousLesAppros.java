@@ -32,13 +32,13 @@ public class ctrl_tousLesAppros implements Initializable {
      */
     public static String idFsseur_;
     public static String nomFsseur_;
-    public static String contact_;
+    public static String contactA_;
     public static String addresseFsseir_;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         idFsseur.setText(idFsseur_);
         nomFsseur.setText(nomFsseur_);
-        contact.setText(contact_);
+        contact.setText(contactA_);
         addresseFsseur.setText(addresseFsseir_);
     }    
     

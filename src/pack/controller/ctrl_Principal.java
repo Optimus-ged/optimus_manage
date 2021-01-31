@@ -22,13 +22,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import static pack.controller.ctrl_Appros.list_tousLesAppros2;
+import static pack.controller.ctrl_Comptabilite.list_tousLesFactures2;
 import static pack.controller.ctrl_produitDetail.txtDesignation_;
 import static pack.controller.ctrl_produitDetail.txtPu_;
 import static pack.controller.ctrl_produitDetail.txtQte_;
 import static pack.controller.ctrl_tousLesAppros.addresseFsseir_;
-import static pack.controller.ctrl_tousLesAppros.contact_;
+import static pack.controller.ctrl_tousLesAppros.contactA_;
 import static pack.controller.ctrl_tousLesAppros.idFsseur_;
 import static pack.controller.ctrl_tousLesAppros.nomFsseur_;
+import static pack.controller.ctrl_tousLesFactures.contact_;
+import static pack.controller.ctrl_tousLesFactures.idFacture_;
+import static pack.controller.ctrl_tousLesFactures.nomClient_;
+import static pack.controller.ctrl_tousLesFactures.sexe_;
 import pack.model.MdlConnexion;
 
 /**
@@ -131,13 +136,18 @@ public class ctrl_Principal implements Initializable {
         if (lbl_pour_apprp.getText().equals("1")) {
             initListView(
                 list_tousLesAppros2,
-                2,
+                    1,
                 "/pack/composants/ui_tousLesAppros.fxml",
-                " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
-                + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur WHERE nom LIKE '%"+ txtRecherche.getText() +"%'"
+                " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent"
+                + " INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur WHERE nom LIKE '%"+ txtRecherche.getText() +"%'"
             );
         }else{
-            
+            initListView(
+                list_tousLesFactures2,
+                2,
+                "/pack/composants/ui_tousLesFactures.fxml",
+                "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent INNER JOIN client AS cli ON ent.idClient = cli.id WHERE nom LIKE '%"+ txtRecherche.getText() +"%'"
+        );
         }   
     }
 
@@ -146,13 +156,19 @@ public class ctrl_Principal implements Initializable {
         try {
             resultSet = MdlConnexion.getCnx().createStatement().executeQuery(requette);
             if (btn == 1) {
-
-            } else {
                 while (resultSet.next()) {
                     idFsseur_ = resultSet.getString("id");
                     nomFsseur_ = resultSet.getString("nom");
                     contact_ = resultSet.getString("telephone");
                     addresseFsseir_ = resultSet.getString("addresse");
+                    list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
+                }
+            } else {
+                while (resultSet.next()) {
+                    idFacture_ = resultSet.getString("id");
+                    nomClient_ = resultSet.getString("nom");
+                    sexe_ = resultSet.getString("sexe");
+                    contact_ = resultSet.getString("telephone");
                     list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
                 }
             }

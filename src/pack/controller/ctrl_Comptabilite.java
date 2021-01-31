@@ -85,6 +85,7 @@ public class ctrl_Comptabilite implements Initializable {
     @FXML
     private JFXListView<?> list_tousLesFactures;
     private boolean cash = true;
+    public static JFXListView<?> list_tousLesFactures2;
     @FXML
     private JFXButton btn_typeVente;
 
@@ -93,6 +94,7 @@ public class ctrl_Comptabilite implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        list_tousLesFactures2 = list_tousLesFactures;
         ctrl = new cls_controller();
         ctrl.ChargememtCompression(txtNomClient, "client", "nom");
         ctrl.ChargememtCompression(txtDesiProduit, "produit", "designation");
@@ -100,7 +102,7 @@ public class ctrl_Comptabilite implements Initializable {
                 list_tousLesFactures,
                 2,
                 "/pack/composants/ui_tousLesFactures.fxml",
-                "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
+                "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent INNER JOIN client as cli WHERE ent.idClient = cli.id"
         );
     }
 
