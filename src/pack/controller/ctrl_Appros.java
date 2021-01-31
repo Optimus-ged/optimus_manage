@@ -79,12 +79,14 @@ public class ctrl_Appros implements Initializable {
     private JFXListView<?> lstview_produit;
     @FXML
     private JFXListView<?> list_tousLesAppros;
-
+    
+    public static JFXListView<?> list_tousLesAppros2;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        list_tousLesAppros2 = list_tousLesAppros;
         ctrl = new cls_controller();
         ctrl.ChargememtCompression(txtNomFsseur, "fournisseur", "nom");
         ctrl.ChargememtCompression(txtDesiProduit, "produit", "designation");

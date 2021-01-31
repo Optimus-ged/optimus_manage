@@ -5,17 +5,31 @@
  */
 package pack.controller;
 
+import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import static pack.controller.ctrl_Appros.list_tousLesAppros2;
+import static pack.controller.ctrl_produitDetail.txtDesignation_;
+import static pack.controller.ctrl_produitDetail.txtPu_;
+import static pack.controller.ctrl_produitDetail.txtQte_;
+import static pack.controller.ctrl_tousLesAppros.addresseFsseir_;
+import static pack.controller.ctrl_tousLesAppros.contact_;
+import static pack.controller.ctrl_tousLesAppros.idFsseur_;
+import static pack.controller.ctrl_tousLesAppros.nomFsseur_;
+import pack.model.MdlConnexion;
 
 /**
  * FXML Controller class
@@ -23,40 +37,42 @@ import javafx.stage.Stage;
  * @author Optimus
  */
 public class ctrl_Principal implements Initializable {
+
     // Inportation objets
     private pack.main.cls_controller ctrl;
-    
+    private ResultSet resultSet;
+
     @FXML
     private StackPane principalContainer;
     @FXML
     private AnchorPane anp_principal;
     @FXML
     private StackPane HomeContainer;
-    
+
     public static StackPane HomeContainer2;
     @FXML
     private Label lbl_user_connect;
     @FXML
     private Label lbl_post_user;
-    
+
     public static String lbl_user_connect_;
     public static String lbl_post_user_;
     @FXML
     private Label lbl_pour_apprp;
     @FXML
-    private Label lbl_pour_fact;
+    private TextField txtRecherche;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         // Initialisation objets
+        // Initialisation objets
         ctrl = new pack.main.cls_controller();
         HomeContainer2 = HomeContainer;
         lbl_user_connect.setText(lbl_user_connect_);
         lbl_post_user.setText(lbl_post_user_);
-    }    
+    }
 
     @FXML
     private void deconnection(ActionEvent event) throws IOException {
@@ -72,6 +88,7 @@ public class ctrl_Principal implements Initializable {
     @FXML
     private void onComptabiliteCliked(MouseEvent event) throws IOException {
         ctrl._interface(principalContainer, "/pack/ui/ui_Comptabilite.fxml");
+        lbl_pour_apprp.setText("2");
     }
 
     @FXML
@@ -83,7 +100,6 @@ public class ctrl_Principal implements Initializable {
     private void onParametresClicked(MouseEvent event) throws IOException {
         ctrl._interface(principalContainer, "/pack/ui/ui_Parametres.fxml");
     }
-
 
     @FXML
     private void onNouvClientCliked(MouseEvent event) throws IOException {
@@ -98,6 +114,7 @@ public class ctrl_Principal implements Initializable {
     @FXML
     private void onApproClicked(MouseEvent event) throws IOException {
         ctrl._interface(principalContainer, "/pack/ui/ui_Appros.fxml");
+        lbl_pour_apprp.setText("1");
     }
 
     private void onCreditCliked(MouseEvent event) throws IOException {
@@ -108,5 +125,39 @@ public class ctrl_Principal implements Initializable {
     private void onPaiementCliked(MouseEvent event) throws IOException {
         ctrl._interface(principalContainer, "/pack/ui/ui_Paiement.fxml");
     }
-    
+
+    @FXML
+    private void recherche_all(KeyEvent event) {
+        if (lbl_pour_apprp.getText().equals("1")) {
+            initListView(
+                list_tousLesAppros2,
+                2,
+                "/pack/composants/ui_tousLesAppros.fxml",
+                " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
+                + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur WHERE nom LIKE '%"+ txtRecherche.getText() +"%'"
+            );
+        }else{
+            
+        }   
+    }
+
+    private void initListView(JFXListView<?> list, int btn, String uiFx, String requette) {
+        list.getItems().clear();
+        try {
+            resultSet = MdlConnexion.getCnx().createStatement().executeQuery(requette);
+            if (btn == 1) {
+
+            } else {
+                while (resultSet.next()) {
+                    idFsseur_ = resultSet.getString("id");
+                    nomFsseur_ = resultSet.getString("nom");
+                    contact_ = resultSet.getString("telephone");
+                    addresseFsseir_ = resultSet.getString("addresse");
+                    list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
+                }
+            }
+        } catch (Exception e) {
+        }
+    }
+
 }
