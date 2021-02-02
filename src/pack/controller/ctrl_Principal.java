@@ -135,20 +135,20 @@ public class ctrl_Principal implements Initializable {
     private void recherche_all(KeyEvent event) {
         if (lbl_pour_apprp.getText().equals("1")) {
             initListView(
-                list_tousLesAppros2,
+                    list_tousLesAppros2,
                     1,
-                "/pack/composants/ui_tousLesAppros.fxml",
-                " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent"
-                + " INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur WHERE nom LIKE '%"+ txtRecherche.getText() +"%'"
+                    "/pack/composants/ui_tousLesAppros.fxml",
+                    " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent"
+                    + " INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur WHERE nom LIKE '%" + txtRecherche.getText() + "%' ORDER BY ent.id ASC"
             );
-        }else{
+        } else {
             initListView(
-                list_tousLesFactures2,
-                2,
-                "/pack/composants/ui_tousLesFactures.fxml",
-                "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent INNER JOIN client AS cli ON ent.idClient = cli.id WHERE nom LIKE '%"+ txtRecherche.getText() +"%'"
-        );
-        }   
+                    list_tousLesFactures2,
+                    2,
+                    "/pack/composants/ui_tousLesFactures.fxml",
+                    "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent INNER JOIN client AS cli ON ent.idClient = cli.id WHERE nom LIKE '%" + txtRecherche.getText() + "%' ORDER BY ent.id ASC"
+            );
+        }
     }
 
     private void initListView(JFXListView<?> list, int btn, String uiFx, String requette) {
@@ -159,7 +159,7 @@ public class ctrl_Principal implements Initializable {
                 while (resultSet.next()) {
                     idFsseur_ = resultSet.getString("id");
                     nomFsseur_ = resultSet.getString("nom");
-                    contact_ = resultSet.getString("telephone");
+                    contactA_ = resultSet.getString("telephone");
                     addresseFsseir_ = resultSet.getString("addresse");
                     list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
                 }

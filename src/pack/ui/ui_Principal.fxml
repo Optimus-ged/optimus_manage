@@ -133,7 +133,7 @@
                               <MaterialDesignIconView glyphName="POLL" layoutX="11.0" layoutY="20.0" size="20" />
                            </children>
                         </AnchorPane>
-                        <Label fx:id="lbl_pour_apprp" layoutX="14.0" layoutY="403.0" text="1" />
+                        <Label fx:id="lbl_pour_apprp" layoutX="14.0" layoutY="403.0" text="1" visible="false" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="574.0" prefHeight="81.0" prefWidth="167.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="0.0">
