@@ -102,7 +102,7 @@ public class ctrl_Comptabilite implements Initializable {
                 list_tousLesFactures,
                 2,
                 "/pack/composants/ui_tousLesFactures.fxml",
-                "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent INNER JOIN client as cli WHERE ent.idClient = cli.id"
+                "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY ent.id ASC"
         );
     }
 

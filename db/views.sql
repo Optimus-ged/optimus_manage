@@ -123,5 +123,6 @@ nom, prenom, sexe,  telephone
 FROM entete_facture AS e
 INNER JOIN client AS c ON c.id = e.idClient
 
-
+-- Commentaire
+-- View de selection de l
 

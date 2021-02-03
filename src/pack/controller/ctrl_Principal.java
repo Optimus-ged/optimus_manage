@@ -18,8 +18,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.RotateEvent;
+import javafx.scene.input.ScrollEvent;
+import javafx.scene.input.SwipeEvent;
+import javafx.scene.input.TouchEvent;
+import javafx.scene.input.ZoomEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -72,6 +80,7 @@ public class ctrl_Principal implements Initializable {
     private TextField txtDate;
     @FXML
     private JFXDatePicker datePicker;
+    private String formatedDate;
 
     /**
      * Initializes the controller class.
@@ -185,12 +194,12 @@ public class ctrl_Principal implements Initializable {
     @FXML
     private void pickDate(ActionEvent event) {
         String date = datePicker.getValue().toString();
-        System.out.println(date.length());
         String jour = date.substring(8, 10);
         String mois = date.substring(5, 7);
         String annee = date.substring(0, 4);
-        String formatedDate = jour + "/" + mois + "/"+ annee;
-        txtDate.setText(formatedDate);
+        formatedDate = jour + "/" + mois + "/"+ annee;
+        txtDate.setText(formatedDate);    
+        
     }
-
+     
 }
