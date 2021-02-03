@@ -220,8 +220,8 @@
                         </Label>
                         <AnchorPane layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3;">
                            <children>
-                              <TextField layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="167.0" promptText="Selectionner la date" style="-fx-background-color: white;" />
-                              <JFXDatePicker defaultColor="#212b38" layoutX="175.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="28.0" />
+                              <TextField fx:id="txtDate" layoutX="2.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="167.0" promptText="Selectionner la date" style="-fx-background-color: white;" />
+                              <JFXDatePicker fx:id="datePicker" defaultColor="#212b38" layoutX="175.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#pickDate" prefHeight="23.0" prefWidth="28.0" />
                            </children>
                         </AnchorPane>
                         <Label layoutX="5.0" layoutY="169.0" text="Saisissez dans la barre de ">

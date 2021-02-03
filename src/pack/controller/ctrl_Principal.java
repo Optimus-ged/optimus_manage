@@ -5,6 +5,7 @@
  */
 package pack.controller;
 
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -66,6 +68,10 @@ public class ctrl_Principal implements Initializable {
     private Label lbl_pour_apprp;
     @FXML
     private TextField txtRecherche;
+    @FXML
+    private TextField txtDate;
+    @FXML
+    private JFXDatePicker datePicker;
 
     /**
      * Initializes the controller class.
@@ -174,6 +180,17 @@ public class ctrl_Principal implements Initializable {
             }
         } catch (Exception e) {
         }
+    }
+
+    @FXML
+    private void pickDate(ActionEvent event) {
+        String date = datePicker.getValue().toString();
+        System.out.println(date.length());
+        String jour = date.substring(8, 10);
+        String mois = date.substring(5, 7);
+        String annee = date.substring(0, 4);
+        String formatedDate = jour + "/" + mois + "/"+ annee;
+        txtDate.setText(formatedDate);
     }
 
 }
