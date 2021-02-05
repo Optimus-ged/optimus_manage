@@ -101,7 +101,7 @@
                         </AnchorPane>
                         <AnchorPane layoutY="303.0" onMouseClicked="#onRapportsClicked" prefHeight="27.0" prefWidth="147.0">
                            <children>
-                              <Label layoutX="10.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text=" Rapports" textFill="#8b8f98" AnchorPane.leftAnchor="10.0">
+                              <Label layoutX="10.0" layoutY="4.0" prefHeight="20.0" prefWidth="139.0" text="Etat stock" textFill="#8b8f98" AnchorPane.leftAnchor="10.0">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>

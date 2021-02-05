@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package pack.controller;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
