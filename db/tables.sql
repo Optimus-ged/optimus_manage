@@ -194,6 +194,7 @@ TRUNCATE TABLE produit;
 
 
 DELETE FROM detail_facture;
+DELETE FROM paiement;
 DELETE FROM entete_facture;
 DELETE FROM detail_appro;
 DELETE FROM entete_appro;
