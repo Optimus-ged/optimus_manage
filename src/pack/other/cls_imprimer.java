@@ -40,7 +40,7 @@ public class cls_imprimer {
             JasperReport f1 = JasperCompileManager.compileReport(g);
             JasperPrint a = JasperFillManager.fillReport(f1, null, MdlConnexion.getCnx());
 
-            JFXButton b1 = new JFXButton("OK");
+            JFXButton b1 = new JFXButton("Oui");
             JFXButton b2 = new JFXButton("Annuler");
 
             JFXDialogLayout Layout = new JFXDialogLayout();
