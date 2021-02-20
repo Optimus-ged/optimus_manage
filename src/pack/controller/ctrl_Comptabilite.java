@@ -36,6 +36,7 @@ import pack.main.cls_controller;
 import pack.model.MdlConnexion;
 import pack.model.MdlDetailFacture;
 import pack.model.MdlEnteteFacture;
+import pack.other.cls_imprimer;
 import static pack.traitement.TttAppros.getInstance;
 
 /**
@@ -103,11 +104,6 @@ public class ctrl_Comptabilite implements Initializable {
                 "/pack/composants/ui_tousLesFactures.fxml",
                 "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY ent.id ASC"
         );
-    }
-
-    @FXML
-    private void enregAppros(ActionEvent event) throws ClassNotFoundException, SQLException {
-        txtTelephoneClient.setText(telephone(txtNomClient.getText()));
     }
 
     @FXML
@@ -312,6 +308,11 @@ public class ctrl_Comptabilite implements Initializable {
 
         } catch (Exception ex) {
         }
+    }
+
+    @FXML
+    private void testImpression(ActionEvent event) {
+//        cls_imprimer._impresion("SELECT ", containerFact, contact_);
     }
 
 }
