@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="321" pageHeight="409" columnWidth="281" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d67d348a-6551-4fa3-a0ef-508098f288ec">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="321" pageHeight="360" columnWidth="281" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d67d348a-6551-4fa3-a0ef-508098f288ec">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="6"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -64,30 +64,30 @@
 	<group name="id_entete">
 		<groupExpression><![CDATA[$F{id_entete}]]></groupExpression>
 		<groupHeader>
-			<band height="88">
+			<band height="105">
 				<textField>
 					<reportElement x="0" y="6" width="281" height="20" uuid="1da687fb-2aec-470b-8b1a-d44a11c6ebce"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="SimSun" isBold="true" isUnderline="true"/>
+						<font fontName="Arial" isBold="true" isUnderline="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Facture N° "+$F{id_entete}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="0" y="45" width="281" height="20" uuid="f499856a-239d-478a-83ca-23d800d306c2"/>
+					<reportElement x="1" y="58" width="242" height="20" uuid="f499856a-239d-478a-83ca-23d800d306c2"/>
 					<textElement verticalAlignment="Middle">
-						<font fontName="SimSun"/>
+						<font fontName="Arial"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{nom}+" "+$F{prenom}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["Nom : "+$F{nom}+" "+$F{prenom}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="0" y="24" width="281" height="20" uuid="87453cdb-47da-41b3-bec0-146e76a8a5d6"/>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="SimSun"/>
+					<reportElement x="0" y="42" width="281" height="20" uuid="87453cdb-47da-41b3-bec0-146e76a8a5d6"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$F{date_facture}]]></textFieldExpression>
+					<textFieldExpression><![CDATA["Date : " + $F{date_facture}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement mode="Opaque" x="27" y="68" width="118" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="47de0acc-ad5a-45b9-b8f4-f06ea7bbaa4a"/>
+					<reportElement mode="Opaque" x="27" y="85" width="89" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="47de0acc-ad5a-45b9-b8f4-f06ea7bbaa4a"/>
 					<box>
 						<pen lineWidth="0.25"/>
 						<topPen lineWidth="0.25"/>
@@ -96,12 +96,12 @@
 						<rightPen lineWidth="0.25"/>
 					</box>
 					<textElement verticalAlignment="Middle">
-						<font fontName="SimSun" isBold="true"/>
+						<font fontName="Arial" isBold="true"/>
 					</textElement>
 					<text><![CDATA[ Designation]]></text>
 				</staticText>
 				<staticText>
-					<reportElement mode="Opaque" x="145" y="68" width="67" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="3abeb32a-1544-4626-a26e-b7a71f5c1e40"/>
+					<reportElement mode="Opaque" x="116" y="85" width="67" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="3abeb32a-1544-4626-a26e-b7a71f5c1e40"/>
 					<box>
 						<pen lineWidth="0.25"/>
 						<topPen lineWidth="0.25"/>
@@ -110,12 +110,12 @@
 						<rightPen lineWidth="0.25"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="SimSun" isBold="true"/>
+						<font fontName="Arial" isBold="true"/>
 					</textElement>
 					<text><![CDATA[P.Unitaire]]></text>
 				</staticText>
 				<staticText>
-					<reportElement mode="Opaque" x="212" y="68" width="69" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="3de18c09-786a-4c8e-8a2a-94ddb56efa26"/>
+					<reportElement mode="Opaque" x="212" y="85" width="69" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="3de18c09-786a-4c8e-8a2a-94ddb56efa26"/>
 					<box>
 						<pen lineWidth="0.25"/>
 						<topPen lineWidth="0.25"/>
@@ -124,25 +124,39 @@
 						<rightPen lineWidth="0.25"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="SimSun" isBold="true"/>
+						<font fontName="Arial" isBold="true"/>
 					</textElement>
 					<text><![CDATA[P.Total]]></text>
 				</staticText>
 				<staticText>
-					<reportElement mode="Opaque" x="0" y="68" width="27" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="95953531-98b4-4f95-9840-bbe50a784d76"/>
+					<reportElement mode="Opaque" x="0" y="85" width="27" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="95953531-98b4-4f95-9840-bbe50a784d76"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="SimSun" isBold="true"/>
+						<font fontName="Arial" isBold="true"/>
 					</textElement>
 					<text><![CDATA[N°]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="183" y="85" width="29" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="f59f9df5-44f9-4bdf-bb61-471269f673a2"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Qte]]></text>
 				</staticText>
 			</band>
 		</groupHeader>
 		<groupFooter>
 			<band height="36">
 				<textField>
-					<reportElement x="0" y="0" width="281" height="16" uuid="7fc4e422-52ac-42dc-8fff-4e71169bc843"/>
+					<reportElement x="0" y="9" width="281" height="16" uuid="7fc4e422-52ac-42dc-8fff-4e71169bc843"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="SimSun" isBold="true"/>
+						<font fontName="Arial" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Montant à payer  "+$F{prix_vente_total}+" CD"]]></textFieldExpression>
 				</textField>
@@ -161,7 +175,7 @@
 	<detail>
 		<band height="21" splitType="Stretch">
 			<textField>
-				<reportElement x="27" y="0" width="118" height="21" uuid="c187ec87-9f84-4828-bc04-668f844aa340"/>
+				<reportElement x="27" y="0" width="89" height="21" uuid="c187ec87-9f84-4828-bc04-668f844aa340"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -170,12 +184,12 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement verticalAlignment="Middle">
-					<font fontName="SimSun"/>
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" "+$F{designation}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="145" y="0" width="67" height="21" uuid="34ba781b-a732-40ab-b6c7-e356924b76d8"/>
+				<reportElement x="116" y="0" width="67" height="21" uuid="34ba781b-a732-40ab-b6c7-e356924b76d8"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -184,12 +198,12 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SimSun"/>
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pu}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="212" y="0" width="69" height="21" uuid="bf5a9e03-4879-417f-a2a4-80a58c6f36ac"/>
+				<reportElement x="212" y="0" width="68" height="21" uuid="bf5a9e03-4879-417f-a2a4-80a58c6f36ac"/>
 				<box>
 					<pen lineWidth="0.25"/>
 					<topPen lineWidth="0.25"/>
@@ -198,7 +212,7 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SimSun"/>
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{prix_vente}]]></textFieldExpression>
 			</textField>
@@ -212,18 +226,27 @@
 					<rightPen lineWidth="0.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SimSun"/>
+					<font fontName="Arial"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="0" width="29" height="21" uuid="e77fb70c-0f7c-4955-a780-ba400505e2ef"/>
+				<box>
+					<pen lineWidth="0.25" lineStyle="Solid"/>
+					<topPen lineWidth="0.25" lineStyle="Solid"/>
+					<leftPen lineWidth="0.25" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.25" lineStyle="Solid"/>
+					<rightPen lineWidth="0.25" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{qte}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
 		<band height="7" splitType="Stretch"/>
 	</columnFooter>
-	<pageFooter>
-		<band height="25" splitType="Stretch"/>
-	</pageFooter>
 	<summary>
 		<band splitType="Stretch"/>
 	</summary>
