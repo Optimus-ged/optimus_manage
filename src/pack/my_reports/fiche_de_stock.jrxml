@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="495" leftMargin="50" rightMargin="50" topMargin="20" bottomMargin="20" uuid="75c28e1f-82ff-4a21-8e06-e3edefbabdf8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT p.id, date_fiche_de_stock, idProduit, designation, pu, stock_initial, 
+qte_entree, qte_consommee, stock_final
+FROM produit as p 
+INNER JOIN fiche_de_stock AS f WHERE f.idProduit = p.id]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="date_fiche_de_stock" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idProduit" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="designation" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pu" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stock_initial" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qte_entree" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qte_consommee" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stock_final" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="date_fiche_de_stock">
+		<groupExpression><![CDATA[$F{date_fiche_de_stock}]]></groupExpression>
+		<groupHeader>
+			<band height="133">
+				<staticText>
+					<reportElement x="0" y="0" width="495" height="20" uuid="1a995010-4944-429e-8429-a2bda47cf2f0"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FICHE DE STOCK]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="2" y="108" width="100" height="25" backcolor="#F0EFEF" uuid="4fa183ce-9636-439a-b8a2-87194344c336"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[  Designation]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="102" y="108" width="100" height="25" backcolor="#F0EFEF" uuid="32a0525e-8683-449d-bbe2-e241969b31e3"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[  Stock final]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="202" y="108" width="100" height="25" backcolor="#F0EFEF" uuid="caa364af-5367-4c07-8357-172e15bb4ee5"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[  Qte Entree]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="302" y="108" width="100" height="25" backcolor="#F0EFEF" uuid="af95e0c0-3bf5-4007-b074-ddf25618b8da"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[  Qte consommee]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="402" y="108" width="93" height="25" backcolor="#F0EFEF" uuid="c8613f1a-6948-4a06-9c47-828086cf60e4"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[  Stock final]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="2" y="73" width="400" height="20" uuid="9d26f8ec-e15e-4cc2-b0ba-17592dada44b"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["Date Fiche : "+$F{date_fiche_de_stock}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="22"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="38" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="2" y="0" width="493" height="25" uuid="c8abc01e-9216-4174-8b40-ff5625f870dd"/>
+				<textField>
+					<reportElement x="0" y="0" width="100" height="25" uuid="fa547e04-4415-4baf-a8b0-74e6930df452"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["  "+$F{designation}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="100" y="0" width="100" height="25" uuid="e9467290-b28a-4d77-a206-0eb92c8c4f7b"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["  "+$F{stock_final}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="200" y="0" width="100" height="25" uuid="29116ee8-7d0d-4950-93d3-a9cff564927c"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["  "+$F{qte_entree}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="300" y="0" width="100" height="25" uuid="ff2676e7-82f0-439e-b91a-841edede3fea"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["  "+$F{qte_consommee}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="400" y="0" width="93" height="25" uuid="848894be-65fa-4289-95f8-e7b49016a5dd"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["  "+$F{stock_final}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

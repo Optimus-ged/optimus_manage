@@ -126,3 +126,10 @@ INNER JOIN client AS c ON c.id = e.idClient
 -- Commentaire
 -- View de selection de l
 
+-- Commntaire
+-- Une autre view de stock
+SELECT p.id, date_fiche_de_stock, idProduit, designation, pu, stock_initial, 
+qte_entree, qte_consommee, stock_final
+FROM produit as p 
+INNER JOIN fiche_de_stock AS f WHERE f.idProduit = p.id
+
