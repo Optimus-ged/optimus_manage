@@ -64,7 +64,7 @@
 	<group name="id_entete">
 		<groupExpression><![CDATA[$F{id_entete}]]></groupExpression>
 		<groupHeader>
-			<band height="105">
+			<band height="135">
 				<textField>
 					<reportElement x="0" y="6" width="281" height="20" uuid="1da687fb-2aec-470b-8b1a-d44a11c6ebce"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -73,21 +73,21 @@
 					<textFieldExpression><![CDATA["Facture N° "+$F{id_entete}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="1" y="58" width="242" height="20" uuid="f499856a-239d-478a-83ca-23d800d306c2"/>
+					<reportElement x="1" y="76" width="242" height="20" uuid="f499856a-239d-478a-83ca-23d800d306c2"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Nom : "+$F{nom}+" "+$F{prenom}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="0" y="42" width="281" height="20" uuid="87453cdb-47da-41b3-bec0-146e76a8a5d6"/>
+					<reportElement x="0" y="60" width="281" height="20" uuid="87453cdb-47da-41b3-bec0-146e76a8a5d6"/>
 					<textElement verticalAlignment="Middle">
 						<font fontName="Arial"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Date : " + $F{date_facture}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement mode="Opaque" x="27" y="85" width="89" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="47de0acc-ad5a-45b9-b8f4-f06ea7bbaa4a"/>
+					<reportElement mode="Opaque" x="27" y="115" width="89" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="47de0acc-ad5a-45b9-b8f4-f06ea7bbaa4a"/>
 					<box>
 						<pen lineWidth="0.25"/>
 						<topPen lineWidth="0.25"/>
@@ -101,7 +101,7 @@
 					<text><![CDATA[ Designation]]></text>
 				</staticText>
 				<staticText>
-					<reportElement mode="Opaque" x="116" y="85" width="67" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="3abeb32a-1544-4626-a26e-b7a71f5c1e40"/>
+					<reportElement mode="Opaque" x="116" y="115" width="67" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="3abeb32a-1544-4626-a26e-b7a71f5c1e40"/>
 					<box>
 						<pen lineWidth="0.25"/>
 						<topPen lineWidth="0.25"/>
@@ -115,7 +115,7 @@
 					<text><![CDATA[P.Unitaire]]></text>
 				</staticText>
 				<staticText>
-					<reportElement mode="Opaque" x="212" y="85" width="69" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="3de18c09-786a-4c8e-8a2a-94ddb56efa26"/>
+					<reportElement mode="Opaque" x="212" y="115" width="69" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="3de18c09-786a-4c8e-8a2a-94ddb56efa26"/>
 					<box>
 						<pen lineWidth="0.25"/>
 						<topPen lineWidth="0.25"/>
@@ -129,14 +129,14 @@
 					<text><![CDATA[P.Total]]></text>
 				</staticText>
 				<staticText>
-					<reportElement mode="Opaque" x="0" y="85" width="27" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="95953531-98b4-4f95-9840-bbe50a784d76"/>
+					<reportElement mode="Opaque" x="0" y="115" width="27" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="95953531-98b4-4f95-9840-bbe50a784d76"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" isBold="true"/>
 					</textElement>
 					<text><![CDATA[N°]]></text>
 				</staticText>
 				<staticText>
-					<reportElement mode="Opaque" x="183" y="85" width="29" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="f59f9df5-44f9-4bdf-bb61-471269f673a2"/>
+					<reportElement mode="Opaque" x="183" y="115" width="29" height="20" forecolor="#FFFFFF" backcolor="#999999" uuid="f59f9df5-44f9-4bdf-bb61-471269f673a2"/>
 					<box>
 						<pen lineWidth="0.25"/>
 						<topPen lineWidth="0.25"/>
@@ -149,6 +149,13 @@
 					</textElement>
 					<text><![CDATA[Qte]]></text>
 				</staticText>
+				<textField>
+					<reportElement x="1" y="23" width="279" height="20" uuid="4f1bfbef-1986-41ce-bfb4-280a3eb1700e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Type Vente : "+$F{type_vente}]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 		<groupFooter>

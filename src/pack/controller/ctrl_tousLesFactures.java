@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -43,5 +44,9 @@ public class ctrl_tousLesFactures implements Initializable {
         sexe.setText(sexe_);
         contact.setText(contact_);
     }    
+
+    @FXML
+    private void click_item(MouseEvent event) {
+    }
     
 }
