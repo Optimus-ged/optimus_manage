@@ -97,13 +97,12 @@ INNER JOIN entete_facture AS e ON d.idEnteteFacture = e.id
 WHERE type_vente = 2
 
 CREATE VIEW view_detail_pyt_2 AS 
-SELECT id, idProduit, SUM(total_a_payer) AS A_payer FROM view_detail_pyt_1 GROUP BY id
+SELECT id, SUM(total_a_payer) AS A_payer FROM view_detail_pyt_1 GROUP BY id
 
-CREATE VIEW view_detail_pyt_3
-SELECT `d.id`,  `total_a_payer` AS total,
-A_payer
-FROM `view_detail_pyt_1` AS p
-INNER JOIN view_detail_pyt_2 AS d ON p.id = d.id
+CREATE VIEW view_detail_pyt_3 AS
+SELECT p.id, idEnteteFacture, datePaiement, A_payer, montantPaye AS deja_paye, (A_payer - montantPaye) AS reste
+FROM view_detail_pyt_2 AS v 
+INNER JOIN paiement AS p ON v.id = p.idEnteteFacture
 
 -- Commentaire
 -- view facture credit finale
