@@ -396,8 +396,8 @@ CREATE PROCEDURE sp_paiement_in(
 BEGIN 
     IF EXISTS(SELECT id FROM paiement WHERE idEnteteFacture = iidEnteteFacture) THEN 
         UPDATE paiement SET 
-            datePaiement = DATE_FORMAT(NOW(), "%d-%m-%Y"),
-            montantPaye = mmontantPayt
+            datePaiement = DATE_FORMAT(NOW(), "%d/%m/%Y"),
+            montantPaye =montantPaye + mmontantPayt
         WHERE idEnteteFacture = iidEnteteFacture;
     END IF;
 END

@@ -35,10 +35,6 @@ public class ctrl_Paiement implements Initializable {
     
     @FXML
     private TextField txtMontant;
-    @FXML
-    private Label lblInfo;
-    @FXML
-    private FontAwesomeIconView font;
     
     private cls_controller ctrl;
     private MdlPaiement paie;
@@ -47,6 +43,11 @@ public class ctrl_Paiement implements Initializable {
     private TextField txtidFacture;
     @FXML
     private JFXListView<?> listeRecu;
+    @FXML
+    private Label lblInfo;
+    @FXML
+    private FontAwesomeIconView font;
+    private Label label_test;
 
     /**
      * Initializes the controller class.
@@ -54,7 +55,7 @@ public class ctrl_Paiement implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ctrl = new cls_controller();
-        paie = new MdlPaiement(txtidFacture, txtMontant, lblInfo, font);
+        paie = new MdlPaiement(txtidFacture, txtMontant, lblInfo, font, label_test);
         initList(
               listeRecu,
               "SELECT * FROM `paiement`",

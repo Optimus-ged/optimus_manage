@@ -14,28 +14,29 @@ import pack.model.MdlConnexion;
  * @author Optimus
  */
 public class TttPaiement {
+
     private int idFacture;
     private float montant;
-    
-    public TttPaiement(int idFacture, float montant){
-        idFacture = this.idFacture;
-        montant = this.montant;
+
+    public TttPaiement(int idFacture, float montant) {
+        this.idFacture = idFacture;
+        this.montant = montant;
     }
-    
-    public TttPaiement(){
-        
+
+    public TttPaiement() {
+
     }
-    
-    public void paiement(int btn)throws ClassNotFoundException, SQLException{
-        if(btn == 1){
+
+    public void paiement(int btn) throws ClassNotFoundException, SQLException {
+        if (btn == 1) {
             PreparedStatement ps = MdlConnexion.getCnx().prepareCall("{Call sp_paiement_in(?,?)}");
-            ps.setInt(1,idFacture);
+            ps.setInt(1, idFacture);
             ps.setFloat(2, montant);
             ps.executeUpdate();
         }
     }
-        
-    public String requette(){
+
+    public String requette() {
         return "SELECT * FROM paiement";
     }
 }

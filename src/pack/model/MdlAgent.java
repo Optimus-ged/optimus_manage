@@ -35,6 +35,7 @@ public class MdlAgent {
         this.txtId = txtId;
         this.lblInfo = lblInfo;
         this.font = font;
+        
         ctrl = new cls_controller();
         ag = new TttAgent();
     }

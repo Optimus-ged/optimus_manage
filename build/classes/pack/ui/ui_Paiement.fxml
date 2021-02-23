@@ -19,7 +19,7 @@
       </Label>
       <Pane layoutY="57.0" prefHeight="447.0" prefWidth="281.0" style="-fx-background-color: transparent;">
          <children>
-            <Label layoutX="8.0" layoutY="29.0" text="Nom Client" textFill="#aaaaaa" />
+            <Label layoutX="8.0" layoutY="29.0" text="N° Facture" textFill="#aaaaaa" />
             <AnchorPane layoutX="8.0" layoutY="52.0" prefHeight="28.0" prefWidth="252.0" style="-fx-border-color: #b6b6b6; -fx-border-width: 0.25px;">
                <children>
                   <TextField fx:id="txtidFacture" layoutX="37.0" layoutY="1.0" prefHeight="25.0" prefWidth="214.0" promptText="N° Facture" style="-fx-background-color: transparent; -fx-border-color: #b6b6b6; -fx-border-width: 0px 0px 0px 0.25px;" />

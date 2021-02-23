@@ -88,6 +88,8 @@ public class ctrl_Comptabilite implements Initializable {
     public static JFXListView<?> list_tousLesFactures2;
     @FXML
     private JFXButton btn_typeVente;
+    @FXML
+    private Label test_la;
 
     /**
      * Initializes the controller class.
