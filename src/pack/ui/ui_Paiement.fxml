@@ -56,7 +56,7 @@
             <Font name="Verdana" size="11.0" />
          </font>
       </Label>
-      <JFXListView focusTraversable="false" layoutX="269.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="527.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="135.0" />
+      <JFXListView fx:id="listeRecu" focusTraversable="false" layoutX="269.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="527.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="135.0" />
       <Pane layoutX="269.0" layoutY="90.0" prefHeight="45.0" prefWidth="528.0" style="-fx-background-color: #F6F7F9;" AnchorPane.leftAnchor="269.0" AnchorPane.rightAnchor="5.0">
          <children>
             <Label layoutX="17.0" layoutY="14.0" text="N° fact" textFill="#464d86">

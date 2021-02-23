@@ -104,6 +104,8 @@ SELECT p.id, idEnteteFacture, datePaiement, A_payer, montantPaye AS deja_paye, (
 FROM view_detail_pyt_2 AS v 
 INNER JOIN paiement AS p ON v.id = p.idEnteteFacture
 
+
+
 -- Commentaire
 -- view facture credit finale
 CREATE VIEW facture_credit_finale SELECT 
