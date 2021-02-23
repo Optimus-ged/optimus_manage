@@ -91,7 +91,7 @@
 					<rightPen lineWidth="0.2"/>
 				</box>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["  "+$F{A_payer}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["  "+$F{A_payer}+" Fc"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="89" y="-1" width="96" height="20" uuid="1767ce95-ca22-4746-a19f-ba96084793ca"/>
@@ -103,7 +103,7 @@
 					<rightPen lineWidth="0.2"/>
 				</box>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["  "+$F{deja_paye}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["  "+$F{deja_paye}+" Fc"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="185" y="-1" width="96" height="20" uuid="2bb37fc9-83c0-4dc7-87f0-7bab436d16f6"/>
@@ -115,7 +115,7 @@
 					<rightPen lineWidth="0.2"/>
 				</box>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA["  "+$F{reste}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["  "+$F{reste}+" Fc"]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
