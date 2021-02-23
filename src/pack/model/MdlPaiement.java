@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pack.main.cls_controller;
-import pack.traitement.TttClient;
 import pack.traitement.TttPaiement;
 
 /**
@@ -21,34 +20,38 @@ public class MdlPaiement {
 
     private cls_controller ctrl;
     private TttPaiement pai;
-    private TextField txtNomClient, txtMontant;
+    private TextField txtidFacture, txtMontant;
     private Label lblInfo;
     private FontAwesomeIconView font;
 
-    MdlPaiement(TextField txtNomClient, TextField txtMontant) {
-        txtNomClient = this.txtNomClient;
+   public MdlPaiement(TextField txtidFacture, TextField txtMontant, Label lblInfo, FontAwesomeIconView font) {
+        txtidFacture = this.txtidFacture;
         txtMontant = this.txtMontant;
+        lblInfo = this.lblInfo;
+        font = this.font;
         ctrl = new cls_controller();
         pai = new TttPaiement();
     }
 
     public void paiementIn(int btn) throws ClassNotFoundException, SQLException {
+        System.out.println("Dans la methode >>>>>>>>>>>>>>>>>>>>>>");
         if (btn == 1) {
-            if (champs.champs_vide.isFieldsempty(txtNomClient, txtMontant)) {
-                ctrl.showMssge(lblInfo, font, "Veuillez remplir tous les champs svp !", 0);
-            }else {
-                if (ctrl.isNumber(txtMontant.getText()) && ctrl.isNumber(txtNomClient.getText()) ) {
-                    pai = new TttPaiement(
-                            Integer.parseInt(txtNomClient.getText()), 
-                            Float.parseFloat(txtMontant.getText())
-                    );
-                    pai.paiement(1);
-                    ctrl.alerteInformation("Information", "Enregistre !!!");
-                }else{
-                    ctrl.alerteInformation("Erreur", "Le montant et le numero de la\nfacture sont tous des entiers !!!");
-                }
-
-            }
+//            if (champs.champs_vide.isFieldsempty(txtNomClient, txtMontant)) {
+//                ctrl.showMssge(lblInfo, font, "Veuillez remplir tous les champs svp !", 0);
+//            }
+//else {
+//                if (ctrl.isNumber(txtMontant.getText()) && ctrl.isNumber(txtNomClient.getText()) ) {
+//                    pai = new TttPaiement(
+//                            Integer.parseInt(txtidFacture.getText()), 
+//                            Float.parseFloat(txtMontant.getText())
+//                    );
+//                    pai.paiement(1);
+//                    ctrl.alerteInformation("Information", "Enregistre !!!");
+//                }else{
+//                    ctrl.alerteInformation("Erreur", "Le montant et le numero de la\nfacture sont tous des entiers !!!");
+//                }
+//
+//            }
         }
     }
 }

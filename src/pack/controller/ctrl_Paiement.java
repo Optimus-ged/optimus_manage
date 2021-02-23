@@ -5,16 +5,15 @@
  */
 package pack.controller;
 
-import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import pack.main.cls_controller;
 import pack.model.MdlPaiement;
 
@@ -25,25 +24,19 @@ import pack.model.MdlPaiement;
  */
 public class ctrl_Paiement implements Initializable {
 
-    @FXML
-    private TextField txtNomClient;
+    
     @FXML
     private TextField txtMontant;
-    @FXML
-    private JFXButton btnEnre;
-    @FXML
-    private Label txtId;
     @FXML
     private Label lblInfo;
     @FXML
     private FontAwesomeIconView font;
-    @FXML
-    private Label lblInfo1;
-    @FXML
-    private FontAwesomeIconView font1;
     
     private cls_controller ctrl;
     private MdlPaiement paie;
+    
+    @FXML
+    private TextField txtidFacture;
 
     /**
      * Initializes the controller class.
@@ -51,11 +44,12 @@ public class ctrl_Paiement implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ctrl = new cls_controller();
-        paie = new MdlPaiement(txtNomClient, txtMontant, lblInfo, font);
+        paie = new MdlPaiement(txtidFacture, txtMontant, lblInfo, font);
     }    
 
+    
     @FXML
-    private void payer(MouseEvent event) throws ClassNotFoundException, SQLException {
+    private void fairePaiement(ActionEvent event) throws ClassNotFoundException, SQLException {
         paie.paiementIn(1);
     }
     
