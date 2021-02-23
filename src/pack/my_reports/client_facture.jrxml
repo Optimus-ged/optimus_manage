@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="321" pageHeight="360" columnWidth="281" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d67d348a-6551-4fa3-a0ef-508098f288ec">
-	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
@@ -165,7 +165,7 @@
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font fontName="Arial" isBold="true"/>
 					</textElement>
-					<textFieldExpression><![CDATA["Montant à payer  "+$F{prix_vente_total}+" CD"]]></textFieldExpression>
+					<textFieldExpression><![CDATA["Montant à payer  "+$F{prix_vente_total}+" Fc"]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupFooter>

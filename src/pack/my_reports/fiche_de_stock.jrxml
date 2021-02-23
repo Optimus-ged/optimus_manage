@@ -51,13 +51,6 @@ INNER JOIN fiche_de_stock AS f WHERE f.idProduit = p.id]]>
 		<groupHeader>
 			<band height="133">
 				<staticText>
-					<reportElement x="0" y="0" width="495" height="20" uuid="1a995010-4944-429e-8429-a2bda47cf2f0"/>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial" size="12" isBold="true"/>
-					</textElement>
-					<text><![CDATA[FICHE DE STOCK]]></text>
-				</staticText>
-				<staticText>
 					<reportElement mode="Opaque" x="2" y="108" width="100" height="25" backcolor="#F0EFEF" uuid="4fa183ce-9636-439a-b8a2-87194344c336"/>
 					<textElement verticalAlignment="Middle"/>
 					<text><![CDATA[  Designation]]></text>
@@ -65,7 +58,7 @@ INNER JOIN fiche_de_stock AS f WHERE f.idProduit = p.id]]>
 				<staticText>
 					<reportElement mode="Opaque" x="102" y="108" width="100" height="25" backcolor="#F0EFEF" uuid="32a0525e-8683-449d-bbe2-e241969b31e3"/>
 					<textElement verticalAlignment="Middle"/>
-					<text><![CDATA[  Stock final]]></text>
+					<text><![CDATA[  Stock initial]]></text>
 				</staticText>
 				<staticText>
 					<reportElement mode="Opaque" x="202" y="108" width="100" height="25" backcolor="#F0EFEF" uuid="caa364af-5367-4c07-8357-172e15bb4ee5"/>
@@ -103,7 +96,15 @@ INNER JOIN fiche_de_stock AS f WHERE f.idProduit = p.id]]>
 		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="26" splitType="Stretch"/>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="495" height="20" uuid="1a995010-4944-429e-8429-a2bda47cf2f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FICHE DE STOCK]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
 		<band height="25" splitType="Stretch">
