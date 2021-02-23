@@ -8,12 +8,15 @@ package pack.controller;
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import pack.main.cls_controller;
+import pack.model.MdlPaiement;
 
 /**
  * FXML Controller class
@@ -38,18 +41,22 @@ public class ctrl_Paiement implements Initializable {
     private Label lblInfo1;
     @FXML
     private FontAwesomeIconView font1;
+    
+    private cls_controller ctrl;
+    private MdlPaiement paie;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ctrl = new cls_controller();
+        paie = new MdlPaiement(txtNomClient, txtMontant, lblInfo, font);
     }    
 
     @FXML
-    private void payer(MouseEvent event) {
-        
+    private void payer(MouseEvent event) throws ClassNotFoundException, SQLException {
+        paie.paiementIn(1);
     }
     
 }
