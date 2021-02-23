@@ -67,6 +67,11 @@ public class ctrl_Paiement implements Initializable {
     @FXML
     private void fairePaiement(ActionEvent event) throws ClassNotFoundException, SQLException {
         paie.paiementIn(1);
+        initList(
+              listeRecu,
+              "SELECT * FROM `paiement`",
+              "/pack/composants/ui_RecuComposant.fxml"
+        );
     }
     
      private void initList(JFXListView list, String requette, String uiFx){
