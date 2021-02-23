@@ -5,10 +5,34 @@
  */
 package pack.traitement;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import pack.model.MdlConnexion;
+
 /**
  *
  * @author Optimus
  */
 public class TttPaiement {
+    private int idFacture;
+    private float montant;
     
+    TttPaiement(int idFacture, float montant){
+        idFacture = this.idFacture;
+        montant = this.montant;
+    }
+    
+    TttPaiement(){
+        
+    }
+    
+    public void agent(int btn)throws ClassNotFoundException, SQLException{
+        if(btn == 1){
+            PreparedStatement ps = MdlConnexion.getCnx().prepareCall("{Call sp_paiement_in(?,?)}");
+            ps.setInt(1,idFacture);
+            ps.setFloat(2, montant);
+            ps.executeUpdate();
+        }
+    }
+            
 }

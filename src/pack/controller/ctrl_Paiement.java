@@ -45,6 +45,7 @@ public class ctrl_Paiement implements Initializable {
 
     @FXML
     private void payer(MouseEvent event) {
+        
     }
     
 }
