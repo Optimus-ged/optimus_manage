@@ -34,6 +34,10 @@ public class ctrl_Paiement implements Initializable {
     private Label lblInfo;
     @FXML
     private FontAwesomeIconView font;
+    @FXML
+    private Label lblInfo1;
+    @FXML
+    private FontAwesomeIconView font1;
 
     /**
      * Initializes the controller class.

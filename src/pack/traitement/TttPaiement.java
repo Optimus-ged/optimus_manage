@@ -17,12 +17,12 @@ public class TttPaiement {
     private int idFacture;
     private float montant;
     
-    TttPaiement(int idFacture, float montant){
+    public TttPaiement(int idFacture, float montant){
         idFacture = this.idFacture;
         montant = this.montant;
     }
     
-    TttPaiement(){
+    public TttPaiement(){
         
     }
     
@@ -34,5 +34,8 @@ public class TttPaiement {
             ps.executeUpdate();
         }
     }
-            
+        
+    public String requette(){
+        return "SELECT * FROM paiement";
+    }
 }

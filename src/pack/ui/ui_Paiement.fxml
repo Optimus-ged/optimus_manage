@@ -45,6 +45,12 @@
                   <FontAwesomeIconView fx:id="font" layoutX="14.0" layoutY="21.0" visible="false" />
                </children>
             </Pane>
+            <Pane layoutX="4.0" layoutY="200.0" prefHeight="30.0" prefWidth="215.0">
+               <children>
+                  <Label fx:id="lblInfo1" layoutX="41.0" layoutY="8.0" text="Label" visible="false" />
+                  <FontAwesomeIconView fx:id="font1" layoutX="14.0" layoutY="21.0" visible="false" />
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Label layoutX="9.0" layoutY="40.0" text="Cette interface vous permet">
