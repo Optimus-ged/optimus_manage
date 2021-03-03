@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import pack.main.cls_controller;
 import pack.model.MdlProduit;
 import static pack.controller.ctrl_ProduitItem.designation_;
@@ -62,6 +63,7 @@ public class ctrl_produit implements Initializable {
               "SELECT id, designation, pu FROM produit",
               "/pack/composants/ui_ProduitItem.fxml"
         );
+        
     }    
 
     @FXML
@@ -95,5 +97,9 @@ public class ctrl_produit implements Initializable {
               "SELECT id, designation, pu FROM produit WHERE designation LIKE '%"+ txtRecherche.getText() +"%'",
               "/pack/composants/ui_ProduitItem.fxml"
         );
+    }
+
+    @FXML
+    private void listClicked(MouseEvent event) {
     }
 }

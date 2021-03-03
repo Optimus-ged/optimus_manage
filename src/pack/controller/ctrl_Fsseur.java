@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import static pack.controller.ctrl_FsseurItem.idFsseur_;
 import static pack.controller.ctrl_FsseurItem.nom_;
 import static pack.controller.ctrl_FsseurItem.addresse_;
@@ -101,6 +102,10 @@ public class ctrl_Fsseur implements Initializable {
               "SELECT * FROM fournisseur WHERE nom LIKE '%"+ txtRecherche.getText() +"%'",
               "/pack/composants/ui_FsseurItem.fxml"
         );
+    }
+
+    @FXML
+    private void list_fsseur_clicked(MouseEvent event) {
     }
     
 }

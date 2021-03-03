@@ -19,6 +19,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import pack.main.cls_controller;
 import pack.model.MdlClient;
 import static pack.controller.ctrl_ClientItem.client_;
@@ -27,13 +28,13 @@ import static pack.controller.ctrl_ClientItem.sexe_;
 import static pack.controller.ctrl_ClientItem.contact_;
 import pack.model.MdlConnexion;
 
-
 /**
  * FXML Controller class
  *
  * @author Optimus
  */
 public class ctrl_Client implements Initializable {
+
     private cls_controller ctrl;
     private MdlClient cli;
 
@@ -56,7 +57,11 @@ public class ctrl_Client implements Initializable {
     private JFXListView<?> lstview_client;
     @FXML
     private TextField txtRecherche;
-   
+    public static TextField public_txtNom;
+    public static TextField public_txtPrenom;
+    public static ComboBox<String> public_cmbSexe;
+    public static TextField public_txtPhone;
+    
 
     /**
      * Initializes the controller class.
@@ -71,27 +76,31 @@ public class ctrl_Client implements Initializable {
                 "SELECT id, nom, sexe, telephone FROM client",
                 "/pack/composants/ui_ClientItem.fxml"
         );
-    }    
+        public_txtNom = txtNom;
+        public_txtPrenom = txtPrenom;
+        public_txtPhone = txtTelephone;
+        public_cmbSexe = cmbSexe;
+    }
 
     @FXML
     private void enregClient(ActionEvent event) throws ClassNotFoundException, SQLException {
         cli.clientIn(1);
-         initList(
-              lstview_client,
-              "SELECT id, nom, sexe, telephone FROM client",
-              "/pack/composants/ui_ClientItem.fxml"
+        initList(
+                lstview_client,
+                "SELECT id, nom, sexe, telephone FROM client",
+                "/pack/composants/ui_ClientItem.fxml"
         );
     }
-    
-    private void initList(JFXListView list, String requette, String uiFx){
+
+    private void initList(JFXListView list, String requette, String uiFx) {
         try {
             list.getItems().clear();
             res = MdlConnexion.getCnx().createStatement().executeQuery(requette);
-            while(res.next()){
-                idClient_= res.getString("id");
+            while (res.next()) {
+                idClient_ = res.getString("id");
                 client_ = res.getString("nom");
-                sexe_= res.getString("sexe");
-                contact_= res.getString("telephone");
+                sexe_ = res.getString("sexe");
+                contact_ = res.getString("telephone");
                 list.getItems().add(FXMLLoader.load(getClass().getResource(uiFx)));
             }
         } catch (Exception e) {
@@ -100,11 +109,11 @@ public class ctrl_Client implements Initializable {
 
     @FXML
     private void selectClient(KeyEvent event) {
-         initList(
-              lstview_client,
-              "SELECT id, nom, sexe, telephone FROM client WHERE nom LIKE '%"+ txtRecherche.getText() +"%'",
-              "/pack/composants/ui_ClientItem.fxml"
+        initList(
+                lstview_client,
+                "SELECT id, nom, sexe, telephone FROM client WHERE nom LIKE '%" + txtRecherche.getText() + "%'",
+                "/pack/composants/ui_ClientItem.fxml"
         );
     }
-    
+
 }

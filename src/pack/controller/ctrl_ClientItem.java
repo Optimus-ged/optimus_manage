@@ -10,6 +10,11 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import static pack.controller.ctrl_Client.public_cmbSexe;
+import static pack.controller.ctrl_Client.public_txtNom;
+import static pack.controller.ctrl_Client.public_txtPhone;
+import static pack.controller.ctrl_Client.public_txtPrenom;
 
 /**
  * FXML Controller class
@@ -26,11 +31,13 @@ public class ctrl_ClientItem implements Initializable {
     private Label sexe;
     @FXML
     private Label contact;
-    
+
     public static String idClient_;
     public static String client_;
     public static String sexe_;
     public static String contact_;
+    @FXML
+    private AnchorPane cardList;
 
     /**
      * Initializes the controller class.
@@ -41,5 +48,15 @@ public class ctrl_ClientItem implements Initializable {
         client.setText(client_);
         sexe.setText(sexe_);
         contact.setText(contact_);
-    }       
+        isEvent();
+    }
+
+    void isEvent() {
+        cardList.setOnMouseClicked((Action) -> {
+            public_txtNom.setText(client.getText());
+            public_txtPhone.setText(contact.getText());
+            public_cmbSexe.setValue(sexe.getText());
+        });
+
+    }
 }

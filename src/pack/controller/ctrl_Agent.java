@@ -19,6 +19,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import pack.main.cls_controller;
 import pack.model.MdlAgent;
 import static pack.controller.ctrl_AgentItem.agent_;
@@ -109,5 +110,9 @@ public class ctrl_Agent implements Initializable {
               "SELECT id, nom, sexe, poste, telephone FROM agent WHERE nom LIKE '%"+ rechercheAgent.getText() +"%'",
               "/pack/composants/ui_AgentItem.fxml"
         );
+    }
+
+    @FXML
+    private void list_agent_clicked(MouseEvent event) {
     }
 }
