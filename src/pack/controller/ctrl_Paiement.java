@@ -48,6 +48,8 @@ public class ctrl_Paiement implements Initializable {
     @FXML
     private FontAwesomeIconView font;
     private Label label_test;
+    
+    public static TextField public_txtidFacture;
 
     /**
      * Initializes the controller class.
@@ -61,6 +63,7 @@ public class ctrl_Paiement implements Initializable {
               "SELECT * FROM `paiement`",
               "/pack/composants/ui_RecuComposant.fxml"
         );
+        public_txtidFacture = txtidFacture;
     }    
 
     

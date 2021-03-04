@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="32.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_RecuComposant">
+<AnchorPane id="AnchorPane" fx:id="recu_item" prefHeight="32.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pack.controller.ctrl_RecuComposant">
    <children>
       <Label fx:id="idRecu" layoutX="10.0" layoutY="8.0" text="id Recu">
          <font>

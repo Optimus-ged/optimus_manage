@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import static pack.controller.ctrl_Paiement.public_txtidFacture;
 
 /**
  * FXML Controller class
@@ -31,6 +33,8 @@ public class ctrl_RecuComposant implements Initializable {
     public static String idEnteteFact_;
     public static String DatePyt_;
     public static String montantPaye_;
+    @FXML
+    private AnchorPane recu_item;
     
 
     /**
@@ -42,6 +46,14 @@ public class ctrl_RecuComposant implements Initializable {
         idEnteteFact.setText(idEnteteFact_);
         DatePyt.setText(DatePyt_);
         montantPaye.setText(montantPaye_);
-    }    
+        isEvent();
+    }  
+    
+    void isEvent() {
+        recu_item.setOnMouseClicked((Action) -> {
+           public_txtidFacture.setText(idRecu.getText());
+        });
+
+    }
     
 }
