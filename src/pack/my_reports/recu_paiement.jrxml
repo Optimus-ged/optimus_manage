@@ -13,8 +13,8 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
-	<queryString language="SQL">
-		<![CDATA[SELECT * FROM `view_detail_pyt_3` WHERE idEnteteFacture = 92]]>
+	<queryString>
+		<![CDATA[SELECT * FROM `view_detail_pyt_3` WHERE idEnteteFacture = 94]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>

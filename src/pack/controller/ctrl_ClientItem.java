@@ -14,7 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import static pack.controller.ctrl_Client.public_cmbSexe;
 import static pack.controller.ctrl_Client.public_txtNom;
 import static pack.controller.ctrl_Client.public_txtPhone;
-import static pack.controller.ctrl_Client.public_txtPrenom;
 
 /**
  * FXML Controller class
@@ -57,6 +56,5 @@ public class ctrl_ClientItem implements Initializable {
             public_txtPhone.setText(contact.getText());
             public_cmbSexe.setValue(sexe.getText());
         });
-
     }
 }
