@@ -65,11 +65,10 @@ ADD CONSTRAINT fk_entAppro FOREIGN KEY (idFournisseur) REFERENCES fournisseur(id
 CREATE TABLE entete_credit(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     idClient INT,
-    date_credit VARCHAR(30)
+    date_credit VARCHAR(30),
+    CONSTRAINT fk_entCre FOREIGN KEY (idClient) REFERENCES client(id)
 );
 
-ALTER TABLE entete_credit
-ADD CONSTRAINT fk_entCre FOREIGN KEY (idClient) REFERENCES client(id)
 
 -- Commentaire
 -- Creation de la table details approvisionnement
@@ -120,14 +119,10 @@ CREATE TABLE detail_credit(
 	id INT PRIMARY KEY AUTO_INCREMENT,
     qte FLOAT,
     idProduit INT,
-    idEnteteCredit INT
+    idEnteteCredit INT,
+    CONSTRAINT fk_detCre1 FOREIGN KEY (idProduit) REFERENCES produit(id),
+    CONSTRAINT fk_detCre2 FOREIGN KEY (idEnteteCredit) REFERENCES entete_credit(id)
 )
-
-ALTER TABLE detail_credit
-ADD CONSTRAINT fk_detCre1 FOREIGN KEY (idProduit) REFERENCES produit(id);
-
-ALTER TABLE detail_credit
-ADD CONSTRAINT fk_detCre2 FOREIGN KEY (idEnteteCredit) REFERENCES entete_credit(id)
 
 -- Commentaire
 -- Creation de la table Stock
