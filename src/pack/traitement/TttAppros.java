@@ -41,10 +41,11 @@ public class TttAppros {
                 }
             } else if (ob instanceof MdlDetailsAppro) {
                 MdlDetailsAppro detApp = (MdlDetailsAppro) ob;
-                preparedStatemant = MdlConnexion.getCnx().prepareCall("Call sp_approDetail_in (?,?,?)");
+                preparedStatemant = MdlConnexion.getCnx().prepareCall("Call sp_approDetail_in (?,?,?,?)");
                 preparedStatemant.setString(1, detApp.getDesiProduit());
                 preparedStatemant.setFloat(2, detApp.getQte());
                 preparedStatemant.setInt(3, detApp.getId());
+                preparedStatemant.setFloat(4, detApp.getPuDachat());
                 int x = preparedStatemant.executeUpdate();
                 if (x != 0) {
                     return true;

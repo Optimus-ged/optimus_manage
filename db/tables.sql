@@ -59,8 +59,8 @@ CREATE TABLE detail_facture(
     CONSTRAINT fk_detFac2 FOREIGN KEY (idEnteteFacture) REFERENCES entete_facture(id)
 )
 
-ALTER TABLE detail_facture
-ADD pu_d_vente FLOAT,
+ALTER TABLE detail_appro
+ADD pu_d_achat FLOAT,
 
 
 -- Commentaire

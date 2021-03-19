@@ -199,7 +199,7 @@ public class ctrl_Appros implements Initializable {
                 if (!idAppro.getText().equals("0")) {
                     // Commentaire
                     // Insertion dans la table details
-                    detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
+                    detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()), Float.parseFloat(txtPuProduit.getText()));
                     try {
                         if (getInstance().isSave(detail, 2) == true) {
 //                    initCard();
@@ -235,7 +235,7 @@ public class ctrl_Appros implements Initializable {
 
                     // Commentaire
                     // Insertion dans la table details
-                    detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
+                    detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()), Float.parseFloat(txtPuProduit.getText()));
                     try {
                         if (getInstance().isSave(detail, 2) == true) {
 //                    initCard();

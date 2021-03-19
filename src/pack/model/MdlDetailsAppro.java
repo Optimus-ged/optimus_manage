@@ -12,13 +12,14 @@ package pack.model;
 public class MdlDetailsAppro {
     String desiProduit;
     float qte;
+    float puDachat;
     int id;
     
-    public MdlDetailsAppro(String desiProduit, float qte, int id){
+    public MdlDetailsAppro(String desiProduit, float qte, int id, float puDachat){
         this.desiProduit = desiProduit;
         this.qte = qte;
         this.id = id;
-        
+        this.puDachat = puDachat;
     }
     
     public void setDesiProduit(String desiProduit){
@@ -34,8 +35,14 @@ public class MdlDetailsAppro {
     }
     
     
+    
+    
     public float getQte(){
         return qte;
+    }
+    
+    public float getPuDachat(){
+        return puDachat;
     }
     
     
