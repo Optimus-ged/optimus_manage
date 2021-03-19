@@ -255,7 +255,7 @@ CREATE PROCEDURE  sp_factDetail_in(
     IN `idEntFacture_` INT
 )
 BEGIN 
-	-- DECLARE idProduit_ INT;
+	DECLARE idProduit_ INT;
     -- DECLARE dateVente_ VARCHAR(30);
     -- DECLARE idClient_ INT;
     -- DECLARE qte2_ FLOAT;
@@ -268,7 +268,7 @@ BEGIN
     -- DECLARE qte_entree_ FLOAT;
     -- DECLARE qte_consommee_ FLOAT;
     -- DECLARE stock_final_ FLOAT;
-    -- SET idProduit_ = (SELECT id FROM produit WHERE designation = desiProduit_);
+    SET idProduit_ = (SELECT id FROM produit WHERE designation = desiProduit_);
 
     IF EXISTS(SELECT idProduit FROM detail_facture WHERE idProduit = idProduit_ AND idEnteteFacture = idEntFacture_) THEN
         UPDATE detail_facture SET qte = qte + qte_, pu_d_vente = pu_de_vente_ WHERE idProduit=idProduit_  AND idEnteteFacture = idEntFacture_;

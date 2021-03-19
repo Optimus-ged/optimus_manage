@@ -130,7 +130,8 @@ public class ctrl_Comptabilite implements Initializable {
 
                     // Commentaire
                     // Insertion dans la table details
-                    detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
+                    detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()), Float.parseFloat(txtPuProduit.getText()));
+                    
                     System.out.println("Insertion dans la table detail");
                     try {
                         if (getInstance().isSave(detail, 1) == true) {
@@ -155,7 +156,7 @@ public class ctrl_Comptabilite implements Initializable {
                 } else if (!idFacture.getText().equals("0")) {
 //             Commentaire
 //             Insertion dans la table details
-                    detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()));
+                      detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()), Float.parseFloat(txtPuProduit.getText()));
                     try {
                         if (getInstance().isSave(detail, 1) == true) {
                             initList(

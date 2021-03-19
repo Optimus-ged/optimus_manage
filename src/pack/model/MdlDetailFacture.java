@@ -12,16 +12,25 @@ package pack.model;
 public class MdlDetailFacture {
     String desiProduit;
     float qte;
+    float puDeVente;
     int id;
     
-    public MdlDetailFacture(String desiProduit, float qte, int id){
+    public MdlDetailFacture(String desiProduit, float qte, int id,  Float puDeVente){
         this.desiProduit = desiProduit;
         this.qte = qte;
         this.id = id;
+        this.puDeVente = puDeVente;
     }
     
     public void setDesiProduit(String desiProduit){
         this.desiProduit = desiProduit;
+    }
+    
+    public void setPuDeVente(float puDeVente){
+        this.puDeVente = puDeVente;
+    }
+     public float getPuDeVente(){
+        return puDeVente;
     }
     
     public String getDesiProduit(){

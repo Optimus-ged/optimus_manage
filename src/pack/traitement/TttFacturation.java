@@ -8,7 +8,7 @@ package pack.traitement;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import pack.model.MdlConnexion;
-import pack.model.MdlDetailsAppro;
+import pack.model.MdlDetailFacture;
 import pack.model.MdlEnteteFacture;
 
 /**
@@ -35,12 +35,13 @@ public class TttFacturation {
             if (x != 0) {
                 return true;
             }
-        }else if(ob instanceof MdlDetailsAppro){
-            MdlDetailsAppro detFact = (MdlDetailsAppro) ob;
-            preparedStatemant = MdlConnexion.getCnx().prepareCall("Call sp_factDetail_in (?,?,?)");
+        }else if(ob instanceof MdlDetailFacture){
+            MdlDetailFacture detFact = (MdlDetailFacture) ob;
+            preparedStatemant = MdlConnexion.getCnx().prepareCall("Call sp_factDetail_in (?,?,?,?)");
             preparedStatemant.setString(1, detFact.getDesiProduit());
             preparedStatemant.setFloat(2, detFact.getQte());
             preparedStatemant.setInt(3, detFact.getId());
+            preparedStatemant.setFloat(4, detFact.getPuDeVente());
             int x = preparedStatemant.executeUpdate();
             if (x != 0) {
                 return true;

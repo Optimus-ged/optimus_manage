@@ -18,6 +18,7 @@ public class MdlDetailsAppro {
         this.desiProduit = desiProduit;
         this.qte = qte;
         this.id = id;
+        
     }
     
     public void setDesiProduit(String desiProduit){
@@ -32,9 +33,12 @@ public class MdlDetailsAppro {
         this.qte = qte;
     }
     
+    
     public float getQte(){
         return qte;
     }
+    
+    
     
     public void setId(int id){
         this.id = id;
