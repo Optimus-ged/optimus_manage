@@ -3,12 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/projects/java-desk/OptimusManage/src/pack/traitement/TttAppros.java</file>
-            <file>file:/F:/projects/java-desk/OptimusManage/src/pack/model/MdlDetailFacture.java</file>
-            <file>file:/F:/projects/java-desk/OptimusManage/src/pack/controller/ctrl_Comptabilite.java</file>
-            <file>file:/F:/projects/java-desk/OptimusManage/src/pack/model/MdlDetailsAppro.java</file>
-            <file>file:/F:/projects/java-desk/OptimusManage/src/pack/controller/ctrl_Appros.java</file>
-            <file>file:/F:/projects/java-desk/OptimusManage/src/pack/traitement/TttFacturation.java</file>
+            <file>file:/F:/projects/java-desk/OptimusManage/src/pack/controller/ctrl_DetailAppro.java</file>
         </group>
     </open-files>
 </project-private>
