@@ -212,10 +212,10 @@ BEGIN
         UPDATE stock SET qte = qte + qte_ WHERE idProduit = idProduit_; 
     END IF;
 	
-    SET stock_initial_ = (SELECT stock_initial FROM view_stock WHERE idProduit = idProduit_);
-    SET qte_entree_ = (SELECT total_entre FROM view_stock WHERE idProduit = idProduit_);
-    SET qte_consommee_ =  (SELECT total_consomme FROM view_stock WHERE idProduit = idProduit_);
-    SET stock_final_ = (SELECT stock_final FROM view_stock WHERE idProduit = idProduit_);
+    SET stock_initial_ = (SELECT stock_initial FROM view_fiche_de_stock WHERE idProduit = idProduit_);
+    SET qte_entree_ = (SELECT total_entre FROM view_fiche_de_stock WHERE idProduit = idProduit_);
+    SET qte_consommee_ =  (SELECT total_consomme FROM view_fiche_de_stock WHERE idProduit = idProduit_);
+    SET stock_final_ = (SELECT stock_final FROM view_fiche_de_stock WHERE idProduit = idProduit_);
 
     -- IF NOT EXISTS(SELECT idProduit FROM fiche_de_stock WHERE idProduit = idProduit_ AND date_fiche_de_stock = DATE_FORMAT(NOW(), "%d/%m/%Y"))THEN
     --     INSERT INTO `fiche_de_stock`(
