@@ -191,3 +191,5 @@ DELETE FROM stock;
 DELETE FROM fiche_de_stock;
 DELETE FROM historique_client;
 DELETE FROM produit;
+DELETE FROM fournisseur;
+DELETE FROM client;
