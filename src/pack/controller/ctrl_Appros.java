@@ -79,8 +79,9 @@ public class ctrl_Appros implements Initializable {
     private JFXListView<?> lstview_produit;
     @FXML
     private JFXListView<?> list_tousLesAppros;
-    
+
     public static JFXListView<?> list_tousLesAppros2;
+
     /**
      * Initializes the controller class.
      */
@@ -108,6 +109,13 @@ public class ctrl_Appros implements Initializable {
         txtTelephoneFsseur.setText("");
         txtQteProduit.setText("");
         ctrl.alerteInformation("Information", "Enregistre avec succes !!!");
+        initListView(
+                list_tousLesAppros,
+                2,
+                "/pack/composants/ui_tousLesAppros.fxml",
+                " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
+                + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
+        );
     }
 
 //    void initEvent() {
@@ -209,13 +217,13 @@ public class ctrl_Appros implements Initializable {
                                     "/pack/composants/ui_produitDetail.fxml",
                                     "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
                             );
-                            initListView(
-                                    list_tousLesAppros,
-                                    2,
-                                    "/pack/composants/ui_tousLesAppros.fxml",
-                                    " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
-                                    + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
-                            );
+//                            initListView(
+//                                    list_tousLesAppros,
+//                                    2,
+//                                    "/pack/composants/ui_tousLesAppros.fxml",
+//                                    " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
+//                                    + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
+//                            );
                         }
                     } catch (SQLException | ClassNotFoundException ex) {
                         Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
@@ -245,13 +253,13 @@ public class ctrl_Appros implements Initializable {
                                     "/pack/composants/ui_produitDetail.fxml",
                                     "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
                             );
-                            initListView(
-                                    list_tousLesAppros,
-                                    2,
-                                    "/pack/composants/ui_tousLesAppros.fxml",
-                                    " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
-                                    + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
-                            );
+//                            initListView(
+//                                    list_tousLesAppros,
+//                                    2,
+//                                    "/pack/composants/ui_tousLesAppros.fxml",
+//                                    " SELECT ent.id, nom, telephone, addresse FROM entete_appro AS ent\n"
+//                                    + "INNER JOIN fournisseur AS f ON f.id = ent.idFournisseur"
+//                            );
                         }
                     } catch (SQLException | ClassNotFoundException ex) {
                         Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);

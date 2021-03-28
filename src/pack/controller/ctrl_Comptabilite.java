@@ -166,13 +166,13 @@ public class ctrl_Comptabilite implements Initializable {
                                     "/pack/composants/ui_DetailAppro.fxml",
                                     "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
                             );
-                            initList(
-                                    list_tousLesFactures,
-                                    2,
-                                    "/pack/composants/ui_tousLesFactures.fxml",
-                                    "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
-                                    + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
-                            );
+//                            initList(
+//                                    list_tousLesFactures,
+//                                    2,
+//                                    "/pack/composants/ui_tousLesFactures.fxml",
+//                                    "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
+//                                    + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
+//                            );
                         }
                     } catch (SQLException | ClassNotFoundException ex) {
                         Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
