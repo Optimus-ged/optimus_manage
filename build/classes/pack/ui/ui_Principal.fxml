@@ -191,7 +191,7 @@
                      </children>
                   </AnchorPane>
                   <Circle fill="#1f93ff00" layoutX="26.0" layoutY="68.0" radius="8.0" stroke="#39828f" strokeType="INSIDE" />
-                  <Pane layoutY="90.0" prefHeight="542.0" prefWidth="207.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="90.0">
+                  <Pane layoutY="90.0" prefHeight="444.0" prefWidth="207.0" style="-fx-background-color: #F6F7F9;" AnchorPane.bottomAnchor="121.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="90.0">
                      <children>
                         <AnchorPane layoutX="3.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="201.0" style="-fx-background-color: white; -fx-border-color: #F3F3F3;">
                            <children>
@@ -251,6 +251,16 @@
                         <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
+                  <Label alignment="CENTER" layoutY="534.0" prefHeight="85.0" prefWidth="207.0" style="-fx-background-color: #F6F7F9;" textAlignment="CENTER" textFill="#867c7c" wrapText="true" AnchorPane.bottomAnchor="36.0">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="15.0" layoutY="544.0" prefHeight="65.0" prefWidth="174.0" style="-fx-background-color: #212B38;">
+                     <children>
+                        <FontAwesomeIconView fill="WHITE" glyphName="PRINT" layoutX="74.0" layoutY="43.0" size="30" />
+                     </children>
+                  </Pane>
                </children>
             </AnchorPane>
          </children>

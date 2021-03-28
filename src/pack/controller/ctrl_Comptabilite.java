@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package pack.controller;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
@@ -131,24 +132,24 @@ public class ctrl_Comptabilite implements Initializable {
                     // Commentaire
                     // Insertion dans la table details
                     detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()), Float.parseFloat(txtPuProduit.getText()));
-                    
+
                     System.out.println("Insertion dans la table detail");
                     try {
                         if (getInstance().isSave(detail, 1) == true) {
-//                    initCard();
+
                             initList(
                                     lstview_produit,
                                     1,
                                     "/pack/composants/ui_DetailAppro.fxml",
                                     "SELECT  entete_facture.id,designation, detail_facture.qte, produit.pu FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
                             );
-                            initList(
-                                    list_tousLesFactures,
-                                    2,
-                                    "/pack/composants/ui_tousLesFactures.fxml",
-                                    "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
-                                    + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
-                            );
+//                            initList(
+//                                    list_tousLesFactures,
+//                                    2,
+//                                    "/pack/composants/ui_tousLesFactures.fxml",
+//                                    "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
+//                                    + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
+//                            );
                         }
                     } catch (SQLException | ClassNotFoundException ex) {
                         Logger.getLogger(ctrl_Comptabilite.class.getName()).log(Level.SEVERE, null, ex);
@@ -156,7 +157,7 @@ public class ctrl_Comptabilite implements Initializable {
                 } else if (!idFacture.getText().equals("0")) {
 //             Commentaire
 //             Insertion dans la table details
-                      detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()), Float.parseFloat(txtPuProduit.getText()));
+                    detail = new MdlDetailFacture(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idFacture.getText()), Float.parseFloat(txtPuProduit.getText()));
                     try {
                         if (getInstance().isSave(detail, 1) == true) {
                             initList(
@@ -315,7 +316,14 @@ public class ctrl_Comptabilite implements Initializable {
 
     @FXML
     private void testImpression(ActionEvent event) throws ClassNotFoundException, SQLException {
-        cls_imprimer._impresion("SELECT * FROM view_facture_finale WHERE id_entete = 91", HomeContainer2, "F:\\projects\\java-desk\\OptimusManage\\src\\pack\\my_reports\\client_facture.jrxml");
+//        cls_imprimer._impresion("SELECT * FROM view_facture_finale WHERE id_entete = 91", HomeContainer2, "F:\\projects\\java-desk\\OptimusManage\\src\\pack\\my_reports\\client_facture.jrxml");
+        initList(
+                list_tousLesFactures,
+                2,
+                "/pack/composants/ui_tousLesFactures.fxml",
+                "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
+                + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
+        );
     }
 
 }
