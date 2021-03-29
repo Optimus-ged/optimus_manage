@@ -324,6 +324,13 @@ public class ctrl_Comptabilite implements Initializable {
                 "SELECT ent.id, nom, sexe, telephone FROM entete_facture AS ent\n"
                 + "INNER JOIN client as cli WHERE ent.idClient = cli.id ORDER BY id ASC"
         );
+        idFacture.setText("0");
+        txtNomClient.setText("");
+        txtDesiProduit.setText("");
+        txtPuProduit.setText("");
+        txtTelephoneClient.setText("");
+        txtQteProduit.setText("");
+        ctrl.alerteInformation("Information", "Enregistre avec succes !!!");
     }
 
 }
