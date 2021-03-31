@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,25 +18,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.RotateEvent;
-import javafx.scene.input.ScrollEvent;
-import javafx.scene.input.SwipeEvent;
-import javafx.scene.input.TouchEvent;
-import javafx.scene.input.ZoomEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import static pack.controller.ctrl_Appros.list_tousLesAppros2;
 import static pack.controller.ctrl_Comptabilite.list_tousLesFactures2;
-import static pack.controller.ctrl_produitDetail.txtDesignation_;
-import static pack.controller.ctrl_produitDetail.txtPu_;
-import static pack.controller.ctrl_produitDetail.txtQte_;
 import static pack.controller.ctrl_tousLesAppros.addresseFsseir_;
 import static pack.controller.ctrl_tousLesAppros.contactA_;
 import static pack.controller.ctrl_tousLesAppros.idFsseur_;
@@ -45,6 +34,7 @@ import static pack.controller.ctrl_tousLesFactures.idFacture_;
 import static pack.controller.ctrl_tousLesFactures.nomClient_;
 import static pack.controller.ctrl_tousLesFactures.sexe_;
 import pack.model.MdlConnexion;
+import pack.other.cls_imprimer;
 
 /**
  * FXML Controller class
@@ -202,8 +192,17 @@ public class ctrl_Principal implements Initializable {
         
     }
 
+    private void printDoc(MouseEvent event) throws ClassNotFoundException, SQLException {
+       
+    }
+
     @FXML
-    private void printDoc(MouseEvent event) {
+    private void printDoc(ActionEvent event) throws ClassNotFoundException, SQLException {
+         cls_imprimer._impresion(
+                "SELECT * FROM view_facture_finale WHERE id_entete = 91", 
+                HomeContainer2, 
+                "F:\\projects\\java-desk\\OptimusManage\\src\\pack\\my_reports\\client_facture.jrxml"
+        );
     }
      
 }

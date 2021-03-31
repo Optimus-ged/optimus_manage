@@ -256,11 +256,8 @@
                         <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="15.0" layoutY="544.0" onMouseClicked="#printDoc" prefHeight="65.0" prefWidth="174.0" style="-fx-background-color: #212B38;">
-                     <children>
-                        <FontAwesomeIconView fill="WHITE" glyphName="PRINT" layoutX="74.0" layoutY="43.0" size="30" />
-                     </children>
-                  </Pane>
+                  <JFXButton layoutX="17.0" layoutY="540.0" onAction="#printDoc" prefHeight="73.0" prefWidth="174.0" style="-fx-background-color: #212B38; -fx-border-color: #212B38;" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="PRINT" layoutX="87.0" layoutY="587.0" size="30" />
                </children>
             </AnchorPane>
          </children>

@@ -316,7 +316,7 @@ public class ctrl_Comptabilite implements Initializable {
 
     @FXML
     private void testImpression(ActionEvent event) throws ClassNotFoundException, SQLException {
-//        cls_imprimer._impresion("SELECT * FROM view_facture_finale WHERE id_entete = 91", HomeContainer2, "F:\\projects\\java-desk\\OptimusManage\\src\\pack\\my_reports\\client_facture.jrxml");
+//        
         initList(
                 list_tousLesFactures,
                 2,
