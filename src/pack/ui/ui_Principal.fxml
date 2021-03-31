@@ -256,7 +256,7 @@
                         <Font name="System Bold" size="10.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="15.0" layoutY="544.0" prefHeight="65.0" prefWidth="174.0" style="-fx-background-color: #212B38;">
+                  <Pane layoutX="15.0" layoutY="544.0" onMouseClicked="#printDoc" prefHeight="65.0" prefWidth="174.0" style="-fx-background-color: #212B38;">
                      <children>
                         <FontAwesomeIconView fill="WHITE" glyphName="PRINT" layoutX="74.0" layoutY="43.0" size="30" />
                      </children>

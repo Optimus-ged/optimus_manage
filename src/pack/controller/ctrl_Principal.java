@@ -201,5 +201,9 @@ public class ctrl_Principal implements Initializable {
         txtDate.setText(formatedDate);    
         
     }
+
+    @FXML
+    private void printDoc(MouseEvent event) {
+    }
      
 }
