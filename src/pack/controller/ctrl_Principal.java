@@ -199,7 +199,7 @@ public class ctrl_Principal implements Initializable {
     @FXML
     private void printDoc(ActionEvent event) throws ClassNotFoundException, SQLException {
          cls_imprimer._impresion(
-                "SELECT * FROM view_facture_finale WHERE id_entete = 91", 
+                "SELECT * FROM view_facture_finale WHERE id_entete = 10", 
                 HomeContainer2, 
                 "F:\\projects\\java-desk\\OptimusManage\\src\\pack\\my_reports\\client_facture.jrxml"
         );
