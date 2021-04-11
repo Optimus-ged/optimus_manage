@@ -194,10 +194,10 @@ public class ctrl_Comptabilite implements Initializable {
     }
 
     String pu(String desiProduit) throws ClassNotFoundException, SQLException {
-        String query = "SELECT pu FROM produit WHERE designation = '" + desiProduit + "'";
+        String query = "SELECT pu_d_achat FROM view_fiche_de_stock WHERE designation = '" + desiProduit + "'";
         resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
         if (resultSet.next()) {
-            return resultSet.getString("pu");
+            return resultSet.getString("pu_d_achat");
         }
         return null;
     }
