@@ -141,7 +141,7 @@ public class ctrl_Comptabilite implements Initializable {
                                     lstview_produit,
                                     1,
                                     "/pack/composants/ui_DetailAppro.fxml",
-                                    "SELECT  entete_facture.id,designation, detail_facture.qte, detail_facture.pu_d_vente FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
+                                    "SELECT  entete_facture.id,designation, detail_facture.qte, pu_d_vente FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
                             );
 //                            initList(
 //                                    list_tousLesFactures,
@@ -164,7 +164,7 @@ public class ctrl_Comptabilite implements Initializable {
                                     lstview_produit,
                                     1,
                                     "/pack/composants/ui_DetailAppro.fxml",
-                                    "SELECT  entete_facture.id,designation, detail_facture.qte,detail_facture.pu_d_vente FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
+                                    "SELECT  entete_facture.id,designation, detail_facture.qte,pu_d_vente FROM `detail_facture` INNER JOIN produit ON produit.id=detail_facture.idProduit INNER JOIN entete_facture ON entete_facture.id=detail_facture.idEnteteFacture where entete_facture.id = '" + idFacture.getText() + "'"
                             );
 //                            initList(
 //                                    list_tousLesFactures,
