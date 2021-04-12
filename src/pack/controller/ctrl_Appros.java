@@ -118,35 +118,7 @@ public class ctrl_Appros implements Initializable {
         );
     }
 
-//    void initEvent() {
-//        initCard();
-//        txtQteProduit.setOnKeyReleased((e) -> {
-//            if (e.getCode().ENTER == KeyCode.ENTER) {
-//                if (!idAppro.getText().equals("0")) {
-//                    detail = new MdlDetailsAppro(txtDesiProduit.getText(), Float.parseFloat(txtQteProduit.getText()), Integer.parseInt(idAppro.getText()));
-//                    try {
-//                        if (getInstance().isSave(detail) == true) {
-//                            initCard();
-//                        }
-//                    } catch (SQLException | ClassNotFoundException ex) {
-//                        Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                } else {
-//                    entete = new MdlEnteteAppro(txtNomFsseur.getText());
-//                    try {
-//                        if (getInstance().isSave(entete) == true) {
-//                            idAppro.setText(initNum());
-//                        }
-//                    } catch (SQLException | ClassNotFoundException ex) {
-//                        Logger.getLogger(ctrl_Appros.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//
-//                }
-//
-//            }
-//
-//        });
-//    }
+
     String initNum() throws SQLException, ClassNotFoundException {
         String query = "SELECT MAX(id) x FROM entete_appro";
         resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
@@ -156,21 +128,21 @@ public class ctrl_Appros implements Initializable {
         return null;
     }
 
-    public void initData(String ids) {
-        try {
-            String query = "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id='" + ids + "'";
-            resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString("id"));
-                id.add(resultSet.getString("id"));
-                designation.add(resultSet.getString("designation"));
-                punitaire.add(resultSet.getString("pu"));
-                quantite.add(resultSet.getString("qte"));
-            }
-
-        } catch (ClassNotFoundException | SQLException ex) {
-        }
-    }
+//    public void initData(String ids) {
+//        try {
+//            String query = "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id='" + ids + "'";
+//            resultSet = MdlConnexion.getCnx().createStatement().executeQuery(query);
+//            while (resultSet.next()) {
+//                System.out.println(resultSet.getString("id"));
+//                id.add(resultSet.getString("id"));
+//                designation.add(resultSet.getString("designation"));
+//                punitaire.add(resultSet.getString("pu"));
+//                quantite.add(resultSet.getString("qte"));
+//            }
+//
+//        } catch (ClassNotFoundException | SQLException ex) {
+//        }
+//    }
 
 //    public void initCard() {
 //
@@ -211,11 +183,11 @@ public class ctrl_Appros implements Initializable {
                     try {
                         if (getInstance().isSave(detail, 2) == true) {
 //                    initCard();
-                            initListView(
+                             initListView(
                                     lstview_produit,
                                     1,
                                     "/pack/composants/ui_produitDetail.fxml",
-                                    "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
+                                    "SELECT entete_appro.id,designation,detail_appro.qte, pu_d_achat FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id='" + idAppro.getText() + "' "
                             );
 //                            initListView(
 //                                    list_tousLesAppros,
@@ -251,7 +223,7 @@ public class ctrl_Appros implements Initializable {
                                     lstview_produit,
                                     1,
                                     "/pack/composants/ui_produitDetail.fxml",
-                                    "SELECT entete_appro.id,designation,detail_appro.qte,produit.pu FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id= '" + idAppro.getText() + "' "
+                                    "SELECT entete_appro.id,designation,detail_appro.qte, pu_d_achat FROM `detail_appro` INNER JOIN produit ON produit.id=detail_appro.idProduit INNER JOIN entete_appro ON entete_appro.id=detail_appro.idEnteteAppro where entete_appro.id='" + idAppro.getText() + "' "
                             );
 //                            initListView(
 //                                    list_tousLesAppros,
