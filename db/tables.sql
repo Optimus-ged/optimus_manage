@@ -182,14 +182,14 @@ TRUNCATE TABLE stock;
 TRUNCATE TABLE produit;
 
 
-DELETE FROM detail_facture;
-DELETE FROM paiement;
-DELETE FROM entete_facture;
-DELETE FROM detail_appro;
-DELETE FROM entete_appro;
-DELETE FROM stock;
-DELETE FROM fiche_de_stock;
-DELETE FROM historique_client;
-DELETE FROM produit;
-DELETE FROM fournisseur;
-DELETE FROM client;
+TRUNCATE detail_facture;
+TRUNCATE paiement;
+TRUNCATE entete_facture;
+TRUNCATE detail_appro;
+TRUNCATE entete_appro;
+TRUNCATE stock;
+TRUNCATE fiche_de_stock;
+TRUNCATE historique_client;
+TRUNCATE produit;
+TRUNCATE fournisseur;
+TRUNCATE client;
