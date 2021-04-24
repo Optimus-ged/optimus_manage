@@ -258,18 +258,18 @@ CREATE PROCEDURE  sp_factDetail_in(
 )
 BEGIN 
 	DECLARE idProduit_ INT;
-    -- DECLARE dateVente_ VARCHAR(30);
-    -- DECLARE idClient_ INT;
-    -- DECLARE qte2_ FLOAT;
-    -- DECLARE total_qte_ FLOAT;
-    -- DECLARE prix_vente_ FLOAT;
-    -- DECLARE prix_vente_total_ FLOAT;
-    -- DECLARE type_vente_ VARCHAR(30);
-    -- DECLARE id_entete_ INT;
-    -- DECLARE stock_initial_ FLOAT;
-    -- DECLARE qte_entree_ FLOAT;
-    -- DECLARE qte_consommee_ FLOAT;
-    -- DECLARE stock_final_ FLOAT;
+    DECLARE dateVente_ VARCHAR(30);
+    DECLARE idClient_ INT;
+    DECLARE qte2_ FLOAT;
+    DECLARE total_qte_ FLOAT;
+    DECLARE prix_vente_ FLOAT;
+    DECLARE prix_vente_total_ FLOAT;
+    DECLARE type_vente_ VARCHAR(30);
+    DECLARE id_entete_ INT;
+    DECLARE stock_initial_ FLOAT;
+    DECLARE qte_entree_ FLOAT;
+    DECLARE qte_consommee_ FLOAT;
+    DECLARE stock_final_ FLOAT;
     SET idProduit_ = (SELECT id FROM produit WHERE designation = desiProduit_);
 
     IF EXISTS(SELECT idProduit FROM detail_facture WHERE idProduit = idProduit_ AND idEnteteFacture = idEntFacture_) THEN
@@ -281,81 +281,81 @@ BEGIN
         UPDATE stock SET qte = qte - qte_ WHERE idProduit = idProduit_;
     END IF;
     
-    -- SET dateVente_ = (DATE_FORMAT(NOW(), "%d/%m/%Y"));
-    -- SET idClient_ = (SELECT idClient FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
-    -- SET qte2_ = (SELECT qte FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
-    -- SET total_qte_ = (SELECT total_qte FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
-    -- SET prix_vente_ = (SELECT prix_vente FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
-    -- SET prix_vente_total_ = (SELECT prix_vente_total FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_); 
-    -- SET type_vente_ = (SELECT type_vente FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
-    -- SET id_entete_ = (SELECT id_entete FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);  
-    -- SET stock_initial_ = (SELECT stock_initial FROM view_stock WHERE idProduit = idProduit_);
-    -- SET qte_entree_ = (SELECT total_entre FROM view_stock WHERE idProduit = idProduit_);
-    -- SET qte_consommee_ =  (SELECT total_consomme FROM view_stock WHERE idProduit = idProduit_);
-    -- SET stock_final_ = (SELECT stock_final FROM view_stock WHERE idProduit = idProduit_);
+    SET dateVente_ = (DATE_FORMAT(NOW(), "%d/%m/%Y"));
+    SET idClient_ = (SELECT idClient FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
+    SET qte2_ = (SELECT qte FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
+    SET total_qte_ = (SELECT total_qte FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
+    SET prix_vente_ = (SELECT prix_vente FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
+    SET prix_vente_total_ = (SELECT prix_vente_total FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_); 
+    SET type_vente_ = (SELECT type_vente FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);
+    SET id_entete_ = (SELECT id_entete FROM view_facture_finale WHERE id_entete = idEntFacture_ AND id_produit = idProduit_);  
+    SET stock_initial_ = (SELECT stock_initial FROM view_fiche_de_stock WHERE idProduit = idProduit_);
+    SET qte_entree_ = (SELECT total_entre FROM view_fiche_de_stock WHERE idProduit = idProduit_);
+    SET qte_consommee_ =  (SELECT total_consomme FROM view_fiche_de_stock WHERE idProduit = idProduit_);
+    SET stock_final_ = (SELECT stock_final FROM view_fiche_de_stock WHERE idProduit = idProduit_);
 
-    -- IF NOT EXISTS(SELECT idProduit FROM fiche_de_stock WHERE idProduit = idProduit_ AND date_fiche_de_stock = DATE_FORMAT(NOW(), "%d/%m/%Y"))THEN
-    --     INSERT INTO `fiche_de_stock`(
-    --     `date_fiche_de_stock`, 
-    --     `idProduit`, 
-    --     `stock_initial`, 
-    --     `qte_entree`, 
-    --     `qte_consommee`, 
-    --     `stock_final`
-    --     ) VALUES (
-    --         DATE_FORMAT(NOW(), "%d/%m/%Y"),
-    --         idProduit_,
-    --         stock_initial_,
-    --         qte_entree_,
-    --         qte_consommee_,
-    --         stock_final_
-    --     );
-    -- ELSE
-    --     UPDATE `fiche_de_stock` SET 
-    --         `date_fiche_de_stock`= DATE_FORMAT(NOW(), "%d/%m/%Y"),
-    --         `stock_initial`=stock_initial_,
-    --         `qte_entree`=qte_entree_,
-    --         `qte_consommee`=qte_consommee_,
-    --         `stock_final`=stock_final_
-    --         WHERE idProduit = idProduit_ AND date_fiche_de_stock = DATE_FORMAT(NOW(), "%d/%m/%Y");
-    -- END IF;
+    IF NOT EXISTS(SELECT idProduit FROM fiche_de_stock WHERE idProduit = idProduit_ AND date_fiche_de_stock = DATE_FORMAT(NOW(), "%d/%m/%Y"))THEN
+        INSERT INTO `fiche_de_stock`(
+        `date_fiche_de_stock`, 
+        `idProduit`, 
+        `stock_initial`, 
+        `qte_entree`, 
+        `qte_consommee`, 
+        `stock_final`
+        ) VALUES (
+            DATE_FORMAT(NOW(), "%d/%m/%Y"),
+            idProduit_,
+            stock_initial_,
+            qte_entree_,
+            qte_consommee_,
+            stock_final_
+        );
+    ELSE
+        UPDATE `fiche_de_stock` SET 
+            `date_fiche_de_stock`= DATE_FORMAT(NOW(), "%d/%m/%Y"),
+            `stock_initial`=stock_initial_,
+            `qte_entree`=qte_entree_,
+            `qte_consommee`=qte_consommee_,
+            `stock_final`=stock_final_
+            WHERE idProduit = idProduit_ AND date_fiche_de_stock = DATE_FORMAT(NOW(), "%d/%m/%Y");
+    END IF;
     
-    -- IF EXISTS(SELECT idProduit FROM historique_client WHERE idProduit =idProduit_  AND id_entete = idEntFacture_  )THEN
-    --     UPDATE `historique_client` SET 
-    --     `date_vente`= dateVente_,
-    --     `idClient`=  idClient_,
-    --     `idProduit`= idProduit_,
-    --     `qte`= qte2_,
-    --     `qte_total`= total_qte_,
-    --     `prix_vente`= prix_vente_,
-    --     `prix_vente_total`= prix_vente_total_,
-    --     `type_vente`= type_vente_,
-    --     `id_entete`= id_entete_ 
-    --     WHERE idProduit =idProduit_  AND id_entete = idEntFacture_ ;
+    IF EXISTS(SELECT idProduit FROM historique_client WHERE idProduit =idProduit_  AND id_entete = idEntFacture_  )THEN
+        UPDATE `historique_client` SET 
+        `date_vente`= dateVente_,
+        `idClient`=  idClient_,
+        `idProduit`= idProduit_,
+        `qte`= qte2_,
+        `qte_total`= total_qte_,
+        `prix_vente`= prix_vente_,
+        `prix_vente_total`= prix_vente_total_,
+        `type_vente`= type_vente_,
+        `id_entete`= id_entete_ 
+        WHERE idProduit =idProduit_  AND id_entete = idEntFacture_ ;
             
-    --     ELSE
-    --     	INSERT INTO `historique_client`(
-    --         `date_vente`, 
-    --         `idClient`, 
-    --         `idProduit`, 
-    --         `qte`, 
-    --         `qte_total`,
-    --         `prix_vente`, 
-    --         `prix_vente_total`,
-    --         `type_vente`,
-    --         `id_entete`
-    --         ) VALUES (
-    --         dateVente_,
-    --         idClient_,
-    --         idProduit_,
-    --         qte2_,
-    --         total_qte_,
-    --         prix_vente_,
-    --         prix_vente_total_,
-    --         type_vente_,
-    --         id_entete_
-    --         );
-    --   END IF;
+        ELSE
+        	INSERT INTO `historique_client`(
+            `date_vente`, 
+            `idClient`, 
+            `idProduit`, 
+            `qte`, 
+            `qte_total`,
+            `prix_vente`, 
+            `prix_vente_total`,
+            `type_vente`,
+            `id_entete`
+            ) VALUES (
+            dateVente_,
+            idClient_,
+            idProduit_,
+            qte2_,
+            total_qte_,
+            prix_vente_,
+            prix_vente_total_,
+            type_vente_,
+            id_entete_
+            );
+      END IF;
 
     IF EXISTS (SELECT id FROM entete_facture WHERE id = idEntFacture_ AND type_vente = 2) THEN
         IF NOT EXISTS(SELECT id FROM paiement WHERE idEnteteFacture = idEntFacture_)THEN 
