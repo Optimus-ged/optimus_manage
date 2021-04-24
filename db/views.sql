@@ -140,3 +140,13 @@ qte_entree, qte_consommee, stock_final
 FROM produit as p 
 INNER JOIN fiche_de_stock AS f WHERE f.idProduit = p.id
 
+-- Commentaire
+-- View Fiche de stock finale
+CREATE VIEW view_fiche_de_stock_finale AS SELECT
+v.id, date_fiche_de_stock, p.designation, pu_d_achat, stock_initial, 
+(pu_d_achat * stock_initial) AS st_init_en_liqui, qte_entree, 
+(pu_d_achat * qte_entree) AS qte_entree_en_liqui, qte_consommee, 
+(pu_d_vente * qte_consommee) AS qte_consome_en_liqui, pu_d_vente
+FROM fiche_de_stock AS v
+LEFT JOIN produit AS p ON p.id = v.idProduit
+
