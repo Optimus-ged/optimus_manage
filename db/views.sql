@@ -12,9 +12,9 @@ SELECT id_entete, SUM(prix_vente) AS prix_vente_total FROM view_facture GROUP BY
 
 -- Commentaire
 -- View principale pour facture
-CREATE VIEW view_facture AS SELECT 
+ALTER VIEW view_facture AS SELECT 
 ent.id AS id_entete, date_facture,(CASE WHEN type_vente = 1 THEN 'cash' ELSE 'credit' END) type_vente, cli.id AS idClient, nom, prenom, sexe, telephone, 
-prod.id as id_produit,designation, pu,qte, (pu*qte) AS prix_vente,
+prod.id as id_produit,designation, pu_d_vente as pu,qte, (pu_d_vente*qte) AS prix_vente,
 total_qte
 FROM client AS cli 
 INNER JOIN entete_facture AS ent ON ent.idClient = cli.id
