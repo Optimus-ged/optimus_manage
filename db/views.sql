@@ -26,8 +26,8 @@ ORDER BY id_entete ASC
 
 -- Commentaire
 -- View definitive pour facture
-CREATE VIEW view_facture_finale AS SELECT 
-f.id_entete, date_facture,(CASE WHEN type_vente=1 THEN "Cash" ELSE "Credit" END) AS  type_vente, idClient, nom, prenom, sexe, telephone,
+ALTER VIEW view_facture_finale AS SELECT 
+f.id_entete, date_facture, type_vente, idClient, nom, prenom, sexe, telephone,
 id_produit,designation, pu,qte, prix_vente, total_qte, prix_vente_total
 FROM view_facture AS f
 INNER JOIN sum_prix_vente AS v ON f.id_entete = v.id_entete
