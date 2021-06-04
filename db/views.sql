@@ -52,8 +52,8 @@ SELECT idEnteteAppro, SUM(qte) AS total_qte FROM detail_appro GROUP BY idEnteteA
 
 -- Commentaire
 -- View pour sommation de qte par id pour approvisionnement
-CREATE VIEW sum_appros_by_produit AS 
-SELECT idProduit, SUM(qte) AS total_entre FROM detail_appro GROUP BY idProduit
+ALTER VIEW sum_appros_by_produit AS 
+SELECT idProduit,   SUM(qte) AS total_entre FROM detail_appro GROUP BY idProduit
 
 -- Commentaire
 -- View pour sommation de qte par id pour facture
@@ -133,7 +133,7 @@ INNER JOIN client AS c ON c.id = e.idClient
 -- Commentaire
 -- View de selection de l
 
--- Commntaire
+-- Commentaire
 -- Une autre view de stock
 SELECT p.id, date_fiche_de_stock, idProduit, designation, pu, stock_initial, 
 qte_entree, qte_consommee, stock_final
@@ -142,8 +142,8 @@ INNER JOIN fiche_de_stock AS f WHERE f.idProduit = p.id
 
 -- Commentaire
 -- View Fiche de stock finale
-CREATE VIEW view_fiche_de_stock_finale AS SELECT
-v.id, date_fiche_de_stock, p.designation, pu_d_achat, stock_initial, 
+ALTER VIEW view_fiche_de_stock_finale AS SELECT
+v.id, idProduit , date_fiche_de_stock, p.designation, pu_d_achat, stock_initial, 
 (pu_d_achat * stock_initial) AS st_init_en_liqui, qte_entree, 
 (pu_d_achat * qte_entree) AS qte_entree_en_liqui, qte_consommee, 
 (pu_d_vente * qte_consommee) AS qte_consome_en_liqui, pu_d_vente
